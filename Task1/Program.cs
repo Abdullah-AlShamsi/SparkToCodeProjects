@@ -4,7 +4,15 @@
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
+            string name = "Abdullah";
+            int age = 22;
+            double height = 1.80;
+            bool isStudent = true;
+
+            Console.WriteLine("Name: " + name);
+            Console.WriteLine("Age: " + age);
+            Console.WriteLine("Height: " + height + "m");
+            Console.WriteLine("Student: " + isStudent);
         }
     }
 }
