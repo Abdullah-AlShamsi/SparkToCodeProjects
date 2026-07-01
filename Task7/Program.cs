@@ -4,7 +4,7 @@
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("This program Check Voting Eligibility");
+            Console.WriteLine("This program Check Movie Ticket Pricing");
 
             // ask user to enter age
             Console.Write("Enter your age: ");
