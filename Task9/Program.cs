@@ -6,7 +6,7 @@
         {
             Console.WriteLine("This program For Day Name Finder");
 
-            // ask user to enter grade
+            // ask user to a number from 1 to 7 representing a day
             Console.Write("Enter a number from 1 to 7 representing a day of the week: ");
             int dayNum = int.Parse(Console.ReadLine());
             switch (dayNum)
