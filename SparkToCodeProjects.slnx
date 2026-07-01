@@ -4,4 +4,5 @@
   <Project Path="Task3/Task3.csproj" />
   <Project Path="Task4/Task4.csproj" />
   <Project Path="Task5/Task5.csproj" />
+  <Project Path="Task6/Task6.csproj" />
 </Solution>
