@@ -25,7 +25,7 @@
             //Console.WriteLine("Sum of Numbers 1 to N");
 
             //// ask user to enter a positive whole number N
-            //Console.Write("a positive whole number N: ");
+            //Console.Write("Enter a positive whole number N: ");
             //int number = int.Parse(Console.ReadLine());
 
             //int sum = 0;
@@ -35,6 +35,22 @@
             //}
             //Console.WriteLine("The final sum = " + sum);
             ////////////////////////////////////////////////////////////////////////////////////////////////
+
+            ////////////////////////////////////////////////////////////////////////////////////////////////
+            ///task 3
+            Console.WriteLine("Multiplication Table");
+
+            // ask user to enter a number
+            Console.Write("Enter number: ");
+            int number = int.Parse(Console.ReadLine());
+            int mul;
+            for (int i = 1; i <= 10; i++)
+            {
+                mul = number * i;
+                Console.WriteLine(number + " x " + i + " = " + mul);
+            }
+            ////////////////////////////////////////////////////////////////////////////////////////////////
+
         }
     }
 }
