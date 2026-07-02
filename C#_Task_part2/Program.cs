@@ -235,6 +235,134 @@ namespace C__Task_part2
             //}
             //Console.WriteLine("Final sum = " + sum);
             ////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+            ////////////////////////////////////////////////////////////////////////////////////////////////
+            ///task 10
+            Console.WriteLine("Simple ATM Simulation");
+            int pin = 2453;
+            double balance = 100.000;
+            bool isValid = false;
+
+            for (int i=0; i<3; i++)
+            {
+                // ask user to enter the PIN
+                Console.Write("Enter the PIN: ");
+                try
+                {
+                    int inPIN = int.Parse(Console.ReadLine());
+                    if (inPIN == pin)
+                    {
+                        isValid = true;
+                        break;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Incorrect.");
+                    }
+                }
+                catch (FormatException ex)
+                {
+                    Console.WriteLine("Invalid input. Please enter a valid number.");
+                }
+            }
+            if (!isValid)
+            {
+                Console.WriteLine("Card Blocked");
+            }
+            else
+            {
+                int choice = -1;
+                while (choice != 4)
+                {
+                    Console.WriteLine("");
+                    Console.WriteLine("The menu");
+                    Console.WriteLine("1) Deposit");
+                    Console.WriteLine("2) Withdraw");
+                    Console.WriteLine("3) Check Balance");
+                    Console.WriteLine("4) Exit");
+                    Console.WriteLine("");
+                    // ask user to select number from the menu
+                    Console.Write("select number from the menu: ");
+                    try
+                    {
+                        choice = int.Parse(Console.ReadLine());
+                    }
+                    catch (FormatException)
+                    {
+                        Console.WriteLine("Invalid input. Please enter a valid number.");
+                        continue;
+                    }
+
+                    switch (choice)
+                    {
+                        case 1:
+                            Console.Write("Enter the amount to Deposit: ");
+                            try
+                            {
+                                double amount = double.Parse(Console.ReadLine());
+                                if (amount < 0)
+                                {
+                                    Console.WriteLine("Amount cannot be negative.");
+                                }
+                                else
+                                {
+                                    balance += amount;
+                                    Console.WriteLine("Deposit successful. Your balance is " + balance + " OMR");
+                                }
+                            }
+                            catch (FormatException)
+                            {
+                                Console.WriteLine("Invalid input. Please enter a valid number.");
+                            }
+                            break;
+
+                        case 2:
+                            Console.Write("Enter the amount to Withdraw: ");
+                            try
+                            {
+                                double amount = double.Parse(Console.ReadLine());
+                                if (amount < 0)
+                                {
+                                    Console.WriteLine("Amount cannot be negative.");
+                                }
+                                else if (amount > balance)
+                                {
+                                    Console.WriteLine("You don't have this amount. your balance is " + balance + " OMR");
+                                }
+                                else
+                                {
+                                    balance -= amount;
+                                    Console.WriteLine("Withdrawal successful. Your balance is " + balance + " OMR");
+                                }
+                            }
+                            catch (FormatException)
+                            {
+                                Console.WriteLine("Invalid input. Please enter a valid number.");
+                            }
+                            break;
+
+                        case 3:
+                            Console.WriteLine("Your balance is " + balance + " OMR");
+                            break;
+
+                        case 4:
+                            Console.WriteLine("Thank you for using the ATM.");
+                            break;
+
+                        default:
+                            Console.WriteLine("Invalid Number");
+                            break;
+
+
+
+                    }
+
+
+                }
+                }
+
+
         }
 
 
