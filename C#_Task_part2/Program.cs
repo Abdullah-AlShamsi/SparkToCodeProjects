@@ -38,17 +38,17 @@
 
             ////////////////////////////////////////////////////////////////////////////////////////////////
             ///task 3
-            Console.WriteLine("Multiplication Table");
+            //Console.WriteLine("Multiplication Table");
 
-            // ask user to enter a number
-            Console.Write("Enter number: ");
-            int number = int.Parse(Console.ReadLine());
-            int mul;
-            for (int i = 1; i <= 10; i++)
-            {
-                mul = number * i;
-                Console.WriteLine(number + " x " + i + " = " + mul);
-            }
+            //// ask user to enter a number
+            //Console.Write("Enter number: ");
+            //int number = int.Parse(Console.ReadLine());
+            //int mul;
+            //for (int i = 1; i <= 10; i++)
+            //{
+            //    mul = number * i;
+            //    Console.WriteLine(number + " x " + i + " = " + mul);
+            //}
             ////////////////////////////////////////////////////////////////////////////////////////////////
 
         }
