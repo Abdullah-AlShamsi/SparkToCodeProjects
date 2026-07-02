@@ -22,18 +22,18 @@
 
             ////////////////////////////////////////////////////////////////////////////////////////////////
             // task 2
-            Console.WriteLine("Sum of Numbers 1 to N");
+            //Console.WriteLine("Sum of Numbers 1 to N");
 
-            // ask user to enter a positive whole number N
-            Console.Write("a positive whole number N: ");
-            int number = int.Parse(Console.ReadLine());
+            //// ask user to enter a positive whole number N
+            //Console.Write("a positive whole number N: ");
+            //int number = int.Parse(Console.ReadLine());
 
-            int sum = 0;
-            for (int i = 1; i <= number; i++)
-            {
-                sum += i;
-            }
-            Console.WriteLine("The final sum = " + sum);
+            //int sum = 0;
+            //for (int i = 1; i <= number; i++)
+            //{
+            //    sum += i;
+            //}
+            //Console.WriteLine("The final sum = " + sum);
             ////////////////////////////////////////////////////////////////////////////////////////////////
         }
     }
