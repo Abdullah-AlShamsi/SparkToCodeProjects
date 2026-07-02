@@ -181,25 +181,24 @@ namespace C__Task_part2
 
             ////////////////////////////////////////////////////////////////////////////////////////////////
             ///task 8
-            Console.WriteLine("Sum of Even Numbers Only");
+            //Console.WriteLine("Sum of Even Numbers Only");
             
-            // ask user to enter a positive whole number N
-            Console.Write("enter a positive whole number N: ");
-            int num = int.Parse(Console.ReadLine());
+            //// ask user to enter a positive whole number N
+            //Console.Write("enter a positive whole number N: ");
+            //int num = int.Parse(Console.ReadLine());
 
-            int sum = 0;
-            for (int i=1; i<=num; i++)
-            {
-                int mod = i % 2;
+            //int sum = 0;
+            //for (int i=1; i<=num; i++)
+            //{
+            //    int mod = i % 2;
 
-                if (mod == 0)
-                {
-                    sum += i;
-                }
-            }
+            //    if (mod == 0)
+            //    {
+            //        sum += i;
+            //    }
+            //}
 
-            Console.WriteLine("Final sum = " + sum);
-
+            //Console.WriteLine("Final sum = " + sum);
             ////////////////////////////////////////////////////////////////////////////////////////////////
         }
 
