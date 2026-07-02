@@ -1,4 +1,6 @@
-﻿namespace C__Task_part2
+﻿using System.Net.Sockets;
+
+namespace C__Task_part2
 {
     internal class Program
     {
@@ -68,6 +70,37 @@
             //Console.WriteLine("Access Granted");
             ////////////////////////////////////////////////////////////////////////////////////////////////
 
+
+            ////////////////////////////////////////////////////////////////////////////////////////////////
+            ///task 5
+            Console.WriteLine("Number Guessing Game");
+
+            int secret_num = 42;
+            int num_guess;
+            int count = 0;
+            do
+            {
+                count++;
+                // ask user to Guess the correct number
+                Console.Write("Guess the correct number: ");
+                num_guess = int.Parse(Console.ReadLine());
+                
+                if (num_guess == secret_num)
+                {
+                    Console.WriteLine("Correct Guess");
+                    Console.WriteLine("number of attempts: " + count);
+                }
+                else if (num_guess> secret_num)
+                {
+                    Console.WriteLine("Wrong guess, Too high");
+                }
+                else
+                {
+                    Console.WriteLine("Wrong guess, Too low");
+                }
+
+            } while (num_guess != 42);
+            ////////////////////////////////////////////////////////////////////////////////////////////////
         }
     }
 }
