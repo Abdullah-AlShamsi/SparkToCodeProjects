@@ -136,7 +136,7 @@ namespace C__Task_part2
             ////////////////////////////////////////////////////////////////////////////////////////////////
             ///task 7
             //Console.WriteLine("Repeating Menu with Exit Option");
-            
+
             //int num = -1;
             //while (num != 3)
             //{
@@ -146,7 +146,7 @@ namespace C__Task_part2
             //    Console.WriteLine("2) Show Current Time-of-day Greeting");
             //    Console.WriteLine("3) Exit");
             //    Console.WriteLine("");
-            //    // ask user to enter select number from the menu
+            //    // ask user to select number from the menu
             //    Console.Write("select number from the menu: ");
             //    try
             //    {
@@ -166,7 +166,7 @@ namespace C__Task_part2
             //        case 2:
             //            Console.WriteLine("10:00 AM, Morning");
             //            break;
-                        
+
             //        case 3:
             //            break;
 
@@ -176,6 +176,30 @@ namespace C__Task_part2
             //    }
 
             //}
+            ////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+            ////////////////////////////////////////////////////////////////////////////////////////////////
+            ///task 8
+            Console.WriteLine("Sum of Even Numbers Only");
+            
+            // ask user to enter a positive whole number N
+            Console.Write("enter a positive whole number N: ");
+            int num = int.Parse(Console.ReadLine());
+
+            int sum = 0;
+            for (int i=1; i<=num; i++)
+            {
+                int mod = i % 2;
+
+                if (mod == 0)
+                {
+                    sum += i;
+                }
+            }
+
+            Console.WriteLine("Final sum = " + sum);
+
             ////////////////////////////////////////////////////////////////////////////////////////////////
         }
 
