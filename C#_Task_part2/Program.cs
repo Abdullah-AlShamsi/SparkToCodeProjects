@@ -99,7 +99,7 @@ namespace C__Task_part2
                     Console.WriteLine("Wrong guess, Too low");
                 }
 
-            } while (num_guess != 42);
+            } while (num_guess != secret_num);
             ////////////////////////////////////////////////////////////////////////////////////////////////
         }
     }
