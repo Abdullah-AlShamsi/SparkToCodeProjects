@@ -105,31 +105,31 @@ namespace C__Task_part2
 
             ////////////////////////////////////////////////////////////////////////////////////////////////
             ///task 6
-            Console.WriteLine("Safe Division Calculator");
-            try
-            {
-                // ask user to enter num1
-                Console.Write("Enter first number: ");
-                int num1 = int.Parse(Console.ReadLine());
+            //Console.WriteLine("Safe Division Calculator");
+            //try
+            //{
+            //    // ask user to enter num1
+            //    Console.Write("Enter first number: ");
+            //    int num1 = int.Parse(Console.ReadLine());
 
-                // ask user to enter num2
-                Console.Write("Enter second number: ");
-                int num2 = int.Parse(Console.ReadLine());
+            //    // ask user to enter num2
+            //    Console.Write("Enter second number: ");
+            //    int num2 = int.Parse(Console.ReadLine());
 
-                int result = num1 / num2;
+            //    int result = num1 / num2;
 
-                Console.WriteLine(num1 + " / " + num2 + " = " + result);
+            //    Console.WriteLine(num1 + " / " + num2 + " = " + result);
 
-            }
-            catch (DivideByZeroException ex)
-            {
-                Console.WriteLine("Cannot divide by zero");
+            //}
+            //catch (DivideByZeroException ex)
+            //{
+            //    Console.WriteLine("Cannot divide by zero");
                 
-            }
-            catch (FormatException ex)
-            {
-                Console.WriteLine("Invalid input. Please enter a valid number.");
-            }
+            //}
+            //catch (FormatException ex)
+            //{
+            //    Console.WriteLine("Invalid input. Please enter a valid number.");
+            //}
             ////////////////////////////////////////////////////////////////////////////////////////////////
         }
     }
