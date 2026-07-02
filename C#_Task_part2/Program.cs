@@ -182,9 +182,9 @@ namespace C__Task_part2
             ////////////////////////////////////////////////////////////////////////////////////////////////
             ///task 8
             //Console.WriteLine("Sum of Even Numbers Only");
-            
+
             //// ask user to enter a positive whole number N
-            //Console.Write("enter a positive whole number N: ");
+            //Console.Write("Enter a positive whole number N: ");
             //int num = int.Parse(Console.ReadLine());
 
             //int sum = 0;
@@ -199,6 +199,41 @@ namespace C__Task_part2
             //}
 
             //Console.WriteLine("Final sum = " + sum);
+            ////////////////////////////////////////////////////////////////////////////////////////////////
+
+            ////////////////////////////////////////////////////////////////////////////////////////////////
+            ///task 9
+            Console.WriteLine("Validated Positive Number Input");
+            bool isValid = false;
+            int num = -1;
+            do
+            {
+                // ask user to enter a positive whole number N
+                Console.Write("Enter a positive whole number N: ");
+                try
+                {
+                    num = int.Parse(Console.ReadLine());
+                    if (num > 0)
+                    {
+                        isValid = true;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Invalid input. Please enter a valid number.");
+                    }
+                }
+                catch (FormatException ex)
+                {
+                    Console.WriteLine("Invalid input. Please enter a valid number.");
+                }
+            } while (!isValid);
+
+            int sum = 0;
+            for (int i=1; i <= num; i++)
+            {
+                sum += i;
+            }
+            Console.WriteLine("Final sum = " + sum);
             ////////////////////////////////////////////////////////////////////////////////////////////////
         }
 
