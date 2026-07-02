@@ -203,37 +203,37 @@ namespace C__Task_part2
 
             ////////////////////////////////////////////////////////////////////////////////////////////////
             ///task 9
-            Console.WriteLine("Validated Positive Number Input");
-            bool isValid = false;
-            int num = -1;
-            do
-            {
-                // ask user to enter a positive whole number N
-                Console.Write("Enter a positive whole number N: ");
-                try
-                {
-                    num = int.Parse(Console.ReadLine());
-                    if (num > 0)
-                    {
-                        isValid = true;
-                    }
-                    else
-                    {
-                        Console.WriteLine("Invalid input. Please enter a valid number.");
-                    }
-                }
-                catch (FormatException ex)
-                {
-                    Console.WriteLine("Invalid input. Please enter a valid number.");
-                }
-            } while (!isValid);
+            //Console.WriteLine("Validated Positive Number Input");
+            //bool isValid = false;
+            //int num = -1;
+            //do
+            //{
+            //    // ask user to enter a positive whole number N
+            //    Console.Write("Enter a positive whole number N: ");
+            //    try
+            //    {
+            //        num = int.Parse(Console.ReadLine());
+            //        if (num > 0)
+            //        {
+            //            isValid = true;
+            //        }
+            //        else
+            //        {
+            //            Console.WriteLine("Invalid input. Please enter a valid number.");
+            //        }
+            //    }
+            //    catch (FormatException ex)
+            //    {
+            //        Console.WriteLine("Invalid input. Please enter a valid number.");
+            //    }
+            //} while (!isValid);
 
-            int sum = 0;
-            for (int i=1; i <= num; i++)
-            {
-                sum += i;
-            }
-            Console.WriteLine("Final sum = " + sum);
+            //int sum = 0;
+            //for (int i=1; i <= num; i++)
+            //{
+            //    sum += i;
+            //}
+            //Console.WriteLine("Final sum = " + sum);
             ////////////////////////////////////////////////////////////////////////////////////////////////
         }
 
