@@ -84,7 +84,7 @@ namespace C__Task_part2
             //    // ask user to Guess the correct number
             //    Console.Write("Guess the correct number: ");
             //    num_guess = int.Parse(Console.ReadLine());
-                
+
             //    if (num_guess == secret_num)
             //    {
             //        Console.WriteLine("Correct Guess");
@@ -100,6 +100,36 @@ namespace C__Task_part2
             //    }
 
             //} while (num_guess != secret_num);
+            ////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+            ////////////////////////////////////////////////////////////////////////////////////////////////
+            ///task 6
+            Console.WriteLine("Safe Division Calculator");
+            try
+            {
+                // ask user to enter num1
+                Console.Write("Enter first number: ");
+                int num1 = int.Parse(Console.ReadLine());
+
+                // ask user to enter num2
+                Console.Write("Enter second number: ");
+                int num2 = int.Parse(Console.ReadLine());
+
+                int result = num1 / num2;
+
+                Console.WriteLine(num1 + " / " + num2 + " = " + result);
+
+            }
+            catch (DivideByZeroException ex)
+            {
+                Console.WriteLine("Cannot divide by zero");
+                
+            }
+            catch (FormatException ex)
+            {
+                Console.WriteLine("Invalid input. Please enter a valid number.");
+            }
             ////////////////////////////////////////////////////////////////////////////////////////////////
         }
     }
