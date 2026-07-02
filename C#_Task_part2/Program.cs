@@ -54,18 +54,18 @@
 
             ////////////////////////////////////////////////////////////////////////////////////////////////
             ///task 4
-            Console.WriteLine("Password Retry System");
+            //Console.WriteLine("Password Retry System");
 
-            // ask user to enter the password
-            Console.Write("Enter the password: ");
-            string pass = Console.ReadLine();
-            while (pass != "Spark2026")
-            {
-                Console.WriteLine("Incorrect password, try again");
-                Console.Write("Enter the password: ");
-                pass = Console.ReadLine();
-            }
-            Console.WriteLine("Access Granted");
+            //// ask user to enter the password
+            //Console.Write("Enter the password: ");
+            //string pass = Console.ReadLine();
+            //while (pass != "Spark2026")
+            //{
+            //    Console.WriteLine("Incorrect password, try again");
+            //    Console.Write("Enter the password: ");
+            //    pass = Console.ReadLine();
+            //}
+            //Console.WriteLine("Access Granted");
             ////////////////////////////////////////////////////////////////////////////////////////////////
 
         }
