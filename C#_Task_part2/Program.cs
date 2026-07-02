@@ -135,47 +135,47 @@ namespace C__Task_part2
 
             ////////////////////////////////////////////////////////////////////////////////////////////////
             ///task 7
-            Console.WriteLine("Repeating Menu with Exit Option");
+            //Console.WriteLine("Repeating Menu with Exit Option");
             
-            int num = -1;
-            while (num != 3)
-            {
-                Console.WriteLine("");
-                Console.WriteLine("The menu");
-                Console.WriteLine("1) Say Hello");
-                Console.WriteLine("2) Show Current Time-of-day Greeting");
-                Console.WriteLine("3) Exit");
-                Console.WriteLine("");
-                // ask user to enter select number from the menu
-                Console.Write("select number from the menu: ");
-                try
-                {
-                    num = int.Parse(Console.ReadLine());
-                }
-                catch (FormatException ex)
-                {
-                    Console.WriteLine("Invalid input. Please enter a valid number.");
-                    continue;
-                }
-                switch (num)
-                {
-                    case 1:
-                        Console.WriteLine("Hello");
-                        break;
+            //int num = -1;
+            //while (num != 3)
+            //{
+            //    Console.WriteLine("");
+            //    Console.WriteLine("The menu");
+            //    Console.WriteLine("1) Say Hello");
+            //    Console.WriteLine("2) Show Current Time-of-day Greeting");
+            //    Console.WriteLine("3) Exit");
+            //    Console.WriteLine("");
+            //    // ask user to enter select number from the menu
+            //    Console.Write("select number from the menu: ");
+            //    try
+            //    {
+            //        num = int.Parse(Console.ReadLine());
+            //    }
+            //    catch (FormatException ex)
+            //    {
+            //        Console.WriteLine("Invalid input. Please enter a valid number.");
+            //        continue;
+            //    }
+            //    switch (num)
+            //    {
+            //        case 1:
+            //            Console.WriteLine("Hello");
+            //            break;
 
-                    case 2:
-                        Console.WriteLine("10:00 AM, Morning");
-                        break;
+            //        case 2:
+            //            Console.WriteLine("10:00 AM, Morning");
+            //            break;
                         
-                    case 3:
-                        break;
+            //        case 3:
+            //            break;
 
-                    default:
-                        Console.WriteLine("Invalid Number");
-                        break;
-                }
+            //        default:
+            //            Console.WriteLine("Invalid Number");
+            //            break;
+            //    }
 
-            }
+            //}
             ////////////////////////////////////////////////////////////////////////////////////////////////
         }
 
