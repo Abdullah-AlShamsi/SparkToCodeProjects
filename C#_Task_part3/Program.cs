@@ -4,7 +4,26 @@
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
+            ////////////////////////////////////////////////////////////////////////////////////////////////
+            // task 1
+            Console.WriteLine("Absolute Difference");
+
+            // ask user to enter num1
+            Console.Write("Enter first number: ");
+            int num1 = int.Parse(Console.ReadLine());
+
+            // ask user to enter num2
+            Console.Write("Enter second number: ");
+            int num2 = int.Parse(Console.ReadLine());
+
+            int sub_value = num2 - num1;
+
+            int abs_value = Math.Abs(sub_value);
+
+            Console.Write("The absolute difference result of your numbers is " + abs_value);
+
+
+            ////////////////////////////////////////////////////////////////////////////////////////////////
         }
     }
 }
