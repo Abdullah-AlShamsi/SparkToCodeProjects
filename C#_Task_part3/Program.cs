@@ -16,11 +16,11 @@
             Console.Write("Enter second number: ");
             int num2 = int.Parse(Console.ReadLine());
 
-            int sub_value = num2 - num1;
+            int sub_value = num1 - num2;
 
             int abs_value = Math.Abs(sub_value);
 
-            Console.Write("The absolute difference result of your numbers is " + abs_value);
+            Console.WriteLine("The absolute difference result of your numbers is " + abs_value);
 
 
             ////////////////////////////////////////////////////////////////////////////////////////////////
