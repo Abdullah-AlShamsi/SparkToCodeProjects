@@ -45,20 +45,20 @@ namespace C__Task_part3
             ///
 
             ////////////////////////////////////////////////////////////////////////////////////////////////
-            // task 3
-            Console.WriteLine("Name Formatter");
+            //// task 3
+            //Console.WriteLine("Name Formatter");
 
-            // ask user to enter their full name
-            Console.Write("Enter your full name: ");
-            string fullName = Console.ReadLine();
+            //// ask user to enter their full name
+            //Console.Write("Enter your full name: ");
+            //string fullName = Console.ReadLine();
 
-            string uppercase_Name = fullName.ToUpper();
-            string lowercase_Name = fullName.ToLower();
-            int count = fullName.Length;
+            //string uppercase_Name = fullName.ToUpper();
+            //string lowercase_Name = fullName.ToLower();
+            //int count = fullName.Length;
 
-            Console.WriteLine("Your full name in uppercase: " + uppercase_Name);
-            Console.WriteLine("Your full name in lowercase: " + lowercase_Name);
-            Console.WriteLine("There are " + count + " characters in your full name.");
+            //Console.WriteLine("Your full name in uppercase: " + uppercase_Name);
+            //Console.WriteLine("Your full name in lowercase: " + lowercase_Name);
+            //Console.WriteLine("There are " + count + " characters in your full name.");
             ////////////////////////////////////////////////////////////////////////////////////////////////
         }
     }
