@@ -80,24 +80,24 @@ namespace C__Task_part3
 
 
             ////////////////////////////////////////////////////////////////////////////////////////////////
-            // task 5
-            Console.WriteLine("Grade Rounding System");
+            //// task 5
+            //Console.WriteLine("Grade Rounding System");
 
-            // ask user to enter their raw exam score as a decimal number
-            Console.Write("Enter raw exam score as a decimal number (e.g. 74.6): ");
-            double score = double.Parse(Console.ReadLine());
+            //// ask user to enter their raw exam score as a decimal number
+            //Console.Write("Enter raw exam score as a decimal number (e.g. 74.6): ");
+            //double score = double.Parse(Console.ReadLine());
 
-            double round_score = Math.Round(score,0);
+            //double round_score = Math.Round(score,0);
 
-            Console.WriteLine("Your rounded score is: " + round_score);
-            if (round_score>=60)
-            {
-                Console.WriteLine("Congratulations, you passed the test!");
-            }
-            else
-            {
-                Console.WriteLine("Unfortunately, you failed the test.");
-            }
+            //Console.WriteLine("Your rounded score is: " + round_score);
+            //if (round_score>=60)
+            //{
+            //    Console.WriteLine("Congratulations, you passed the test!");
+            //}
+            //else
+            //{
+            //    Console.WriteLine("Unfortunately, you failed the test.");
+            //}
             ////////////////////////////////////////////////////////////////////////////////////////////////
 
         }
