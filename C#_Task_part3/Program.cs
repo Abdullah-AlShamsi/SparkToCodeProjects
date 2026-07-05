@@ -100,6 +100,32 @@ namespace C__Task_part3
             //}
             ////////////////////////////////////////////////////////////////////////////////////////////////
 
+            ////////////////////////////////////////////////////////////////////////////////////////////////
+            // task 6
+            Console.WriteLine("Password Strength Checker");
+
+            // ask user to enter a password
+            Console.Write("Enter a password: ");
+            string password = Console.ReadLine();
+
+
+            if (password.Length < 8 || password.ToLower().Contains("password"))
+            {
+                if (password.Length < 8)
+                {
+                    Console.WriteLine("Weak password, it must be at least 8 characters long");
+                }
+                else
+                {
+                    Console.WriteLine("Weak password, it must not contain the word password");
+                }
+            }
+            else
+            {
+                Console.WriteLine("Strong password");
+            }
+            ////////////////////////////////////////////////////////////////////////////////////////////////
+
         }
     }
 }
