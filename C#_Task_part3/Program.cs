@@ -155,6 +155,31 @@ namespace C__Task_part3
             //}
             ////////////////////////////////////////////////////////////////////////////////////////////////
 
+
+            ////////////////////////////////////////////////////////////////////////////////////////////////
+            //// task 8
+            Console.WriteLine("Membership Expiry Checker");
+
+            // ask user to enter their membership start date as text and the number of valid membership days
+            Console.Write("Enter your membership start date as text (e.g.'2026-01-10'): ");
+            DateTime start_day = DateTime.Parse(Console.ReadLine());
+
+            // ask user to enter the number of valid membership days
+            Console.Write("Enter the number of valid membership days: ");
+            int number = int.Parse(Console.ReadLine());
+
+            DateTime expiry_day = start_day.AddDays(number);
+
+            if (DateTime.Today > expiry_day)
+            {
+                Console.WriteLine("Expired, the expiry date " + expiry_day.ToString("yyyy-MM-dd"));
+            }
+            else
+            {
+                Console.WriteLine("Active, the expiry date " + expiry_day.ToString("yyyy-MM-dd"));
+            }
+            ////////////////////////////////////////////////////////////////////////////////////////////////
+
         }
     }
 }
