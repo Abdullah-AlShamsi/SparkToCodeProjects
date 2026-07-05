@@ -22,6 +22,24 @@
 
             //Console.WriteLine("The absolute difference result of your numbers is " + abs_value);
             ////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+            ////////////////////////////////////////////////////////////////////////////////////////////////
+            // task 2
+            Console.WriteLine("Power & Root Explorer");
+
+            // ask user to enter num1
+            Console.Write("Enter a number: ");
+            int number = int.Parse(Console.ReadLine());
+
+            double pow_value = Math.Pow(number,2);
+
+            double sqrt_value = Math.Sqrt(number);
+
+            Console.WriteLine("The square result of your numbers is " + pow_value);
+            Console.WriteLine("The square root result of your numbers is " + sqrt_value);
+            ////////////////////////////////////////////////////////////////////////////////////////////////
         }
     }
 }
