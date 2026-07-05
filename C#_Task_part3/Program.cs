@@ -128,31 +128,31 @@ namespace C__Task_part3
 
 
             ////////////////////////////////////////////////////////////////////////////////////////////////
-            //// task 7
-            Console.WriteLine("Clean Name Comparator");
+            ////// task 7
+            //Console.WriteLine("Clean Name Comparator");
 
-            // ask user to enter the same name twice (once in each input)
-            Console.Write("Enter a name: ");
-            string name1 = Console.ReadLine();
+            //// ask user to enter the same name twice (once in each input)
+            //Console.Write("Enter a name: ");
+            //string name1 = Console.ReadLine();
 
-            Console.Write("Enter the name again: ");
-            string name2 = Console.ReadLine();
+            //Console.Write("Enter the name again: ");
+            //string name2 = Console.ReadLine();
 
-            name1 = name1.Trim();
-            name2 = name2.Trim();
+            //name1 = name1.Trim();
+            //name2 = name2.Trim();
 
-            name1 = name1.ToLower();
-            name2 = name2.ToLower();
+            //name1 = name1.ToLower();
+            //name2 = name2.ToLower();
 
 
-            if (name1 == name2)
-            {
-                Console.WriteLine("Match");
-            }
-            else
-            {
-                Console.WriteLine("NO Match");
-            }
+            //if (name1 == name2)
+            //{
+            //    Console.WriteLine("Match");
+            //}
+            //else
+            //{
+            //    Console.WriteLine("NO Match");
+            //}
             ////////////////////////////////////////////////////////////////////////////////////////////////
 
         }
