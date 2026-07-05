@@ -60,6 +60,23 @@ namespace C__Task_part3
             //Console.WriteLine("Your full name in lowercase: " + lowercase_Name);
             //Console.WriteLine("There are " + count + " characters in your full name.");
             ////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+            ////////////////////////////////////////////////////////////////////////////////////////////////
+            // task 4
+            Console.WriteLine("Subscription End Date");
+
+            // ask user to enter the number of days of a free trial
+            Console.Write("Enter the number of days of a free trial: ");
+            int number = int.Parse(Console.ReadLine());
+
+
+            DateTime startDay = DateTime.Today;
+
+            DateTime endDay = startDay.AddDays(number - 1);//number - 1 becuse we alredy count the first day startday
+
+            Console.WriteLine("The trial will ends in " + endDay.ToString("yyyy-MM-dd"));
+            ////////////////////////////////////////////////////////////////////////////////////////////////
         }
     }
 }
