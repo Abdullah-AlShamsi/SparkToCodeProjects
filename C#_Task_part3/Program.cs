@@ -182,23 +182,23 @@ namespace C__Task_part3
 
 
             ////////////////////////////////////////////////////////////////////////////////////////////////
-            //// task 9
-            Console.WriteLine("Round Up / Round Down Explorer");
+            ////// task 9
+            //Console.WriteLine("Round Up / Round Down Explorer");
 
-            // ask user to enter a decimal number
-            Console.Write("Enter a decimal number: ");
-            double num = double.Parse(Console.ReadLine());
+            //// ask user to enter a decimal number
+            //Console.Write("Enter a decimal number: ");
+            //double num = double.Parse(Console.ReadLine());
 
-            double whole_num = Math.Round(num, 0);
+            //double whole_num = Math.Round(num, 0);
 
-            double roundUp_num = Math.Ceiling(num);
-            double roundDown_num = Math.Floor(num);
+            //double roundUp_num = Math.Ceiling(num);
+            //double roundDown_num = Math.Floor(num);
 
 
-            Console.WriteLine("The nearest whole number: " + whole_num);
+            //Console.WriteLine("The nearest whole number: " + whole_num);
 
-            Console.WriteLine("The rounded up number: " + roundUp_num);
-            Console.WriteLine("The rounded down number: " + roundDown_num);
+            //Console.WriteLine("The rounded up number: " + roundUp_num);
+            //Console.WriteLine("The rounded down number: " + roundDown_num);
             ////////////////////////////////////////////////////////////////////////////////////////////////
 
         }
