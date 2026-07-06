@@ -276,26 +276,26 @@ namespace C__Task_part3
 
 
             ////////////////////////////////////////////////////////////////////////////////////////////////
-            //// task 12
-            Console.WriteLine("Birthday Insights");
+            ////// task 12
+            //Console.WriteLine("Birthday Insights");
 
-            // ask user to enter their date of birth as text
-            Console.Write("Enter your date of birth as text (e.g. '2000-05-14'): ");
-            DateTime date_of_birth = DateTime.Parse(Console.ReadLine());
+            //// ask user to enter their date of birth as text
+            //Console.Write("Enter your date of birth as text (e.g. '2000-05-14'): ");
+            //DateTime date_of_birth = DateTime.Parse(Console.ReadLine());
 
-            DayOfWeek day_of_birth = date_of_birth.DayOfWeek;
+            //DayOfWeek day_of_birth = date_of_birth.DayOfWeek;
 
-            DateTime today = DateTime.Today;
+            //DateTime today = DateTime.Today;
 
-            int age_years = today.Year - date_of_birth.Year;
+            //int age_years = today.Year - date_of_birth.Year;
 
-            if (today.Month < date_of_birth.Month || (today.Month == date_of_birth.Month && today.Day < date_of_birth.Day))
-            {
-                age_years--;
-            }
+            //if (today.Month < date_of_birth.Month || (today.Month == date_of_birth.Month && today.Day < date_of_birth.Day))
+            //{
+            //    age_years--;
+            //}
 
-            Console.WriteLine("Your age is: " + age_years);
-            Console.WriteLine("You were born on a: " + day_of_birth);
+            //Console.WriteLine("Your age is: " + age_years);
+            //Console.WriteLine("You were born on a: " + day_of_birth);
             ////////////////////////////////////////////////////////////////////////////////////////////////
 
         }
