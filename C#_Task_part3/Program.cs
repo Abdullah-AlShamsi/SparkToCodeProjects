@@ -232,47 +232,47 @@ namespace C__Task_part3
 
 
             ////////////////////////////////////////////////////////////////////////////////////////////////
-            //// task 11
-            Console.WriteLine("One-Time Password (OTP) Generator");
-            Random random = new Random();
+            ////// task 11
+            //Console.WriteLine("One-Time Password (OTP) Generator");
+            //Random random = new Random();
 
-            int rund_otp = random.Next(1000, 10000);
+            //int rund_otp = random.Next(1000, 10000);
             
 
-            Console.WriteLine("Do not share this number with anyone, otp: " + rund_otp);
-            bool isValid = false;
+            //Console.WriteLine("Do not share this number with anyone, otp: " + rund_otp);
+            //bool isValid = false;
 
-            for (int i = 0; i < 3; i++)
-            {
-                // ask the user to type the code back to verify it.
-                Console.Write("Enter the OTP: ");
-                try
-                {
-                    int inOTP = int.Parse(Console.ReadLine());
-                    if (inOTP == rund_otp)
-                    {
-                        isValid = true;
-                        break;
-                    }
-                    else
-                    {
-                        Console.WriteLine("Incorrect.");
-                    }
-                }
-                catch (FormatException ex)
-                {
-                    Console.WriteLine("Invalid input. Please enter a valid number.");
-                }
-            }
-            if (isValid)
-            {
-                Console.WriteLine("Verified");
-            }
-            else
-            {
-                Console.WriteLine("Verification Failed"); 
-            }
-                ////////////////////////////////////////////////////////////////////////////////////////////////
+            //for (int i = 0; i < 3; i++)
+            //{
+            //    // ask the user to type the code back to verify it.
+            //    Console.Write("Enter the OTP: ");
+            //    try
+            //    {
+            //        int inOTP = int.Parse(Console.ReadLine());
+            //        if (inOTP == rund_otp)
+            //        {
+            //            isValid = true;
+            //            break;
+            //        }
+            //        else
+            //        {
+            //            Console.WriteLine("Incorrect.");
+            //        }
+            //    }
+            //    catch (FormatException ex)
+            //    {
+            //        Console.WriteLine("Invalid input. Please enter a valid number.");
+            //    }
+            //}
+            //if (isValid)
+            //{
+            //    Console.WriteLine("Verified");
+            //}
+            //else
+            //{
+            //    Console.WriteLine("Verification Failed"); 
+            //}
+            ////////////////////////////////////////////////////////////////////////////////////////////////
 
             }
     }
