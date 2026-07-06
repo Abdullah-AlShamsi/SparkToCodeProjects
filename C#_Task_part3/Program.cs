@@ -1,4 +1,5 @@
-﻿using System.Xml.Linq;
+﻿using System.Net.NetworkInformation;
+using System.Xml.Linq;
 
 namespace C__Task_part3
 {
@@ -178,6 +179,123 @@ namespace C__Task_part3
             //{
             //    Console.WriteLine("Active, the expiry date " + expiry_day.ToString("yyyy-MM-dd"));
             //}
+            ////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+            ////////////////////////////////////////////////////////////////////////////////////////////////
+            ////// task 9
+            //Console.WriteLine("Round Up / Round Down Explorer");
+
+            //// ask user to enter a decimal number
+            //Console.Write("Enter a decimal number: ");
+            //double num = double.Parse(Console.ReadLine());
+
+            //double whole_num = Math.Round(num, 0);
+
+            //double roundUp_num = Math.Ceiling(num);
+            //double roundDown_num = Math.Floor(num);
+
+
+            //Console.WriteLine("The nearest whole number: " + whole_num);
+
+            //Console.WriteLine("The rounded up number: " + roundUp_num);
+            //Console.WriteLine("The rounded down number: " + roundDown_num);
+            ////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+            ////////////////////////////////////////////////////////////////////////////////////////////////
+            ////// task 10
+            //Console.WriteLine("Word Position Finder");
+
+            //// ask user to enter a full sentence and then a single word to search for
+            //Console.Write("Enter a full sentence: ");
+            //string sentence = Console.ReadLine();
+
+            //Console.Write("Enter a single word to search for: ");
+            //string word = Console.ReadLine();
+
+            //sentence = sentence.ToLower();
+            //word = word.ToLower();
+            //if (sentence.Contains(word))
+            //{
+            //    int first_indx = sentence.IndexOf(word);
+            //    int last_indx = sentence.LastIndexOf(word);
+
+            //    Console.WriteLine("The first-occurrence position: " + first_indx);
+            //    Console.WriteLine("The last-occurrence position: " + last_indx);
+            //}
+            //else
+            //{
+            //    Console.WriteLine("Word not found");
+            //}
+            ////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+            ////////////////////////////////////////////////////////////////////////////////////////////////
+            ////// task 11
+            //Console.WriteLine("One-Time Password (OTP) Generator");
+            //Random random = new Random();
+
+            //int rund_otp = random.Next(1000, 10000);
+
+
+            //Console.WriteLine("Do not share this number with anyone, otp: " + rund_otp);
+            //bool isValid = false;
+
+            //for (int i = 0; i < 3; i++)
+            //{
+            //    // ask the user to type the code back to verify it.
+            //    Console.Write("Enter the OTP: ");
+            //    try
+            //    {
+            //        int inOTP = int.Parse(Console.ReadLine());
+            //        if (inOTP == rund_otp)
+            //        {
+            //            isValid = true;
+            //            break;
+            //        }
+            //        else
+            //        {
+            //            Console.WriteLine("Incorrect.");
+            //        }
+            //    }
+            //    catch (FormatException ex)
+            //    {
+            //        Console.WriteLine("Invalid input. Please enter a valid number.");
+            //    }
+            //}
+            //if (isValid)
+            //{
+            //    Console.WriteLine("Verified");
+            //}
+            //else
+            //{
+            //    Console.WriteLine("Verification Failed"); 
+            //}
+            ////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+            ////////////////////////////////////////////////////////////////////////////////////////////////
+            ////// task 12
+            //Console.WriteLine("Birthday Insights");
+
+            //// ask user to enter their date of birth as text
+            //Console.Write("Enter your date of birth as text (e.g. '2000-05-14'): ");
+            //DateTime date_of_birth = DateTime.Parse(Console.ReadLine());
+
+            //DayOfWeek day_of_birth = date_of_birth.DayOfWeek;
+
+            //DateTime today = DateTime.Today;
+
+            //int age_years = today.Year - date_of_birth.Year;
+
+            //if (today.Month < date_of_birth.Month || (today.Month == date_of_birth.Month && today.Day < date_of_birth.Day))
+            //{
+            //    age_years--;
+            //}
+
+            //Console.WriteLine("Your age is: " + age_years);
+            //Console.WriteLine("You were born on a: " + day_of_birth);
             ////////////////////////////////////////////////////////////////////////////////////////////////
 
         }
