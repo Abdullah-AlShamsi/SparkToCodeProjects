@@ -201,6 +201,34 @@ namespace C__Task_part3
             //Console.WriteLine("The rounded down number: " + roundDown_num);
             ////////////////////////////////////////////////////////////////////////////////////////////////
 
+
+            ////////////////////////////////////////////////////////////////////////////////////////////////
+            //// task 10
+            Console.WriteLine("Word Position Finder");
+
+            // ask user to enter a full sentence and then a single word to search for
+            Console.Write("Enter a full sentence: ");
+            string sentence = Console.ReadLine();
+
+            Console.Write("Enter a single word to search for: ");
+            string word = Console.ReadLine();
+
+            sentence = sentence.ToLower();
+            word = word.ToLower();
+            if (sentence.Contains(word))
+            {
+                int first_indx = sentence.IndexOf(word);
+                int last_indx = sentence.LastIndexOf(word);
+
+                Console.WriteLine("The first-occurrence position: " + first_indx);
+                Console.WriteLine("The last-occurrence position: " + last_indx);
+            }
+            else
+            {
+                Console.WriteLine("Word not founded");
+            }
+            ////////////////////////////////////////////////////////////////////////////////////////////////
+
         }
     }
 }
