@@ -237,7 +237,7 @@ namespace C__Task_part3
             //Random random = new Random();
 
             //int rund_otp = random.Next(1000, 10000);
-            
+
 
             //Console.WriteLine("Do not share this number with anyone, otp: " + rund_otp);
             //bool isValid = false;
@@ -274,6 +274,30 @@ namespace C__Task_part3
             //}
             ////////////////////////////////////////////////////////////////////////////////////////////////
 
+
+            ////////////////////////////////////////////////////////////////////////////////////////////////
+            //// task 12
+            Console.WriteLine("Birthday Insights");
+
+            // ask user to enter their date of birth as text
+            Console.Write("Enter your date of birth as text (e.g. '2000-05-14'): ");
+            DateTime date_of_birth = DateTime.Parse(Console.ReadLine());
+
+            DayOfWeek day_of_birth = date_of_birth.DayOfWeek;
+
+            DateTime today = DateTime.Today;
+
+            int age_years = today.Year - date_of_birth.Year;
+
+            if (today.Month < date_of_birth.Month || (today.Month == date_of_birth.Month && today.Day < date_of_birth.Day))
+            {
+                age_years--;
             }
+
+            Console.WriteLine("Your age is: " + age_years);
+            Console.WriteLine("You were born on a: " + day_of_birth);
+            ////////////////////////////////////////////////////////////////////////////////////////////////
+
+        }
     }
 }
