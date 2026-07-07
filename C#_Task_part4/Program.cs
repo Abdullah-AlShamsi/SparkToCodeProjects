@@ -103,6 +103,18 @@
             return a * b * c; 
         }
 
+        //task 10
+        public static double CalculateArea(double length)
+        {
+            return length * length;
+        }
+        // keep it as comment because i did it in task 6
+        //public static double CalculateArea(double length, double width) 
+        //{
+        //    return length * width;
+        //}
+        
+
 
 
 
@@ -218,6 +230,36 @@
             //Console.WriteLine("Multiply 1: 3X2 = " + Multiply(3,2));
             //Console.WriteLine("Multiply 2: 3.5X6.1 = " + Multiply(3.5, 6.1));
             //Console.WriteLine("Multiply 3: 4X6X9 = " + Multiply(4, 6, 9));
+            ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            ///
+
+
+            ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            ///task 10
+            Console.WriteLine("Overloaded Area Calculator");
+
+            Console.Write("which shape you have (square or rectangle): ");
+            string shape = Console.ReadLine();
+
+            if(shape == "square")
+            {
+                //Ask the user for length and width
+                Console.Write("Enter length of one side of square: ");
+                double length = double.Parse(Console.ReadLine());
+                Console.WriteLine("Square Area: " + CalculateArea(length));
+            }
+            else
+            {
+                //Ask the user for length and width
+
+                Console.Write("Enter length of rectangle: ");
+                double length = double.Parse(Console.ReadLine());
+
+                Console.Write("Enter width of rectangle: ");
+                double width = double.Parse(Console.ReadLine());
+
+                Console.WriteLine("Rectangle Area: " + CalculateArea(length, width));
+            }
             ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         }
     }
