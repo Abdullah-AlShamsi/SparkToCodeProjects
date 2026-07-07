@@ -26,13 +26,13 @@
 
             ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
             ///task 2
-            Console.WriteLine("Square Number Function");
+            //Console.WriteLine("Square Number Function");
 
-            // ask user to enter num1
-            Console.Write("Enter number: ");
-            int num = int.Parse(Console.ReadLine());
+            //// ask user to enter num1
+            //Console.Write("Enter number: ");
+            //int num = int.Parse(Console.ReadLine());
 
-            Console.WriteLine("Square of your number is :" + Square(num));
+            //Console.WriteLine("Square of your number is: " + Square(num));
             ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         }
     }
