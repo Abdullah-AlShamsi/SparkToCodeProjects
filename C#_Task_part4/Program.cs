@@ -44,13 +44,13 @@
 
             ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
             ///task 3
-            Console.WriteLine("Celsius to Fahrenheit Function");
+            //Console.WriteLine("Celsius to Fahrenheit Function");
 
-            // ask user to enter temperature in celsius
-            Console.Write("Enter the temperature in celsius: ");
-            double temperature = double.Parse(Console.ReadLine());
+            //// ask user to enter temperature in celsius
+            //Console.Write("Enter the temperature in celsius: ");
+            //double temperature = double.Parse(Console.ReadLine());
 
-            Console.WriteLine("The temperature in Fahrenheit: " + CelsiusToFahrenheit(temperature));
+            //Console.WriteLine("The temperature in Fahrenheit: " + CelsiusToFahrenheit(temperature));
             ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         }
     }
