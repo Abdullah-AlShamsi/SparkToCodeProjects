@@ -51,6 +51,32 @@
         {
             return 2*(length+ width);
         }
+
+        //task 7
+        public static string GetGradeLetter(int score)
+        {
+            if (score >= 90)
+            {
+                return "A";
+            }
+            else if (score >= 80)
+            {
+                return "B";
+            }
+            else if (score >= 70)
+            {
+                return "C";
+            }
+            else if (score >= 60)
+            {
+                return "D";
+            }
+            else
+            {
+                return "F";
+            }
+
+        }
         static void Main(string[] args)
         {
             ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -126,6 +152,19 @@
             //Console.WriteLine("Rectangle Area: " + CalculateArea(length,width));
 
             //Console.WriteLine("Rectangle Perimeter: " + CalculatePerimeter(length, width));
+            ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            ///
+
+
+            ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            ///task 7
+            Console.WriteLine("Grade Letter Function");
+
+            // Ask the user for score
+            Console.Write("Enter your score: ");
+            int score = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("Your Grade In Letter: " + GetGradeLetter(score));
             ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         }
     }
