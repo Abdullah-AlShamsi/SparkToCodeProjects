@@ -304,65 +304,65 @@
 
             ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
             ///task 11
-            Console.WriteLine("Function-Based Calculator");
+            //Console.WriteLine("Function-Based Calculator");
 
-            Console.WriteLine("1) Add");
-            Console.WriteLine("2) Subtract");
-            Console.WriteLine("3) Multiply");
-            Console.WriteLine("4) Divide");
-            Console.WriteLine("5) Exit");
+            //Console.WriteLine("1) Add");
+            //Console.WriteLine("2) Subtract");
+            //Console.WriteLine("3) Multiply");
+            //Console.WriteLine("4) Divide");
+            //Console.WriteLine("5) Exit");
 
-            // ask user to choose an operation
-            Console.Write("choose an operation (1-5): ");
-            int o_num = int.Parse(Console.ReadLine());
+            //// ask user to choose an operation
+            //Console.Write("choose an operation (1-5): ");
+            //int o_num = int.Parse(Console.ReadLine());
 
-            while (o_num != 5)
-            {
-                // ask user to enter num1
-                Console.Write("Enter first number: ");
-                double num1 = double.Parse(Console.ReadLine());
+            //while (o_num != 5)
+            //{
+            //    // ask user to enter num1
+            //    Console.Write("Enter first number: ");
+            //    double num1 = double.Parse(Console.ReadLine());
 
-                // ask user to enter num2
-                Console.Write("Enter second number: ");
-                double num2 = double.Parse(Console.ReadLine());
-                double result;
-                switch (o_num)
-                {
-                    case 1:
-                        result = Add(num1, num2);
-                        DisplayResult("Add", result);
-                        break;
+            //    // ask user to enter num2
+            //    Console.Write("Enter second number: ");
+            //    double num2 = double.Parse(Console.ReadLine());
+            //    double result;
+            //    switch (o_num)
+            //    {
+            //        case 1:
+            //            result = Add(num1, num2);
+            //            DisplayResult("Add", result);
+            //            break;
 
-                    case 2:
-                        result = Subtract(num1, num2);
-                        DisplayResult("Subtract", result);
-                        break;
+            //        case 2:
+            //            result = Subtract(num1, num2);
+            //            DisplayResult("Subtract", result);
+            //            break;
 
-                    case 3:
-                        result = MultiplyNumbers(num1, num2);
-                        DisplayResult("Multiply", result);
-                        break;
+            //        case 3:
+            //            result = MultiplyNumbers(num1, num2);
+            //            DisplayResult("Multiply", result);
+            //            break;
 
-                    case 4:
-                        result = DivideNumbers(num1, num2);
-                        DisplayResult("Divide", result);
-                        break;
-                    default:
-                        Console.WriteLine("Invalid operation");
-                        break;
-                }
-                Console.WriteLine();
-                Console.WriteLine("1) Add");
-                Console.WriteLine("2) Subtract");
-                Console.WriteLine("3) Multiply");
-                Console.WriteLine("4) Divide");
-                Console.WriteLine("5) Exit");
+            //        case 4:
+            //            result = DivideNumbers(num1, num2);
+            //            DisplayResult("Divide", result);
+            //            break;
+            //        default:
+            //            Console.WriteLine("Invalid operation");
+            //            break;
+            //    }
+            //    Console.WriteLine();
+            //    Console.WriteLine("1) Add");
+            //    Console.WriteLine("2) Subtract");
+            //    Console.WriteLine("3) Multiply");
+            //    Console.WriteLine("4) Divide");
+            //    Console.WriteLine("5) Exit");
 
-                // ask user to choose an operation
-                Console.Write("choose an operation (1-5): ");
-                o_num = int.Parse(Console.ReadLine());
+            //    // ask user to choose an operation
+            //    Console.Write("choose an operation (1-5): ");
+            //    o_num = int.Parse(Console.ReadLine());
 
-            }
+            //}
             ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
             }
     }
