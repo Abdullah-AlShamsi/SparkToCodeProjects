@@ -19,6 +19,15 @@
         {
             return (temperature * 9 / 5) + 32;
         }
+
+        //task 4
+        public static void DisplayMenu()
+        {
+            Console.WriteLine("Menu:");
+            Console.WriteLine("1) Start");
+            Console.WriteLine("2) Help");
+            Console.WriteLine("3) Exit");
+        }
         static void Main(string[] args)
         {
             ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -51,6 +60,12 @@
             //double temperature = double.Parse(Console.ReadLine());
 
             //Console.WriteLine("The temperature in Fahrenheit: " + CelsiusToFahrenheit(temperature));
+            ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+            ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            //task 4
+            Console.WriteLine("Fixed Menu Display Function");
+            DisplayMenu();
             ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         }
     }
