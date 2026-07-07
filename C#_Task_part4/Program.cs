@@ -84,21 +84,20 @@
 
             ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
             ///task 5
-            Console.WriteLine("Even or Odd Function");
+            //Console.WriteLine("Even or Odd Function");
 
-            // ask user to enter num
-            Console.Write("Enter number: ");
-            int num = int.Parse(Console.ReadLine());
+            //// ask user to enter num
+            //Console.Write("Enter number: ");
+            //int num = int.Parse(Console.ReadLine());
 
-            if (IsEven(num))
-            {
-                Console.WriteLine("Your number is even");
-            }
-            else
-            {
-                Console.WriteLine("Your number is odd");
-            }
-            
+            //if (IsEven(num))
+            //{
+            //    Console.WriteLine("Your number is even");
+            //}
+            //else
+            //{
+            //    Console.WriteLine("Your number is odd");
+            //}
             ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         }
     }
