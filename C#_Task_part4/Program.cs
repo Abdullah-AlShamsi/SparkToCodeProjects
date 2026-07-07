@@ -114,18 +114,18 @@
 
             ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
             ///task 6
-            Console.WriteLine("Rectangle Area & Perimeter Functions");
+            //Console.WriteLine("Rectangle Area & Perimeter Functions");
 
-            // Ask the user for length and width
-            Console.Write("Enter length of rectangle: ");
-            double length = double.Parse(Console.ReadLine());
+            //// Ask the user for length and width
+            //Console.Write("Enter length of rectangle: ");
+            //double length = double.Parse(Console.ReadLine());
 
-            Console.Write("Enter width of rectangle: ");
-            double width = double.Parse(Console.ReadLine());
+            //Console.Write("Enter width of rectangle: ");
+            //double width = double.Parse(Console.ReadLine());
 
-            Console.WriteLine("Rectangle Area: " + CalculateArea(length,width));
+            //Console.WriteLine("Rectangle Area: " + CalculateArea(length,width));
 
-            Console.WriteLine("Rectangle Perimeter: " + CalculatePerimeter(length, width));
+            //Console.WriteLine("Rectangle Perimeter: " + CalculatePerimeter(length, width));
             ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         }
     }
