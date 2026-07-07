@@ -28,6 +28,19 @@
             Console.WriteLine("2) Help");
             Console.WriteLine("3) Exit");
         }
+
+        //task 5
+        public static bool IsEven(int num)
+        {
+            if ((num%2) == 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
         static void Main(string[] args)
         {
             ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -43,7 +56,7 @@
             ///task 2
             //Console.WriteLine("Square Number Function");
 
-            //// ask user to enter num1
+            //// ask user to enter num
             //Console.Write("Enter number: ");
             //int num = int.Parse(Console.ReadLine());
 
@@ -66,6 +79,26 @@
             //task 4
             //Console.WriteLine("Fixed Menu Display Function");
             //DisplayMenu();
+            ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+            ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            ///task 5
+            Console.WriteLine("Even or Odd Function");
+
+            // ask user to enter num
+            Console.Write("Enter number: ");
+            int num = int.Parse(Console.ReadLine());
+
+            if (IsEven(num))
+            {
+                Console.WriteLine("Your number is even");
+            }
+            else
+            {
+                Console.WriteLine("Your number is odd");
+            }
+            
             ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         }
     }
