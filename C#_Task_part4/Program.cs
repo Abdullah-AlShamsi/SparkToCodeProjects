@@ -154,6 +154,44 @@
         }
 
 
+        //task 12
+        public static double CalculateAverage(double score1, double score2, double score3)
+        {
+            return (score1 + score2 + score3)/3;
+        }
+
+
+        public static string GetGradeLetter(double score)
+        {
+            if (score >= 90)
+            {
+                return "A";
+            }
+            else if (score >= 80)
+            {
+                return "B";
+            }
+            else if (score >= 70)
+            {
+                return "C";
+            }
+            else if (score >= 60)
+            {
+                return "D";
+            }
+            else
+            {
+                return "F";
+            }
+
+        }
+
+        public static void PrintReportCard(string name, double ave, string grade)
+        {
+            Console.WriteLine("Student name: " + name);
+            Console.WriteLine("Average score: " + ave);
+            Console.WriteLine("Grade In Letter: " + grade);
+        }
 
 
 
@@ -364,6 +402,32 @@
 
             //}
             ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-            }
+            ///
+
+
+            ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            ///task 12
+            Console.WriteLine("Student Report Card Generator");
+
+            // Ask the user enter thire name
+            Console.Write("Enter your name: ");
+            string name = Console.ReadLine();
+
+            Console.Write("Enter your score in first course: ");
+            int score1 = int.Parse(Console.ReadLine());
+
+            Console.Write("Enter your score in second course: ");
+            int score2 = int.Parse(Console.ReadLine());
+
+            Console.Write("Enter your score in third course: ");
+            int score3 = int.Parse(Console.ReadLine());
+
+            double ave = CalculateAverage(score1, score2, score3);
+
+            string grade = GetGradeLetter(ave);
+
+            PrintReportCard(name, ave, grade);
+            ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        }
     }
 }
