@@ -89,6 +89,21 @@
         }
 
 
+        //task 9
+        public static int Multiply(int a, int b)
+        { 
+            return a * b; 
+        }
+        public static double Multiply(double a, double b)
+        { 
+            return a * b;
+        }
+        public static int Multiply(int a, int b, int c)
+        {
+            return a * b * c; 
+        }
+
+
 
 
         static void Main(string[] args)
@@ -192,6 +207,17 @@
             //int start = int.Parse(Console.ReadLine());
 
             //Countdown(start);
+            ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            ///
+
+
+            ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            ///task 9
+            Console.WriteLine("Overloaded Multiply Function");
+
+            Console.WriteLine("Multiply 1: 3X2 = " + Multiply(3,2));
+            Console.WriteLine("Multiply 2: 3.5X6.1 = " + Multiply(3.5, 6.1));
+            Console.WriteLine("Multiply 2: 4X6X9 = " + Multiply(4, 6, 9));
             ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         }
     }
