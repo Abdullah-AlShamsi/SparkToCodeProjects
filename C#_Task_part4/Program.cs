@@ -213,11 +213,11 @@
 
             ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
             ///task 9
-            Console.WriteLine("Overloaded Multiply Function");
+            //Console.WriteLine("Overloaded Multiply Function");
 
-            Console.WriteLine("Multiply 1: 3X2 = " + Multiply(3,2));
-            Console.WriteLine("Multiply 2: 3.5X6.1 = " + Multiply(3.5, 6.1));
-            Console.WriteLine("Multiply 2: 4X6X9 = " + Multiply(4, 6, 9));
+            //Console.WriteLine("Multiply 1: 3X2 = " + Multiply(3,2));
+            //Console.WriteLine("Multiply 2: 3.5X6.1 = " + Multiply(3.5, 6.1));
+            //Console.WriteLine("Multiply 3: 4X6X9 = " + Multiply(4, 6, 9));
             ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         }
     }
