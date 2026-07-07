@@ -77,6 +77,20 @@
             }
 
         }
+
+
+        //task 8 
+        public static void Countdown(int start)
+        {
+            for (int i=start; i>0; i--)
+            {
+                Console.WriteLine(i);
+            }
+        }
+
+
+
+
         static void Main(string[] args)
         {
             ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -165,6 +179,19 @@
             //int score = int.Parse(Console.ReadLine());
 
             //Console.WriteLine("Your Grade In Letter: " + GetGradeLetter(score));
+            ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            ///
+
+
+            ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            ///task 8
+            Console.WriteLine("Countdown Function");
+
+            // Ask the user for starting number
+            Console.Write("Enter starting number: ");
+            int start = int.Parse(Console.ReadLine());
+
+            Countdown(start);
             ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         }
     }
