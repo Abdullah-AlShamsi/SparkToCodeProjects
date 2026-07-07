@@ -41,6 +41,16 @@
                 return false;
             }
         }
+
+        //task 6
+        public static double CalculateArea(double length, double width)
+        {
+            return length * width;
+        }
+        public static double CalculatePerimeter(double length, double width)
+        {
+            return 2*(length+ width);
+        }
         static void Main(string[] args)
         {
             ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -98,6 +108,24 @@
             //{
             //    Console.WriteLine("Your number is odd");
             //}
+            ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            ///
+
+
+            ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            ///task 6
+            Console.WriteLine("Rectangle Area & Perimeter Functions");
+
+            // Ask the user for length and width
+            Console.Write("Enter length of rectangle: ");
+            double length = double.Parse(Console.ReadLine());
+
+            Console.Write("Enter width of rectangle: ");
+            double width = double.Parse(Console.ReadLine());
+
+            Console.WriteLine("Rectangle Area: " + CalculateArea(length,width));
+
+            Console.WriteLine("Rectangle Perimeter: " + CalculatePerimeter(length, width));
             ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         }
     }
