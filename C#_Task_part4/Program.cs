@@ -236,30 +236,30 @@
 
             ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
             ///task 10
-            Console.WriteLine("Overloaded Area Calculator");
+            //Console.WriteLine("Overloaded Area Calculator");
 
-            Console.Write("which shape you have (square or rectangle): ");
-            string shape = Console.ReadLine();
+            //Console.Write("which shape you have (square or rectangle): ");
+            //string shape = Console.ReadLine();
 
-            if(shape == "square")
-            {
-                //Ask the user for length and width
-                Console.Write("Enter length of one side of square: ");
-                double length = double.Parse(Console.ReadLine());
-                Console.WriteLine("Square Area: " + CalculateArea(length));
-            }
-            else
-            {
-                //Ask the user for length and width
+            //if(shape == "square")
+            //{
+            //    //Ask the user for length and width
+            //    Console.Write("Enter length of one side of square: ");
+            //    double length = double.Parse(Console.ReadLine());
+            //    Console.WriteLine("Square Area: " + CalculateArea(length));
+            //}
+            //else
+            //{
+            //    //Ask the user for length and width
 
-                Console.Write("Enter length of rectangle: ");
-                double length = double.Parse(Console.ReadLine());
+            //    Console.Write("Enter length of rectangle: ");
+            //    double length = double.Parse(Console.ReadLine());
 
-                Console.Write("Enter width of rectangle: ");
-                double width = double.Parse(Console.ReadLine());
+            //    Console.Write("Enter width of rectangle: ");
+            //    double width = double.Parse(Console.ReadLine());
 
-                Console.WriteLine("Rectangle Area: " + CalculateArea(length, width));
-            }
+            //    Console.WriteLine("Rectangle Area: " + CalculateArea(length, width));
+            //}
             ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         }
     }
