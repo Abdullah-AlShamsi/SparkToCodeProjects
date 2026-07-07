@@ -158,13 +158,13 @@
 
             ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
             ///task 7
-            Console.WriteLine("Grade Letter Function");
+            //Console.WriteLine("Grade Letter Function");
 
-            // Ask the user for score
-            Console.Write("Enter your score: ");
-            int score = int.Parse(Console.ReadLine());
+            //// Ask the user for score
+            //Console.Write("Enter your score: ");
+            //int score = int.Parse(Console.ReadLine());
 
-            Console.WriteLine("Your Grade In Letter: " + GetGradeLetter(score));
+            //Console.WriteLine("Your Grade In Letter: " + GetGradeLetter(score));
             ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         }
     }
