@@ -185,13 +185,13 @@
 
             ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
             ///task 8
-            Console.WriteLine("Countdown Function");
+            //Console.WriteLine("Countdown Function");
 
-            // Ask the user for starting number
-            Console.Write("Enter starting number: ");
-            int start = int.Parse(Console.ReadLine());
+            //// Ask the user for starting number
+            //Console.Write("Enter starting number: ");
+            //int start = int.Parse(Console.ReadLine());
 
-            Countdown(start);
+            //Countdown(start);
             ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         }
     }
