@@ -29,23 +29,23 @@
 
             ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
             /// task 2
-            Console.WriteLine("Dynamic To-Do List");
+            //Console.WriteLine("Dynamic To-Do List");
 
-            List<string> to_do = new List<string>();
+            //List<string> to_do = new List<string>();
 
-            for (int i = 0; i < 5; i++)
-            {
-                /// ask user to enter each grade
-                Console.Write("Enter Task " + (i + 1) + ": ");
-                to_do.Add(Console.ReadLine()); 
-            }
+            //for (int i = 0; i < 5; i++)
+            //{
+            //    /// ask user to enter each grade
+            //    Console.Write("Enter Task " + (i + 1) + ": ");
+            //    to_do.Add(Console.ReadLine()); 
+            //}
 
-            int j = 1;
-            foreach (string task in to_do)
-            {
-                Console.WriteLine("Task " + j + ": " + task);
-                j++;
-            }
+            //int j = 1;
+            //foreach (string task in to_do)
+            //{
+            //    Console.WriteLine("Task " + j + ": " + task);
+            //    j++;
+            //}
             ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         }
     }
