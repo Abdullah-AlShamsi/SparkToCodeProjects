@@ -63,8 +63,27 @@
             //    history.Push(Console.ReadLine());
             //}
 
-            
+
             // Console.WriteLine("You pressed back, Website URL: " + history.Pop());
+            ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            ///
+
+
+            ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            /// task 4
+            Console.WriteLine("Customer Service Queue");
+
+            Queue<string> names = new Queue<string>();
+
+            for (int i = 0; i < 3; i++)
+            {
+                /// ask user to enter 3 customer name
+                Console.Write("Enter customer " + (i + 1) + " name: ");
+                names.Enqueue(Console.ReadLine());
+            }
+
+
+            Console.WriteLine(names.Dequeue() + " was served");
             ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         }
     }
