@@ -1,0 +1,339 @@
+﻿namespace C__Task_part5
+{
+    internal class Program
+    {
+        //task 9
+        public static double CalculateAverage(List<int> grades)
+        {
+            double sum=0;
+            foreach(int grade in grades)
+            {
+                sum += grade; 
+            }
+            return sum / grades.Count;
+        }
+
+        public static int FindFirstFailing(List<int> grades)
+        {
+            return grades.Find(x => x < 60);
+        }
+
+
+        //task 10
+        public static Queue<string> RemoveJob(Queue<string> jobs, string jobName)
+        {
+            int count = jobs.Count;
+            Queue<string> newQueue = new Queue<string>();
+            for (int i=0; i< count; i++)
+            {
+                string re_job = jobs.Dequeue();
+                if(re_job != jobName)
+                {
+                    newQueue.Enqueue(re_job);
+                }
+            }
+            return newQueue;
+        }
+        static void Main(string[] args)
+        {
+            ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            /// task 1
+            //Console.WriteLine("Fixed Grades Array");
+
+            //int[] grades = new int[5];
+
+            //for (int i = 0; i < grades.Length; i++)
+            //{
+            //    /// ask user to enter each grade
+            //    Console.Write("Enter grade " + (i + 1) + ": ");
+            //    grades[i] = int.Parse(Console.ReadLine());
+            //}
+
+            //int j = 1;
+            //foreach (int grade in grades)
+            //{
+            //    Console.WriteLine("Grade " + j + ": " + grade);
+            //    j++;
+            //}
+            ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            ///
+
+
+            ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            /// task 2
+            //Console.WriteLine("Dynamic To-Do List");
+
+            //List<string> to_do = new List<string>();
+
+            //for (int i = 0; i < 5; i++)
+            //{
+            //    /// ask user to enter each Task
+            //    Console.Write("Enter Task " + (i + 1) + ": ");
+            //    to_do.Add(Console.ReadLine()); 
+            //}
+
+            //int j = 1;
+            //foreach (string task in to_do)
+            //{
+            //    Console.WriteLine("Task " + j + ": " + task);
+            //    j++;
+            //}
+            ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            ///
+
+
+            ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            /// task 3
+            //Console.WriteLine("Browsing History Stack");
+
+            //Stack<string> history = new Stack<string>();
+
+            //for (int i = 0; i < 3; i++)
+            //{
+            //    /// ask user to enter 3 website URLs
+            //    Console.Write("Enter website " + (i + 1) + " URL: ");
+            //    history.Push(Console.ReadLine());
+            //}
+
+
+            // Console.WriteLine("You pressed back, Website URL: " + history.Pop());
+            ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            ///
+
+
+            ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            /// task 4
+            //Console.WriteLine("Customer Service Queue");
+
+            //Queue<string> names = new Queue<string>();
+
+            //for (int i = 0; i < 3; i++)
+            //{
+            //    /// ask user to enter 3 customer name
+            //    Console.Write("Enter customer " + (i + 1) + " name: ");
+            //    names.Enqueue(Console.ReadLine());
+            //}
+
+
+            //Console.WriteLine(names.Dequeue() + " was served");
+            ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            ///
+
+            ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            /// task 5
+            //Console.WriteLine("Array Grade Range");
+
+            //int[] grades = new int[5];
+
+            //for (int i = 0; i < grades.Length; i++)
+            //{
+            //    /// ask user to enter each grade
+            //    Console.Write("Enter grade " + (i + 1) + ": ");
+            //    grades[i] = int.Parse(Console.ReadLine());
+            //}
+
+            //Array.Sort(grades);
+
+            //int sum = 0;
+            //foreach (int grade in grades)
+            //{
+            //    sum += grade;
+            //}
+            //int ave = sum / grades.Length;
+
+            //Console.WriteLine("The Lowest Grade: " + grades[0]);
+
+            //Console.WriteLine("The Highest Grade: " + grades[grades.Length - 1]);
+
+            //Console.WriteLine("The Average Grade: " + ave);
+            ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            ///
+
+
+            ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            /// task 6
+            //Console.WriteLine("Filtered Shopping List");
+
+            //List<string> shopping_list = new List<string>();
+            //bool ISdone = false; 
+
+            //while (!ISdone)
+            //{
+            //    /// ask user to enter each item Type "Done" to finish
+            //    Console.Write("Enter item or type 'Done' to finish: ");
+            //    string item = Console.ReadLine().ToLower();
+            //    if(item == "done"){
+            //        ISdone = true;
+            //    }
+            //    else
+            //    {
+            //        shopping_list.Add(item);
+            //    }
+            //}
+
+            //Console.Write("Enter item to remove from list: ");
+            //string remove_item = Console.ReadLine().ToLower();
+
+            //Console.WriteLine("List before remove: ");
+            //int j = 1;
+            //foreach (string item in shopping_list)
+            //{
+            //    Console.WriteLine("Task " + j + ": " + item);
+            //    j++;
+            //}
+
+            //shopping_list.Remove(remove_item);
+
+            //Console.WriteLine("List after remove: ");
+            //int k = 1;
+            //foreach (string item in shopping_list)
+            //{
+            //    Console.WriteLine("Task " + k + ": " + item);
+            //    k++;
+            //}
+            ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            ///
+
+
+            ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            /// task 7
+            //Console.WriteLine("High Score Podium");
+
+            //List<int> scores = new List<int>();
+
+            //for (int i = 0; i < 5; i++)
+            //{
+            //    /// ask user to enter 5 game scores
+            //    Console.Write("Enter game " + (i + 1) + " score: ");
+            //    scores.Add(int.Parse(Console.ReadLine()));
+            //}
+            //scores.Sort();
+            //scores.Reverse();
+
+            //Console.WriteLine("1st place: " + scores[0]);
+            //Console.WriteLine("2nd place: " + scores[1]);
+            //Console.WriteLine("3rd place: " + scores[2]);
+            ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            ///
+
+
+            ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            /// task 8
+            //Console.WriteLine("Undo Last Action");
+
+            //Stack<string> tracker = new Stack<string>();
+
+            //bool ISstop = false;
+
+            //while (!ISstop)
+            //{
+            //    /// ask user to enter each actions Type "stop" to finish
+            //    Console.Write("Enter actions or type 'stop' to finish: ");
+            //    string action = Console.ReadLine().ToLower();
+            //    if (action == "stop")
+            //    {
+            //        ISstop = true;
+            //    }
+            //    else
+            //    {
+            //        tracker.Push(action);
+            //    }
+            //}
+            //Console.WriteLine("You pressed undo, undone action: " + tracker.Pop());
+
+            //Console.WriteLine("You pressed undo, undone action: " + tracker.Pop());
+
+            //Console.WriteLine("Actions: ");
+            //int j = 1;
+            //foreach (string action in tracker)
+            //{
+            //    Console.WriteLine("Action " + j + ": " + action);
+            //    j++;
+            //}
+            ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            ///
+
+
+            ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            /// task 9
+            //Console.WriteLine("Grade Analyzer with Functions");
+            ////user how many grades they want to enter
+            //Console.Write("Enter how many grades you want to enter: ");
+            //int num = int.Parse(Console.ReadLine());
+
+            //List<int> grades = new List<int>();
+
+            //for (int i = 0; i < num; i++)
+            //{
+            //    /// ask user to enter 5 game scores
+            //    Console.Write("Enter grade " + (i + 1) + ": ");
+            //    grades.Add(int.Parse(Console.ReadLine()));
+            //}
+
+
+            //double ave = CalculateAverage(grades);
+            //Console.WriteLine("The Average Grade: " + ave);
+
+            //int failGrade = FindFirstFailing(grades);
+            //if (failGrade == 0)
+            //{
+            //    Console.WriteLine("All grades pass");
+            //}
+            //else
+            //{
+            //    Console.WriteLine("The First Failing Grade: " + failGrade);
+            //}
+            ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            ///
+
+            ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            /// task 10
+            Console.WriteLine("Print Queue Manager");
+
+            Queue<string> jobs = new Queue<string>();
+
+            bool ISdone = false;
+
+            while (!ISdone)
+            {
+                /// ask user add print job names until they type "done"
+                Console.Write("Enter job name or type 'Done' to finish: ");
+                string job = Console.ReadLine().ToLower();
+                if (job == "done")
+                {
+                    ISdone = true;
+                }
+                else
+                {
+                    jobs.Enqueue(job);
+                }
+            }
+
+            Console.Write("Enter job to remove from list: ");
+            string remove_job = Console.ReadLine().ToLower();
+
+            Console.WriteLine("Jobs before remove: ");
+            int j = 1;
+            foreach (string item in jobs)
+            {
+                Console.WriteLine("Job " + j + ": " + item);
+                j++;
+            }
+
+            Queue<string> jobs_remove = RemoveJob(jobs, remove_job);
+
+            Console.WriteLine("List after remove: ");
+            int k = 1;
+            foreach (string item in jobs_remove)
+            {
+                Console.WriteLine("Job " + k + ": " + item);
+                k++;
+            }
+            ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+        }
+    }
+}
