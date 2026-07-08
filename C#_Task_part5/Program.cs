@@ -71,19 +71,19 @@
 
             ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
             /// task 4
-            Console.WriteLine("Customer Service Queue");
+            //Console.WriteLine("Customer Service Queue");
 
-            Queue<string> names = new Queue<string>();
+            //Queue<string> names = new Queue<string>();
 
-            for (int i = 0; i < 3; i++)
-            {
-                /// ask user to enter 3 customer name
-                Console.Write("Enter customer " + (i + 1) + " name: ");
-                names.Enqueue(Console.ReadLine());
-            }
+            //for (int i = 0; i < 3; i++)
+            //{
+            //    /// ask user to enter 3 customer name
+            //    Console.Write("Enter customer " + (i + 1) + " name: ");
+            //    names.Enqueue(Console.ReadLine());
+            //}
 
 
-            Console.WriteLine(names.Dequeue() + " was served");
+            //Console.WriteLine(names.Dequeue() + " was served");
             ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         }
     }
