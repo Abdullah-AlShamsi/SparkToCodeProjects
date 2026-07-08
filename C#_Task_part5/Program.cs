@@ -165,22 +165,22 @@
 
             ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
             /// task 7
-            Console.WriteLine("High Score Podium");
+            //Console.WriteLine("High Score Podium");
 
-            List<int> scores = new List<int>();
+            //List<int> scores = new List<int>();
 
-            for (int i = 0; i < 5; i++)
-            {
-                /// ask user to enter 5 game scores
-                Console.Write("Enter game " + (i + 1) + " score: ");
-                scores.Add(int.Parse(Console.ReadLine()));
-            }
-            scores.Sort();
-            scores.Reverse();
+            //for (int i = 0; i < 5; i++)
+            //{
+            //    /// ask user to enter 5 game scores
+            //    Console.Write("Enter game " + (i + 1) + " score: ");
+            //    scores.Add(int.Parse(Console.ReadLine()));
+            //}
+            //scores.Sort();
+            //scores.Reverse();
 
-            Console.WriteLine("1st place: " + scores[0]);
-            Console.WriteLine("2nd place: " + scores[1]);
-            Console.WriteLine("3rd place: " + scores[2]);
+            //Console.WriteLine("1st place: " + scores[0]);
+            //Console.WriteLine("2nd place: " + scores[1]);
+            //Console.WriteLine("3rd place: " + scores[2]);
             ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
