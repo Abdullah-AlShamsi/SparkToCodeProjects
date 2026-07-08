@@ -17,6 +17,23 @@
         {
             return grades.Find(x => x < 60);
         }
+
+
+        //task 10
+        public static Queue<string> RemoveJob(Queue<string> jobs, string jobName)
+        {
+            int count = jobs.Count;
+            Queue<string> newQueue = new Queue<string>();
+            for (int i=0; i< count; i++)
+            {
+                string re_job = jobs.Dequeue();
+                if(re_job != jobName)
+                {
+                    newQueue.Enqueue(re_job);
+                }
+            }
+            return newQueue;
+        }
         static void Main(string[] args)
         {
             ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -267,6 +284,54 @@
             //    Console.WriteLine("The First Failing Grade: " + failGrade);
             //}
             ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            ///
+
+            ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            /// task 10
+            Console.WriteLine("Print Queue Manager");
+
+            Queue<string> jobs = new Queue<string>();
+
+            bool ISdone = false;
+
+            while (!ISdone)
+            {
+                /// ask user add print job names until they type "done"
+                Console.Write("Enter job name or type 'Done' to finish: ");
+                string job = Console.ReadLine().ToLower();
+                if (job == "done")
+                {
+                    ISdone = true;
+                }
+                else
+                {
+                    jobs.Enqueue(job);
+                }
+            }
+
+            Console.Write("Enter job to remove from list: ");
+            string remove_job = Console.ReadLine().ToLower();
+
+            Console.WriteLine("Jobs before remove: ");
+            int j = 1;
+            foreach (string item in jobs)
+            {
+                Console.WriteLine("Job " + j + ": " + item);
+                j++;
+            }
+
+            Queue<string> jobs_remove = RemoveJob(jobs, remove_job);
+
+            Console.WriteLine("List after remove: ");
+            int k = 1;
+            foreach (string item in jobs_remove)
+            {
+                Console.WriteLine("Job " + k + ": " + item);
+                k++;
+            }
+            ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
 
 
         }
