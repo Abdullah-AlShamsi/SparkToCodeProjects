@@ -85,6 +85,36 @@
 
             //Console.WriteLine(names.Dequeue() + " was served");
             ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            ///
+
+            ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            /// task 5
+            Console.WriteLine("Array Grade Range");
+
+            int[] grades = new int[5];
+
+            for (int i = 0; i < grades.Length; i++)
+            {
+                /// ask user to enter each grade
+                Console.Write("Enter grade " + (i + 1) + ": ");
+                grades[i] = int.Parse(Console.ReadLine());
+            }
+
+            Array.Sort(grades);
+
+            int sum = 0;
+            foreach (int grade in grades)
+            {
+                sum += grade;
+            }
+            int ave = sum / grades.Length;
+
+            Console.WriteLine("The lowest Grade: " + grades[0]);
+
+            Console.WriteLine("The highest Grade: " + grades[grades.Length - 1]);
+            
+            Console.WriteLine("The average Grade: " + ave);
+            ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         }
     }
 }
