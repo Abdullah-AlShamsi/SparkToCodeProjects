@@ -187,36 +187,37 @@
 
             ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
             /// task 8
-            Console.WriteLine("Undo Last Action");
+            //Console.WriteLine("Undo Last Action");
 
-            Stack<string> tracker = new Stack<string>();
+            //Stack<string> tracker = new Stack<string>();
 
-            bool ISstop = false;
+            //bool ISstop = false;
 
-            while (!ISstop)
-            {
-                /// ask user to enter each actions Type "stop" to finish
-                Console.Write("Enter actions or type 'stop' to finish: ");
-                string action = Console.ReadLine().ToLower();
-                if (action == "stop")
-                {
-                    ISstop = true;
-                }
-                else
-                {
-                    tracker.Push(action);
-                }
-            }
-            Console.WriteLine("You pressed undo, undone action: " + tracker.Pop());
+            //while (!ISstop)
+            //{
+            //    /// ask user to enter each actions Type "stop" to finish
+            //    Console.Write("Enter actions or type 'stop' to finish: ");
+            //    string action = Console.ReadLine().ToLower();
+            //    if (action == "stop")
+            //    {
+            //        ISstop = true;
+            //    }
+            //    else
+            //    {
+            //        tracker.Push(action);
+            //    }
+            //}
+            //Console.WriteLine("You pressed undo, undone action: " + tracker.Pop());
 
-            Console.WriteLine("You pressed undo, undone action: " + tracker.Pop());
+            //Console.WriteLine("You pressed undo, undone action: " + tracker.Pop());
 
-            int j = 1;
-            foreach (string action in tracker)
-            {
-                Console.WriteLine("Action " + j + ": " + action);
-                j++;
-            }
+            //Console.WriteLine("Actions: ");
+            //int j = 1;
+            //foreach (string action in tracker)
+            //{
+            //    Console.WriteLine("Action " + j + ": " + action);
+            //    j++;
+            //}
             ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
