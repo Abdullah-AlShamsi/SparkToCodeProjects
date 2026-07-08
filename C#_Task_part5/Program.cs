@@ -112,9 +112,55 @@
             //Console.WriteLine("The Lowest Grade: " + grades[0]);
 
             //Console.WriteLine("The Highest Grade: " + grades[grades.Length - 1]);
-            
+
             //Console.WriteLine("The Average Grade: " + ave);
             ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            ///
+
+
+            ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            /// task 6
+            Console.WriteLine("Filtered Shopping List");
+
+            List<string> shopping_list = new List<string>();
+            bool ISdone = false; 
+
+            while (!ISdone)
+            {
+                /// ask user to enter each item Type "Done" to finish
+                Console.Write("Enter item or type 'Done' to finish: ");
+                string item = Console.ReadLine().ToLower();
+                if(item == "done"){
+                    ISdone = true;
+                }
+                else
+                {
+                    shopping_list.Add(item);
+                }
+            }
+
+            Console.Write("Enter item to remove from list: ");
+            string remove_item = Console.ReadLine().ToLower();
+
+            Console.WriteLine("List before remove: ");
+            int j = 1;
+            foreach (string item in shopping_list)
+            {
+                Console.WriteLine("Task " + j + ": " + item);
+                j++;
+            }
+
+            shopping_list.Remove(remove_item);
+
+            Console.WriteLine("List after remove: ");
+            int k = 1;
+            foreach (string item in shopping_list)
+            {
+                Console.WriteLine("Task " + k + ": " + item);
+                k++;
+            }
+            ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
         }
     }
 }
