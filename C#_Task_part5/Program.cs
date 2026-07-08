@@ -52,19 +52,19 @@
 
             ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
             /// task 3
-            Console.WriteLine("Browsing History Stack");
+            //Console.WriteLine("Browsing History Stack");
 
-            Stack<string> history = new Stack<string>();
+            //Stack<string> history = new Stack<string>();
 
-            for (int i = 0; i < 3; i++)
-            {
-                /// ask user to enter 3 website URLs
-                Console.Write("Enter website " + (i + 1) + " URL: ");
-                history.Push(Console.ReadLine());
-            }
+            //for (int i = 0; i < 3; i++)
+            //{
+            //    /// ask user to enter 3 website URLs
+            //    Console.Write("Enter website " + (i + 1) + " URL: ");
+            //    history.Push(Console.ReadLine());
+            //}
 
             
-             Console.WriteLine("You pressed back, Website URL: " + history.Pop());
+            // Console.WriteLine("You pressed back, Website URL: " + history.Pop());
             ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         }
     }
