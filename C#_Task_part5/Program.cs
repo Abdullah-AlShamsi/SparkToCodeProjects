@@ -239,33 +239,33 @@
 
             ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
             /// task 9
-            Console.WriteLine("Grade Analyzer with Functions");
-            //user how many grades they want to enter
-            Console.Write("Enter how many grades you want to enter: ");
-            int num = int.Parse(Console.ReadLine());
+            //Console.WriteLine("Grade Analyzer with Functions");
+            ////user how many grades they want to enter
+            //Console.Write("Enter how many grades you want to enter: ");
+            //int num = int.Parse(Console.ReadLine());
 
-            List<int> grades = new List<int>();
+            //List<int> grades = new List<int>();
 
-            for (int i = 0; i < num; i++)
-            {
-                /// ask user to enter 5 game scores
-                Console.Write("Enter grade " + (i + 1) + ": ");
-                grades.Add(int.Parse(Console.ReadLine()));
-            }
+            //for (int i = 0; i < num; i++)
+            //{
+            //    /// ask user to enter 5 game scores
+            //    Console.Write("Enter grade " + (i + 1) + ": ");
+            //    grades.Add(int.Parse(Console.ReadLine()));
+            //}
 
 
-            double ave = CalculateAverage(grades);
-            Console.WriteLine("The Average Grade: " + ave);
+            //double ave = CalculateAverage(grades);
+            //Console.WriteLine("The Average Grade: " + ave);
 
-            int failGrade = FindFirstFailing(grades);
-            if (failGrade == 0)
-            {
-                Console.WriteLine("All grades pass");
-            }
-            else
-            {
-                Console.WriteLine("The First Failing Grade: " + failGrade);
-            }
+            //int failGrade = FindFirstFailing(grades);
+            //if (failGrade == 0)
+            //{
+            //    Console.WriteLine("All grades pass");
+            //}
+            //else
+            //{
+            //    Console.WriteLine("The First Failing Grade: " + failGrade);
+            //}
             ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
