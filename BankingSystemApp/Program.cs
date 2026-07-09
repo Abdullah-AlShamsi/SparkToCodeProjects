@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Security.Principal;
-using System.Xml.Linq;
 namespace BankingSystemApp
 {
     internal class Program
@@ -89,25 +87,34 @@ namespace BankingSystemApp
                 return;
             }
 
-            Console.Write("Enter an initial deposit amount to open the account: ");
-            double starting_balance = double.Parse(Console.ReadLine());
-            
-            if (starting_balance < 0)
+            try
             {
-                Console.WriteLine("Initial deposit amount must not be negative.");
-                return;
-            }
+                Console.Write("Enter an initial deposit amount to open the account: ");
+                double starting_balance = double.Parse(Console.ReadLine());
 
-            customerNames.Add(name);
-            accountNumbers.Add(num);
-            balances.Add(starting_balance);
-            Console.WriteLine("customer's account has been successfully registered.");
-            Console.WriteLine("Customer's name: " + name);
-            Console.WriteLine("Account number: " + num);
-            Console.WriteLine("Account balance: " + starting_balance);
+                if (starting_balance <= 0)
+                {
+                    Console.WriteLine("Initial deposit amount must be a positive number.");
+                    return;
+                }
+
+                customerNames.Add(name);
+                accountNumbers.Add(num);
+                balances.Add(starting_balance);
+                Console.WriteLine("customer's account has been successfully registered.");
+                Console.WriteLine("Customer's name: " + name);
+                Console.WriteLine("Account number: " + num);
+                Console.WriteLine("Account balance: " + starting_balance);
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Invalid input.");
+            }
 
 
         }
+
+
         static void DepositMoney()
         {
             // TODO: implement this service (see Section 3 requirements)
@@ -121,18 +128,26 @@ namespace BankingSystemApp
                 Console.WriteLine("This account number is not found.");
                 return;
             }
-
-            Console.Write("Enter the deposit amount: ");
-            double deposit = double.Parse(Console.ReadLine());
-
-            if (deposit < 0)
+            try
             {
-                Console.WriteLine("Deposit amount must not be negative.");
-                return;
+                Console.Write("Enter the deposit amount: ");
+                double deposit = double.Parse(Console.ReadLine());
+
+                if (deposit <= 0)
+                {
+                    Console.WriteLine("Deposit amount must be a positive number.");
+                    return;
+                }
+                balances[index] += deposit;
+                Console.WriteLine("Account balance: " + balances[index]);
             }
-            balances[index] += deposit;
-            Console.WriteLine("Account balance: " + balances[index]);
+            catch (Exception)
+            {
+                Console.WriteLine("Invalid input.");
+            }
         }
+
+
         static void WithdrawMoney()
         {
             // TODO: implement this service (see Section 3 requirements)
@@ -146,22 +161,28 @@ namespace BankingSystemApp
                 Console.WriteLine("This account number is not found.");
                 return;
             }
-
-            Console.Write("Enter the withdrawal amount: ");
-            double withdrawal = double.Parse(Console.ReadLine());
-
-            if (withdrawal < 0)
+            try
             {
-                Console.WriteLine("Withdrawal amount must not be negative.");
-                return;
+                Console.Write("Enter the withdrawal amount: ");
+                double withdrawal = double.Parse(Console.ReadLine());
+
+                if (withdrawal <= 0)
+                {
+                    Console.WriteLine("Withdrawal amount must be a positive number.");
+                    return;
+                }
+                if (withdrawal > balances[index])
+                {
+                    Console.WriteLine("Withdrawal amount exceed the balance.");
+                    return;
+                }
+                balances[index] -= withdrawal;
+                Console.WriteLine("Account balance: " + balances[index]);
             }
-            if(withdrawal> balances[index])
+            catch (Exception)
             {
-                Console.WriteLine("Withdrawal amount exceed the balance.");
-                return;
+                Console.WriteLine("Invalid input.");
             }
-            balances[index] -= withdrawal;
-            Console.WriteLine("Account balance: " + balances[index]);
         }
         static void ShowBalance()
         {
@@ -196,7 +217,7 @@ namespace BankingSystemApp
                 return;
             }
 
-            Console.Write("Enter sender's account number: ");
+            Console.Write("Enter receiver's account number: ");
             string num_receiver = Console.ReadLine();
 
             int index_receiver = accountNumbers.IndexOf(num_receiver);
@@ -207,32 +228,39 @@ namespace BankingSystemApp
                 return;
             }
 
-            Console.Write("Enter the transfer amount: ");
-            double transfer = double.Parse(Console.ReadLine());
-
-            if (transfer < 0)
+            try
             {
-                Console.WriteLine("Transfer amount must not be negative.");
-                return;
+                Console.Write("Enter the transfer amount: ");
+                double transfer = double.Parse(Console.ReadLine());
+
+                if (transfer <= 0)
+                {
+                    Console.WriteLine("Transfer amount must be a positive number.");
+                    return;
+                }
+                if (transfer > balances[index_sender])
+                {
+                    Console.WriteLine("Transfer amount exceed sender's balance.");
+                    return;
+                }
+                balances[index_sender] -= transfer;
+                Console.WriteLine("Account balance: " + balances[index_sender]);
+
+                balances[index_receiver] += transfer;
+                Console.WriteLine("Account balance: " + balances[index_receiver]);
+
+                Console.WriteLine("Sender's name: " + customerNames[index_sender]);
+                Console.WriteLine("Sender's Account number: " + accountNumbers[index_sender]);
+                Console.WriteLine("Sender's Account balance: " + balances[index_sender]);
+                Console.WriteLine();
+                Console.WriteLine("Receiver's name: " + customerNames[index_receiver]);
+                Console.WriteLine("Receiver's Account number: " + accountNumbers[index_receiver]);
+                Console.WriteLine("Receiver's Account balance: " + balances[index_receiver]);
             }
-            if (transfer > balances[index_sender])
+            catch (Exception)
             {
-                Console.WriteLine("Transfer amount exceed sender's balance.");
-                return;
+                Console.WriteLine("Invalid input.");
             }
-            balances[index_sender] -= transfer;
-            Console.WriteLine("Account balance: " + balances[index_sender]);
-
-            balances[index_receiver] += transfer;
-            Console.WriteLine("Account balance: " + balances[index_receiver]);
-
-            Console.WriteLine("Sender's name: " + customerNames[index_sender]);
-            Console.WriteLine("Sender's Account number: " + accountNumbers[index_sender]);
-            Console.WriteLine("Sender's Account balance: " + balances[index_sender]);
-            Console.WriteLine();
-            Console.WriteLine("Receiver's name: " + customerNames[index_receiver]);
-            Console.WriteLine("Receiver's Account number: " + accountNumbers[index_receiver]);
-            Console.WriteLine("Receiver's Account balance: " + balances[index_receiver]);
 
         }
         // TODO: write two more void, no-parameter functions here for
@@ -269,9 +297,9 @@ namespace BankingSystemApp
             }
             else
             {
-                int index;
-                double max = 0;
-                for (int i = 0; i < balances.Count; i++)
+                int index = 0;
+                double max = balances[0];
+                for (int i = 1; i < count; i++)
                 {
                     if (balances[i] > max)
                     {
