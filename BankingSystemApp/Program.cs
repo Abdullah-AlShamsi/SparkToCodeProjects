@@ -239,7 +239,6 @@ namespace BankingSystemApp
         // your own custom services (option 6 and option 7)
         static void CloseAccount()
         {
-            // TODO: implement this service (see Section 3 requirements)
             Console.Write("Enter account number: ");
             string num = Console.ReadLine();
 
@@ -259,6 +258,34 @@ namespace BankingSystemApp
             accountNumbers.RemoveAt(index);
             balances.RemoveAt(index);
             Console.WriteLine("customer's account has been successfully closed.");
+        }
+
+        static void FindtheRichestCustomer()
+        {
+            int count = balances.Count;
+            if (count < 1)
+            {
+                Console.WriteLine("There is no account in the system");
+            }
+            else
+            {
+                int index;
+                double max = 0;
+                for (int i = 0; i < balances.Count; i++)
+                {
+                    if (balances[i] > max)
+                    {
+                        max = balances[i];
+                        index = i;
+                    }
+                }
+
+                Console.WriteLine("The Richest Customer:");
+                Console.WriteLine("Customer's name: " + customerNames[index]);
+                Console.WriteLine("Account number: " + accountNumbers[index]);
+                Console.WriteLine("Account balance: " + balances[index]);
+            }
+             
         }
     }
 }
