@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Xml.Linq;
 namespace BankingSystemApp
 {
     internal class Program
@@ -164,6 +165,21 @@ namespace BankingSystemApp
         static void ShowBalance()
         {
             // TODO: implement this service (see Section 3 requirements)
+            Console.Write("Enter your account number: ");
+            string num = Console.ReadLine();
+
+            int index = accountNumbers.IndexOf(num);
+
+            if (index == -1)
+            {
+                Console.WriteLine("This account number is not found.");
+                return;
+            }
+
+            Console.WriteLine("Customer's name: " + customerNames[index]);
+            Console.WriteLine("Account numbers: " + accountNumbers[index]);
+            Console.WriteLine("Account balance: " + balances[index]);
+
         }
         static void TransferAmount()
         {
