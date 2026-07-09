@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Security.Principal;
 using System.Xml.Linq;
 namespace BankingSystemApp
 {
@@ -22,8 +23,8 @@ namespace BankingSystemApp
                 Console.WriteLine("3. Withdraw Money");
                 Console.WriteLine("4. Show Balance");
                 Console.WriteLine("5. Transfer Amount");
-                Console.WriteLine("6. <your 1st custom service - choose a name>");
-                Console.WriteLine("7. <your 2nd custom service - choose a name>");
+                Console.WriteLine("6. Close an Account");
+                Console.WriteLine("7. Find the Richest Customer");
                 Console.WriteLine("8. Exit");
                 Console.Write("Choose an option: ");
                 int choice;
@@ -54,10 +55,10 @@ namespace BankingSystemApp
                         TransferAmount();
                         break;
                     case 6:
-                        // TODO: call your first custom service function here
+                        CloseAccount();
                         break;
                     case 7:
-                        // TODO: call your second custom service function here
+                        FindtheRichestCustomer();
                         break;
                     case 8:
                         exitApp = true;
@@ -77,7 +78,7 @@ namespace BankingSystemApp
         static void AddAccount()
         {
             // TODO: implement this service (see Section 3 requirements)
-            Console.Write("Enter your name: ");
+            Console.Write("Enter customer's name: ");
             string name = Console.ReadLine();
 
             Console.Write("Enter a new account number: ");
@@ -100,7 +101,7 @@ namespace BankingSystemApp
             customerNames.Add(name);
             accountNumbers.Add(num);
             balances.Add(starting_balance);
-            Console.WriteLine("Your account has been successfully registered.");
+            Console.WriteLine("customer's account has been successfully registered.");
             Console.WriteLine("Customer's name: " + name);
             Console.WriteLine("Account number: " + num);
             Console.WriteLine("Account balance: " + starting_balance);
@@ -110,7 +111,7 @@ namespace BankingSystemApp
         static void DepositMoney()
         {
             // TODO: implement this service (see Section 3 requirements)
-            Console.Write("Enter your account number: ");
+            Console.Write("Enter customer's account number: ");
             string num = Console.ReadLine();
 
             int index = accountNumbers.IndexOf(num);
@@ -135,7 +136,7 @@ namespace BankingSystemApp
         static void WithdrawMoney()
         {
             // TODO: implement this service (see Section 3 requirements)
-            Console.Write("Enter your account number: ");
+            Console.Write("Enter customer's account number: ");
             string num = Console.ReadLine();
 
             int index = accountNumbers.IndexOf(num);
@@ -156,7 +157,7 @@ namespace BankingSystemApp
             }
             if(withdrawal> balances[index])
             {
-                Console.WriteLine("Withdrawal amount exceed your balance.");
+                Console.WriteLine("Withdrawal amount exceed the balance.");
                 return;
             }
             balances[index] -= withdrawal;
@@ -184,7 +185,7 @@ namespace BankingSystemApp
         static void TransferAmount()
         {
             // TODO: implement this service (see Section 3 requirements)
-            Console.Write("Enter your account number: ");
+            Console.Write("Enter sender's account number: ");
             string num_sender = Console.ReadLine();
 
             int index_sender = accountNumbers.IndexOf(num_sender);
@@ -195,7 +196,7 @@ namespace BankingSystemApp
                 return;
             }
 
-            Console.Write("Enter the account number you want to transfer the money to: ");
+            Console.Write("Enter sender's account number: ");
             string num_receiver = Console.ReadLine();
 
             int index_receiver = accountNumbers.IndexOf(num_receiver);
@@ -211,12 +212,12 @@ namespace BankingSystemApp
 
             if (transfer < 0)
             {
-                Console.WriteLine("Withdrawal amount must not be negative.");
+                Console.WriteLine("Transfer amount must not be negative.");
                 return;
             }
             if (transfer > balances[index_sender])
             {
-                Console.WriteLine("Withdrawal amount exceed your balance.");
+                Console.WriteLine("Transfer amount exceed sender's balance.");
                 return;
             }
             balances[index_sender] -= transfer;
@@ -236,5 +237,28 @@ namespace BankingSystemApp
         }
         // TODO: write two more void, no-parameter functions here for
         // your own custom services (option 6 and option 7)
+        static void CloseAccount()
+        {
+            // TODO: implement this service (see Section 3 requirements)
+            Console.Write("Enter account number: ");
+            string num = Console.ReadLine();
+
+            int index = accountNumbers.IndexOf(num);
+
+            if (index == -1)
+            {
+                Console.WriteLine("This account number is not found.");
+                return;
+            }
+
+            Console.WriteLine("Customer's name: " + customerNames[index]);
+            Console.WriteLine("Account number: " + accountNumbers[index]);
+            Console.WriteLine("Account balance: " + balances[index]);
+
+            customerNames.RemoveAt(index);
+            accountNumbers.RemoveAt(index);
+            balances.RemoveAt(index);
+            Console.WriteLine("customer's account has been successfully closed.");
+        }
     }
 }
