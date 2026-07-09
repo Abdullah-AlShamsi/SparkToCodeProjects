@@ -102,7 +102,7 @@ namespace BankingSystemApp
             balances.Add(starting_balance);
             Console.WriteLine("Your account has been successfully registered.");
             Console.WriteLine("Customer's name: " + name);
-            Console.WriteLine("Account numbers: " + num);
+            Console.WriteLine("Account number: " + num);
             Console.WriteLine("Account balance: " + starting_balance);
 
 
@@ -177,13 +177,62 @@ namespace BankingSystemApp
             }
 
             Console.WriteLine("Customer's name: " + customerNames[index]);
-            Console.WriteLine("Account numbers: " + accountNumbers[index]);
+            Console.WriteLine("Account number: " + accountNumbers[index]);
             Console.WriteLine("Account balance: " + balances[index]);
 
         }
         static void TransferAmount()
         {
             // TODO: implement this service (see Section 3 requirements)
+            Console.Write("Enter your account number: ");
+            string num_sender = Console.ReadLine();
+
+            int index_sender = accountNumbers.IndexOf(num_sender);
+
+            if (index_sender == -1)
+            {
+                Console.WriteLine("This account number is not found.");
+                return;
+            }
+
+            Console.Write("Enter the account number you want to transfer the money to: ");
+            string num_receiver = Console.ReadLine();
+
+            int index_receiver = accountNumbers.IndexOf(num_receiver);
+
+            if (index_receiver == -1)
+            {
+                Console.WriteLine("This account number is not found.");
+                return;
+            }
+
+            Console.Write("Enter the transfer amount: ");
+            double transfer = double.Parse(Console.ReadLine());
+
+            if (transfer < 0)
+            {
+                Console.WriteLine("Withdrawal amount must not be negative.");
+                return;
+            }
+            if (transfer > balances[index_sender])
+            {
+                Console.WriteLine("Withdrawal amount exceed your balance.");
+                return;
+            }
+            balances[index_sender] -= transfer;
+            Console.WriteLine("Account balance: " + balances[index_sender]);
+
+            balances[index_receiver] += transfer;
+            Console.WriteLine("Account balance: " + balances[index_receiver]);
+
+            Console.WriteLine("Sender's name: " + customerNames[index_sender]);
+            Console.WriteLine("Sender's Account number: " + accountNumbers[index_sender]);
+            Console.WriteLine("Sender's Account balance: " + balances[index_sender]);
+            Console.WriteLine();
+            Console.WriteLine("Receiver's name: " + customerNames[index_receiver]);
+            Console.WriteLine("Receiver's Account number: " + accountNumbers[index_receiver]);
+            Console.WriteLine("Receiver's Account balance: " + balances[index_receiver]);
+
         }
         // TODO: write two more void, no-parameter functions here for
         // your own custom services (option 6 and option 7)
