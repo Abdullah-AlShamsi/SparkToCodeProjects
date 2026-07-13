@@ -206,7 +206,11 @@
                 }
             }
 
-           
+            void ViewAccountDetails()
+            {
+                BankAccount chooses = ChooseBankAccount();
+                chooses.CheckBalance();
+            }
 
 
 
@@ -250,7 +254,7 @@
 
                 switch (choice)
                 {
-                    //            case 1: ViewAccountDetails(); break;
+                    case 1: ViewAccountDetails(); break;
                     //            case 2: UpdateStudentAddress(); break;
                     //            case 3: MakeDeposit(); break;
                     //            case 4: MakeWithdrawal(); break;
@@ -277,6 +281,10 @@
                         Console.WriteLine("Invalid option, please choose between 1 and 20.");
                         break;
                 }
+
+                Console.WriteLine("Press any key to clear");
+                Console.ReadKey();
+                Console.Clear();
 
             }
 
