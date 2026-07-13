@@ -408,6 +408,25 @@
                 }
             }
 
+            void AccountHealthStatus()
+            {
+                BankAccount chooses = ChooseBankAccount();
+                double balance = chooses.CheckBalance();
+                Console.Write("Account status: ");
+                if (balance < 50)
+                {
+                    Console.WriteLine("Low Balance");
+                }
+                else if (balance > 1000)
+                {
+                    Console.WriteLine("Premium");
+                }
+                else
+                {
+                    Console.WriteLine("Healthy");
+                }
+
+            }
 
             while (true)
             {
@@ -458,7 +477,7 @@
                     case 9: TransferBetweenAccounts(); break;
                     case 10: UpdateStudentGrade(); break;
                     case 11: StudentReportCard(); break;
-                    //            case 12: AccountHealthStatus(); break;
+                    case 12: AccountHealthStatus(); break;
                     //            case 13: BulkSaleWithRevenue(); break;
                     //            case 14: ScholarshipEligibilityCheck(); break;
                     //            case 15: FullBalanceTopUpFlow(); break;
