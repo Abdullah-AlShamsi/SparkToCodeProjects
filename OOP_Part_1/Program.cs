@@ -274,6 +274,26 @@
                 chooses.Register(email);
                 Console.WriteLine("Student registered successfully.");
             }
+            void CompareAccountBalances()
+            {
+                double balance1 = bankAccount1.Balance;
+                double balance2 = bankAccount2.Balance;
+
+                if (balance1 > balance2)
+                {
+                    bankAccount1.CheckBalance();
+                    Console.WriteLine("This account holds more money");
+                }
+                else if (balance1 < balance2)
+                {
+                    bankAccount2.CheckBalance();
+                    Console.WriteLine("This account holds more money");
+                }
+                else
+                {
+                    Console.WriteLine("Both accounts holds same amount of money");
+                }
+            }
 
 
             while (true)
@@ -320,7 +340,7 @@
                     case 4: MakeWithdrawal(); break;
                     case 5: ViewProductDetails(); break;
                     case 6: RegisterStudent(); break;
-                    //            case 7: CompareAccountBalances(); break;
+                    case 7: CompareAccountBalances(); break;
                     //            case 8: RestockProduct(); break;
                     //            case 9: TransferBetweenAccounts(); break;
                     //            case 10: UpdateStudentGrade(); break;
