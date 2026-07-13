@@ -214,9 +214,7 @@
 
 
 
-            bool exitApp = false;
-
-            while (exitApp == false)
+            while (true)
             {
                 Console.WriteLine("\n===== OOP Part 1 - Bank / Student / Product Manager =====");
                 Console.WriteLine(" 1. View Account Details");
@@ -273,10 +271,9 @@
                     //            case 17: TotalStudentsCounter(); break;
                     //            case 18: OverdrawnAccountCheck(); break;
                     //            case 19: SetStudentSecurityPin(); break;
-                    //            case 20:
-                    //                exitApp = true;
-                    //                Console.WriteLine("Goodbye!");
-                    //                break;
+                    case 20:
+                        Console.WriteLine("Goodbye!");
+                        return;
                     default:
                         Console.WriteLine("Invalid option, please choose between 1 and 20.");
                         break;
