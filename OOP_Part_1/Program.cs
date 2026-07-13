@@ -156,6 +156,57 @@
                 }
             }
 
+            Student ChooseStudent()
+            {
+                // ask user to Choose Student
+                while (true)
+                {
+
+                    Console.WriteLine("Pick one of the two Bank Accounts, enter 1 or 2");
+                    int num = int.Parse(Console.ReadLine());
+
+                    if (num == 1)
+                    {
+                        return student1;
+                    }
+                    else if (num == 2)
+                    {
+                        return student2;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Invalid input. Please enter 1 or 2.");
+                    }
+
+                }
+            }
+
+            Product ChooseProduct()
+            {
+                // ask user to Choose Product
+                while (true)
+                {
+
+                    Console.WriteLine("Pick one of the two Bank Accounts, enter 1 or 2");
+                    int num = int.Parse(Console.ReadLine());
+
+                    if (num == 1)
+                    {
+                        return product1;
+                    }
+                    else if (num == 2)
+                    {
+                        return product2;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Invalid input. Please enter 1 or 2.");
+                    }
+
+                }
+            }
+
+
 
             bool exitApp = false;
 
