@@ -318,7 +318,7 @@
                     }
                     else
                     {
-                        Console.WriteLine("Stock level: Well Stocked");
+                        Console.WriteLine("Stock level: Moderate");
                     }
 
                 }
