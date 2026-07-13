@@ -28,7 +28,7 @@
             }
             else
             {
-                Console.WriteLine("Withdraw amount must be a positive number.");
+                Console.WriteLine("Withdraw amount must be a positive number and must not exceed the account's balance.");
             }
         }
 
@@ -328,8 +328,69 @@
                 }
             }
 
+            void TransferBetweenAccounts()
+            {
+                // let user choose a source account
+                Console.Write("Choose Source account, ");
+                BankAccount sourceAccount = ChooseBankAccount();
 
-            while (true)
+                // let user choose a destination account
+                Console.Write("Choose Destination account, ");
+                BankAccount destinationAccount = ChooseBankAccount();
+
+                //ask user to enter transfer amount
+                Console.Write("Enter transfer amount: ");
+                try
+                {
+                    double amount = double.Parse(Console.ReadLine());
+                    
+                    if (amount <= sourceAccount.Balance && amount>0)
+                    {
+                        Console.Write("Source account, ");
+                        sourceAccount.Withdraw(amount);
+
+                        Console.Write("Destination account, ");
+                        destinationAccount.Deposit(amount);
+                    }
+                    else
+                    {
+                        Console.WriteLine("Transfer amount must be positive and must not exceed the source account's balance.");
+                    }
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine("Invalid Input.");
+                }
+            }
+
+            void UpdateStudentGrade()
+            {
+                Student chooses = ChooseStudent();
+
+                // ask user to enter a new grade
+                Console.Write("Enter a new grade: ");
+
+                try
+                {
+                    int grade = int.Parse(Console.ReadLine());
+
+                    if (grade >= 0 && grade <= 100)
+                    {
+                        chooses.Grade = grade;
+                    }
+                    else
+                    {
+                        throw new Exception();
+                    }
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine("The update rejected. Grade must be integer (0-100).");
+                }
+            }
+
+
+                while (true)
             {
                 Console.WriteLine("\n===== OOP Part 1 - Bank / Student / Product Manager =====");
                 Console.WriteLine(" 1. View Account Details");
@@ -375,8 +436,8 @@
                     case 6: RegisterStudent(); break;
                     case 7: CompareAccountBalances(); break;
                     case 8: RestockProduct(); break;
-                    //            case 9: TransferBetweenAccounts(); break;
-                    //            case 10: UpdateStudentGrade(); break;
+                    case 9: TransferBetweenAccounts(); break;
+                    case 10: UpdateStudentGrade(); break;
                     //            case 11: StudentReportCard(); break;
                     //            case 12: AccountHealthStatus(); break;
                     //            case 13: BulkSaleWithRevenue(); break;
