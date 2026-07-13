@@ -389,8 +389,27 @@
                 }
             }
 
+            
+            void StudentReportCard()
+            {
+                Student chooses = ChooseStudent();
+                Console.WriteLine("Student Name: " + chooses.Name);
+                Console.WriteLine("Student Address: " + chooses.Address);
+                Console.WriteLine("Student Grade: " + chooses.Grade);
 
-                while (true)
+                Console.Write("Pass/Fail: ");
+                if (chooses.Grade >= 60)
+                {
+                    Console.WriteLine("Pass");
+                }
+                else
+                {
+                    Console.WriteLine("Fail");
+                }
+            }
+
+
+            while (true)
             {
                 Console.WriteLine("\n===== OOP Part 1 - Bank / Student / Product Manager =====");
                 Console.WriteLine(" 1. View Account Details");
@@ -438,7 +457,7 @@
                     case 8: RestockProduct(); break;
                     case 9: TransferBetweenAccounts(); break;
                     case 10: UpdateStudentGrade(); break;
-                    //            case 11: StudentReportCard(); break;
+                    case 11: StudentReportCard(); break;
                     //            case 12: AccountHealthStatus(); break;
                     //            case 13: BulkSaleWithRevenue(); break;
                     //            case 14: ScholarshipEligibilityCheck(); break;
