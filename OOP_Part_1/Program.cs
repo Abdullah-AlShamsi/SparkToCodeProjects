@@ -138,13 +138,13 @@
                 {
 
                     Console.WriteLine("Pick one of the two Bank Accounts, enter 1 or 2");
-                    int num = int.Parse(Console.ReadLine());
+                    string chooses = Console.ReadLine();
 
-                    if (num == 1)
+                    if (chooses == "1")
                     {
                         return bankAccount1;
                     }
-                    else if (num == 2) 
+                    else if (chooses == "2") 
                     {
                         return bankAccount2;
                     }
@@ -162,14 +162,14 @@
                 while (true)
                 {
 
-                    Console.WriteLine("Pick one of the two Bank Accounts, enter 1 or 2");
-                    int num = int.Parse(Console.ReadLine());
+                    Console.WriteLine("Pick one of the two students, enter 1 or 2");
+                    string chooses = Console.ReadLine();
 
-                    if (num == 1)
+                    if (chooses == "1")
                     {
                         return student1;
                     }
-                    else if (num == 2)
+                    else if (chooses == "2")
                     {
                         return student2;
                     }
@@ -187,14 +187,14 @@
                 while (true)
                 {
 
-                    Console.WriteLine("Pick one of the two Bank Accounts, enter 1 or 2");
-                    int num = int.Parse(Console.ReadLine());
+                    Console.WriteLine("Pick one of the two product, enter 1 or 2");
+                    string chooses = Console.ReadLine();
 
-                    if (num == 1)
+                    if (chooses == "1")
                     {
                         return product1;
                     }
-                    else if (num == 2)
+                    else if (chooses == "2")
                     {
                         return product2;
                     }
@@ -205,6 +205,8 @@
 
                 }
             }
+
+           
 
 
 
