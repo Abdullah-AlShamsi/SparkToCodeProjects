@@ -240,6 +240,24 @@
                 }
             }
 
+            void MakeWithdrawal()
+            {
+                BankAccount chooses = ChooseBankAccount();
+
+                //ask user to enter withdraw amount
+                Console.Write("Enter withdraw amount: ");
+                try
+                {
+                    double amount = double.Parse(Console.ReadLine());
+                    chooses.Withdraw(amount);
+                    chooses.CheckBalance();
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine("Invalid amount entered.");
+                }
+            }
+
 
 
             while (true)
@@ -283,7 +301,7 @@
                     case 1: ViewAccountDetails(); break;
                     case 2: UpdateStudentAddress(); break;
                     case 3: MakeDeposit(); break;
-                    //            case 4: MakeWithdrawal(); break;
+                    case 4: MakeWithdrawal(); break;
                     //            case 5: ViewProductDetails(); break;
                     //            case 6: RegisterStudent(); break;
                     //            case 7: CompareAccountBalances(); break;
