@@ -236,7 +236,7 @@
                 }
                 catch(Exception)
                 {
-                    Console.WriteLine("Invalid amount entered.");
+                    Console.WriteLine("Invalid Input");
                 }
             }
 
@@ -254,8 +254,15 @@
                 }
                 catch (Exception)
                 {
-                    Console.WriteLine("Invalid amount entered.");
+                    Console.WriteLine("Invalid Input.");
                 }
+            }
+
+            void ViewProductDetails()
+            {
+                Product chooses = ChooseProduct();
+                double total = chooses.GetInventoryValue();
+                Console.WriteLine("Total Inventory Value: " + total);
             }
 
 
@@ -302,7 +309,7 @@
                     case 2: UpdateStudentAddress(); break;
                     case 3: MakeDeposit(); break;
                     case 4: MakeWithdrawal(); break;
-                    //            case 5: ViewProductDetails(); break;
+                    case 5: ViewProductDetails(); break;
                     //            case 6: RegisterStudent(); break;
                     //            case 7: CompareAccountBalances(); break;
                     //            case 8: RestockProduct(); break;
