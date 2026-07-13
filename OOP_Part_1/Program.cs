@@ -38,17 +38,38 @@
             return Balance;
         }
 
-        void PrintInformation()
+        private void PrintInformation()
         {
             Console.WriteLine("Account Holder Name: " + HolderName);
             Console.WriteLine("Account balance: " + Balance);
         }
 
-        void SendEmail()
+        private void SendEmail()
         {
             Console.WriteLine("Operation successful, account balance now:" + Balance);
         }
 
+    }
+
+    class Student
+    {
+        public int Grade { get; set; }
+        public string Name { get; set; }
+        public string Address { get; set; }
+        private string email;
+        int age;
+
+
+        public void Register(string Email)
+        {
+            email = Email;
+            SendEmail();
+        }
+
+        private void SendEmail()
+        {
+            Console.WriteLine("Operation successful");
+        }
     }
     internal class Program
     {
