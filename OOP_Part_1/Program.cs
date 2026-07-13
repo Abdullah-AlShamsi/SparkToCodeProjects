@@ -212,6 +212,16 @@
                 chooses.CheckBalance();
             }
 
+            void UpdateStudentAddress()
+            {
+                Student chooses = ChooseStudent();
+                Console.WriteLine("Enter new address: ");
+                string address = Console.ReadLine();
+                chooses.Address = address;
+
+                Console.WriteLine("The Update Student Address Successful, The new address: " + chooses.Address);
+            }
+
 
 
             while (true)
@@ -253,7 +263,7 @@
                 switch (choice)
                 {
                     case 1: ViewAccountDetails(); break;
-                    //            case 2: UpdateStudentAddress(); break;
+                    case 2: UpdateStudentAddress(); break;
                     //            case 3: MakeDeposit(); break;
                     //            case 4: MakeWithdrawal(); break;
                     //            case 5: ViewProductDetails(); break;
