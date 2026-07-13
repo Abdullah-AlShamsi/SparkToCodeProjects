@@ -291,7 +291,40 @@
                 }
                 else
                 {
-                    Console.WriteLine("Both accounts holds same amount of money");
+                    Console.WriteLine("Both accounts hold same amount of money");
+                }
+            }
+
+            void RestockProduct()
+            {
+                Product chooses = ChooseProduct();
+
+                //ask user to enter a quantity to add
+                Console.Write("Enter a quantity to add: ");
+                try
+                {
+                    int quantity = int.Parse(Console.ReadLine());
+                    chooses.Restock(quantity);
+
+                    int stockQuantity = chooses.StockQuantity;
+
+                    if (stockQuantity < 10)
+                    {
+                        Console.WriteLine("Stock level: Low");
+                    }
+                    else if (stockQuantity >= 50)
+                    {
+                        Console.WriteLine("Stock level: Well Stocked");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Stock level: Well Stocked");
+                    }
+
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine("Invalid Input.");
                 }
             }
 
@@ -341,7 +374,7 @@
                     case 5: ViewProductDetails(); break;
                     case 6: RegisterStudent(); break;
                     case 7: CompareAccountBalances(); break;
-                    //            case 8: RestockProduct(); break;
+                    case 8: RestockProduct(); break;
                     //            case 9: TransferBetweenAccounts(); break;
                     //            case 10: UpdateStudentGrade(); break;
                     //            case 11: StudentReportCard(); break;
