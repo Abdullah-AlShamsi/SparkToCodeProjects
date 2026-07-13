@@ -519,10 +519,10 @@
                 Console.WriteLine("13. Bulk Sale With Revenue Calculation");
                 Console.WriteLine("14. Scholarship Eligibility Check");
                 Console.WriteLine("15. Full Balance Top-Up Flow");
-                Console.WriteLine("16. Quick Account Opening (Parameterized Constructor)");
-                Console.WriteLine("17. Total Students Counter (Static Field & Method)");
-                Console.WriteLine("18. Overdrawn Account Check (Read-Only Property)");
-                Console.WriteLine("19. Set Student Security PIN (Write-Only Property)");
+                //Console.WriteLine("16. Quick Account Opening (Parameterized Constructor)");
+                //Console.WriteLine("17. Total Students Counter (Static Field & Method)");
+                //Console.WriteLine("18. Overdrawn Account Check (Read-Only Property)");
+                //Console.WriteLine("19. Set Student Security PIN (Write-Only Property)");
                 Console.WriteLine("20. Exit");
                 Console.Write("Choose an option: ");
 
