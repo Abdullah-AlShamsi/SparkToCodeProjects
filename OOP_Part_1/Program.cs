@@ -71,6 +71,52 @@
             Console.WriteLine("Operation successful");
         }
     }
+
+    class Product
+    {
+        public string ProductName { get; set; }
+        public double Price { get; set; }
+        public int StockQuantity { get; set; }
+
+        public void Sell(int quantity)
+        {
+            if (quantity <= StockQuantity)
+            {
+                StockQuantity -= quantity;
+            }
+            else
+            {
+                Console.WriteLine("Not enough stock");
+            }
+            LogTransaction();
+        }
+
+        public void Restock(int quantity)
+        {
+            StockQuantity += quantity;
+            LogTransaction();
+        }
+
+        public double GetInventoryValue()
+        {
+            PrintDetails();
+
+            return Price*StockQuantity;
+        }
+
+        private void PrintDetails()
+        {
+            Console.WriteLine("Product Name:" + ProductName);
+            Console.WriteLine("Product Price:" + Price);
+            Console.WriteLine("Product stock quantity:" + StockQuantity);
+        }
+        private void LogTransaction()
+        {
+            Console.WriteLine("Transaction Logged");
+        }
+    }
+
+
     internal class Program
     {
         static void Main(string[] args)
