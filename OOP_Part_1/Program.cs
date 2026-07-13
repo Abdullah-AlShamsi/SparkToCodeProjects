@@ -428,6 +428,62 @@
 
             }
 
+            void BulkSaleWithRevenue()
+            {
+                Product chooses = ChooseProduct();
+
+                //ask user to enter a quantity to sell.
+                Console.Write("Enter a quantity to sell: ");
+                try
+                {
+                    int quantity = int.Parse(Console.ReadLine());
+                    if (quantity <= 0)
+                    {
+                        throw new Exception();
+                    }
+
+                    if (quantity <= chooses.StockQuantity)
+                    {
+                        chooses.Sell(quantity);
+                        double revenue = chooses.Price * quantity;
+                        Console.WriteLine("Total Revenue: " + revenue);
+                    }
+                    else
+                    {
+                        int needed = quantity - chooses.StockQuantity;
+                        Console.WriteLine("need " + needed + " additional units to fulfill");
+                    }
+
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine("Invalid Input.");
+                }
+            }
+
+            void ScholarshipEligibilityCheck()
+            {
+                Student studentChooses = ChooseStudent();
+                BankAccount bankChooses = ChooseBankAccount();
+
+                if (studentChooses.Grade < 80 && bankChooses.Balance < 100)
+                {
+                    Console.WriteLine("Not Eligible, grade less than 80 and balance less than 100");
+                }
+                else if (studentChooses.Grade < 80)
+                {
+                    Console.WriteLine("Not Eligible, grade less than 80");
+                }
+                else if (bankChooses.Balance < 100)
+                {
+                    Console.WriteLine("Not Eligible, balance less than 100");
+                }
+                else  
+                {
+                    Console.WriteLine("Eligible");
+                }
+            }
+
             while (true)
             {
                 Console.WriteLine("\n===== OOP Part 1 - Bank / Student / Product Manager =====");
@@ -478,8 +534,8 @@
                     case 10: UpdateStudentGrade(); break;
                     case 11: StudentReportCard(); break;
                     case 12: AccountHealthStatus(); break;
-                    //            case 13: BulkSaleWithRevenue(); break;
-                    //            case 14: ScholarshipEligibilityCheck(); break;
+                    case 13: BulkSaleWithRevenue(); break;
+                    case 14: ScholarshipEligibilityCheck(); break;
                     //            case 15: FullBalanceTopUpFlow(); break;
                     //            case 16: QuickAccountOpening(); break;
                     //            case 17: TotalStudentsCounter(); break;
