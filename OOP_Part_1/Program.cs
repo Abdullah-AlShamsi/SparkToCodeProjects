@@ -86,7 +86,7 @@
             }
             else
             {
-                Console.WriteLine("Not enough stock");
+                Console.WriteLine("Not enough stock available.");
             }
             LogTransaction();
         }
@@ -121,7 +121,39 @@
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
+            BankAccount bankAccount1 = new BankAccount();
+            bankAccount1.AccountNumber = 1163;
+            bankAccount1.HolderName = "karim";
+            bankAccount1.Balance = 120;
+
+            BankAccount bankAccount2 = new BankAccount();
+            bankAccount2.AccountNumber = 15203;
+            bankAccount2.HolderName = "Ali";
+            bankAccount2.Balance = 63;
+
+
+            Student student1 = new Student();
+            student1.Name = "Ali";
+            student1.Address = "Muscat";
+            student1.Grade = 65;
+
+            Student student2 = new Student();
+            student2.Name = "Ahmed";
+            student2.Address = "Muscat";
+            student2.Grade = 70;
+
+
+            Product product1 = new Product();
+            product1.ProductName = "Wireless Mouse";
+            product1.Price = 5.500;
+            product1.StockQuantity = 50;
+
+            Product product2 = new Product();
+            product2.ProductName = "Mechanical Keyboard";
+            product2.Price = 15.750;
+            product2.StockQuantity = 20;
+
+
         }
     }
 }
