@@ -484,6 +484,23 @@
                 }
             }
 
+            void FullBalanceTopUpFlow()
+            {
+                BankAccount chooses = ChooseBankAccount();
+                double balance = chooses.Balance;
+                Console.WriteLine("Balance before top-up: " + balance);
+                if (balance < 50)
+                {
+                    double amountNeeded = 100 - balance;
+                    chooses.Deposit(amountNeeded);
+                    Console.WriteLine("Balance after top-up: " + chooses.Balance);
+                }
+                else
+                {
+                    Console.WriteLine("No top-up is needed.");
+                }
+            }
+
             while (true)
             {
                 Console.WriteLine("\n===== OOP Part 1 - Bank / Student / Product Manager =====");
@@ -536,7 +553,7 @@
                     case 12: AccountHealthStatus(); break;
                     case 13: BulkSaleWithRevenue(); break;
                     case 14: ScholarshipEligibilityCheck(); break;
-                    //            case 15: FullBalanceTopUpFlow(); break;
+                    case 15: FullBalanceTopUpFlow(); break;
                     //            case 16: QuickAccountOpening(); break;
                     //            case 17: TotalStudentsCounter(); break;
                     //            case 18: OverdrawnAccountCheck(); break;
