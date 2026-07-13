@@ -46,7 +46,7 @@
 
         private void SendEmail()
         {
-            Console.WriteLine("Operation successful, account balance now:" + Balance);
+            Console.WriteLine("Operation successful, account balance now: " + Balance);
         }
 
     }
@@ -106,9 +106,9 @@
 
         private void PrintDetails()
         {
-            Console.WriteLine("Product Name:" + ProductName);
-            Console.WriteLine("Product Price:" + Price);
-            Console.WriteLine("Product stock quantity:" + StockQuantity);
+            Console.WriteLine("Product Name: " + ProductName);
+            Console.WriteLine("Product Price: " + Price);
+            Console.WriteLine("Product stock quantity: " + StockQuantity);
         }
         private void LogTransaction()
         {
@@ -137,7 +137,7 @@
                 while(true)
                 {
 
-                    Console.WriteLine("Pick one of the two Bank Accounts, enter 1 or 2");
+                    Console.Write("Pick one of the two Bank Accounts, enter 1 or 2: ");
                     string chooses = Console.ReadLine();
 
                     if (chooses == "1")
@@ -162,7 +162,7 @@
                 while (true)
                 {
 
-                    Console.WriteLine("Pick one of the two students, enter 1 or 2");
+                    Console.Write("Pick one of the two students, enter 1 or 2: ");
                     string chooses = Console.ReadLine();
 
                     if (chooses == "1")
@@ -187,7 +187,7 @@
                 while (true)
                 {
 
-                    Console.WriteLine("Pick one of the two product, enter 1 or 2");
+                    Console.Write("Pick one of the two product, enter 1 or 2: ");
                     string chooses = Console.ReadLine();
 
                     if (chooses == "1")
@@ -215,11 +215,29 @@
             void UpdateStudentAddress()
             {
                 Student chooses = ChooseStudent();
-                Console.WriteLine("Enter new address: ");
+                Console.Write("Enter new address: ");
                 string address = Console.ReadLine();
                 chooses.Address = address;
 
                 Console.WriteLine("The Update Student Address Successful, The new address: " + chooses.Address);
+            }
+
+            void MakeDeposit()
+            {
+                BankAccount chooses = ChooseBankAccount();
+
+                //ask user to enter deposit amount
+                Console.Write("Enter deposit amount: ");
+                try
+                {
+                    double amount = double.Parse(Console.ReadLine());
+                    chooses.Deposit(amount);
+                    chooses.CheckBalance();
+                }
+                catch(Exception)
+                {
+                    Console.WriteLine("Invalid amount entered.");
+                }
             }
 
 
@@ -264,7 +282,7 @@
                 {
                     case 1: ViewAccountDetails(); break;
                     case 2: UpdateStudentAddress(); break;
-                    //            case 3: MakeDeposit(); break;
+                    case 3: MakeDeposit(); break;
                     //            case 4: MakeWithdrawal(); break;
                     //            case 5: ViewProductDetails(); break;
                     //            case 6: RegisterStudent(); break;
