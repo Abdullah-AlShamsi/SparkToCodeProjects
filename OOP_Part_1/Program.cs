@@ -61,7 +61,6 @@
         {
             get { return Balance < 0; } 
         }
-
     }
 
     class Student
@@ -71,6 +70,8 @@
         public string Address { get; set; }
         private string email;
         int age;
+
+        private int pin;
 
         public static int count;
 
@@ -93,6 +94,11 @@
         public static int Counter()
         {
             return count;
+        }
+
+        public int PIN
+        {
+            set { pin = value; }
         }
     }
 
@@ -570,6 +576,32 @@
                     Console.WriteLine("This account is not overdrawn.");
                 }
             }
+            void SetStudentSecurityPin()
+            { 
+                try
+                {
+                    Student chooses = ChooseStudent();
+                    //ask user to enter PIN
+                    Console.Write("Enter 4-digit PIN: ");
+                    int pin = int.Parse(Console.ReadLine());
+
+                    if(pin >= 1000 && pin <= 9999)
+                    {
+                        chooses.PIN = pin;
+                        Console.WriteLine("The PIN code was successfully added.");
+                    }
+                    else
+                    {
+                        Console.WriteLine("PIN must be exactly 4 digits.");
+                    }
+                }
+
+                catch (Exception)
+                {
+                    Console.WriteLine("Invalid Input.");
+                }
+
+            }
 
             while (true)
             {
@@ -592,7 +624,7 @@
                 Console.WriteLine("16. Quick Account Opening (Parameterized Constructor)");
                 Console.WriteLine("17. Total Students Counter (Static Field & Method)");
                 Console.WriteLine("18. Overdrawn Account Check (Read-Only Property)");
-                //Console.WriteLine("19. Set Student Security PIN (Write-Only Property)");
+                Console.WriteLine("19. Set Student Security PIN (Write-Only Property)");
                 Console.WriteLine("20. Exit");
                 Console.Write("Choose an option: ");
 
@@ -627,7 +659,7 @@
                     case 16: QuickAccountOpening(); break;
                     case 17: TotalStudentsCounter(); break;
                     case 18: OverdrawnAccountCheck(); break;
-                    //            case 19: SetStudentSecurityPin(); break;
+                    case 19: SetStudentSecurityPin(); break;
                     case 20:
                         Console.WriteLine("Goodbye!");
                         return;
