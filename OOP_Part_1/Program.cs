@@ -57,6 +57,11 @@
             Console.WriteLine("Operation successful, account balance now: " + Balance);
         }
 
+        public bool IS_Overdrawn
+        {
+            get { return Balance < 0; } 
+        }
+
     }
 
     class Student
@@ -551,6 +556,21 @@
                 Console.WriteLine("Total Students: " + count);
             }
 
+            void OverdrawnAccountCheck()
+            {
+                BankAccount chooses = ChooseBankAccount();
+                bool isOverdrawn = chooses.IS_Overdrawn;
+
+                if (isOverdrawn)
+                {
+                    Console.WriteLine("This account is overdrawn.");
+                }
+                else
+                {
+                    Console.WriteLine("This account is not overdrawn.");
+                }
+            }
+
             while (true)
             {
                 Console.WriteLine("\n===== OOP Part 1 - Bank / Student / Product Manager =====");
@@ -571,7 +591,7 @@
                 Console.WriteLine("15. Full Balance Top-Up Flow");
                 Console.WriteLine("16. Quick Account Opening (Parameterized Constructor)");
                 Console.WriteLine("17. Total Students Counter (Static Field & Method)");
-                //Console.WriteLine("18. Overdrawn Account Check (Read-Only Property)");
+                Console.WriteLine("18. Overdrawn Account Check (Read-Only Property)");
                 //Console.WriteLine("19. Set Student Security PIN (Write-Only Property)");
                 Console.WriteLine("20. Exit");
                 Console.Write("Choose an option: ");
@@ -606,7 +626,7 @@
                     case 15: FullBalanceTopUpFlow(); break;
                     case 16: QuickAccountOpening(); break;
                     case 17: TotalStudentsCounter(); break;
-                    //            case 18: OverdrawnAccountCheck(); break;
+                    case 18: OverdrawnAccountCheck(); break;
                     //            case 19: SetStudentSecurityPin(); break;
                     case 20:
                         Console.WriteLine("Goodbye!");
