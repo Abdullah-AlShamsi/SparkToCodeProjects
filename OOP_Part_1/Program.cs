@@ -6,6 +6,14 @@
         public string HolderName { get; set; }
         public double Balance { get; set; }
 
+        //Parameterized Constructor
+        public BankAccount(int accountNumber, string holderName, double balance)
+        {
+            AccountNumber = accountNumber;
+            HolderName = holderName;
+            Balance = balance;
+        }
+
         public void Deposit(double amount)
         {
             if (amount > 0)
@@ -49,6 +57,10 @@
             Console.WriteLine("Operation successful, account balance now: " + Balance);
         }
 
+        public bool IS_Overdrawn
+        {
+            get { return Balance < 0; } 
+        }
     }
 
     class Student
@@ -59,6 +71,14 @@
         private string email;
         int age;
 
+        private int pin;
+
+        public static int count;
+
+        public Student()
+        {
+            count++;
+        }
 
         public void Register(string Email)
         {
@@ -69,6 +89,16 @@
         private void SendEmail()
         {
             Console.WriteLine("Operation successful");
+        }
+
+        public static int Counter()
+        {
+            return count;
+        }
+
+        public int PIN
+        {
+            set { pin = value; }
         }
     }
 
@@ -121,8 +151,8 @@
     {
         static void Main(string[] args)
         {
-            BankAccount bankAccount1 = new BankAccount{ AccountNumber = 1163, HolderName = "karim" , Balance = 120 };
-            BankAccount bankAccount2 = new BankAccount { AccountNumber = 15203, HolderName = "Ali", Balance = 63 };
+            BankAccount bankAccount1 = new BankAccount(1163,"karim",120 );
+            BankAccount bankAccount2 = new BankAccount (15203,"Ali",63 );
 
 
             Student student1 = new Student { Name = "Ali", Address = "Muscat", Grade = 65 };
@@ -501,6 +531,78 @@
                 }
             }
 
+            void QuickAccountOpening()
+            {
+                try
+                {
+                    //ask user to enter BankAccount details.
+                    Console.Write("Enter account number: ");
+                    int accountNumber = int.Parse(Console.ReadLine());
+
+                    Console.Write("Enter holder name: ");
+                    string holderName = Console.ReadLine();
+
+                    Console.Write("Enter account balance: ");
+                    double balance = double.Parse(Console.ReadLine());
+
+                    BankAccount newBankAccount = new BankAccount(accountNumber, holderName, balance);
+
+                    newBankAccount.CheckBalance();
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine("Invalid Input.");
+                }
+
+            }
+            void TotalStudentsCounter()
+            {
+                int count = Student.Counter();
+
+                Console.WriteLine("Total Students: " + count);
+            }
+
+            void OverdrawnAccountCheck()
+            {
+                BankAccount chooses = ChooseBankAccount();
+                bool isOverdrawn = chooses.IS_Overdrawn;
+
+                if (isOverdrawn)
+                {
+                    Console.WriteLine("This account is overdrawn.");
+                }
+                else
+                {
+                    Console.WriteLine("This account is not overdrawn.");
+                }
+            }
+            void SetStudentSecurityPin()
+            { 
+                try
+                {
+                    Student chooses = ChooseStudent();
+                    //ask user to enter PIN
+                    Console.Write("Enter 4-digit PIN: ");
+                    int pin = int.Parse(Console.ReadLine());
+
+                    if(pin >= 1000 && pin <= 9999)
+                    {
+                        chooses.PIN = pin;
+                        Console.WriteLine("The PIN code was successfully added.");
+                    }
+                    else
+                    {
+                        Console.WriteLine("PIN must be exactly 4 digits.");
+                    }
+                }
+
+                catch (Exception)
+                {
+                    Console.WriteLine("Invalid Input.");
+                }
+
+            }
+
             while (true)
             {
                 Console.WriteLine("\n===== OOP Part 1 - Bank / Student / Product Manager =====");
@@ -519,10 +621,10 @@
                 Console.WriteLine("13. Bulk Sale With Revenue Calculation");
                 Console.WriteLine("14. Scholarship Eligibility Check");
                 Console.WriteLine("15. Full Balance Top-Up Flow");
-                //Console.WriteLine("16. Quick Account Opening (Parameterized Constructor)");
-                //Console.WriteLine("17. Total Students Counter (Static Field & Method)");
-                //Console.WriteLine("18. Overdrawn Account Check (Read-Only Property)");
-                //Console.WriteLine("19. Set Student Security PIN (Write-Only Property)");
+                Console.WriteLine("16. Quick Account Opening (Parameterized Constructor)");
+                Console.WriteLine("17. Total Students Counter (Static Field & Method)");
+                Console.WriteLine("18. Overdrawn Account Check (Read-Only Property)");
+                Console.WriteLine("19. Set Student Security PIN (Write-Only Property)");
                 Console.WriteLine("20. Exit");
                 Console.Write("Choose an option: ");
 
@@ -554,10 +656,10 @@
                     case 13: BulkSaleWithRevenue(); break;
                     case 14: ScholarshipEligibilityCheck(); break;
                     case 15: FullBalanceTopUpFlow(); break;
-                    //            case 16: QuickAccountOpening(); break;
-                    //            case 17: TotalStudentsCounter(); break;
-                    //            case 18: OverdrawnAccountCheck(); break;
-                    //            case 19: SetStudentSecurityPin(); break;
+                    case 16: QuickAccountOpening(); break;
+                    case 17: TotalStudentsCounter(); break;
+                    case 18: OverdrawnAccountCheck(); break;
+                    case 19: SetStudentSecurityPin(); break;
                     case 20:
                         Console.WriteLine("Goodbye!");
                         return;
