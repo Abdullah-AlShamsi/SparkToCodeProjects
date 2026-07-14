@@ -6,6 +6,14 @@
         public string HolderName { get; set; }
         public double Balance { get; set; }
 
+        //Parameterized Constructor
+        public BankAccount(int accountNumber, string holderName, double balance)
+        {
+            AccountNumber = accountNumber;
+            HolderName = holderName;
+            Balance = balance;
+        }
+
         public void Deposit(double amount)
         {
             if (amount > 0)
@@ -121,8 +129,8 @@
     {
         static void Main(string[] args)
         {
-            BankAccount bankAccount1 = new BankAccount{ AccountNumber = 1163, HolderName = "karim" , Balance = 120 };
-            BankAccount bankAccount2 = new BankAccount { AccountNumber = 15203, HolderName = "Ali", Balance = 63 };
+            BankAccount bankAccount1 = new BankAccount(1163,"karim",120 );
+            BankAccount bankAccount2 = new BankAccount (15203,"Ali",63 );
 
 
             Student student1 = new Student { Name = "Ali", Address = "Muscat", Grade = 65 };
@@ -501,6 +509,31 @@
                 }
             }
 
+            void QuickAccountOpening()
+            {
+                try
+                {
+                    //ask user to enter BankAccount details.
+                    Console.Write("Enter account number: ");
+                    int accountNumber = int.Parse(Console.ReadLine());
+
+                    Console.Write("Enter holder name: ");
+                    string holderName = Console.ReadLine();
+
+                    Console.Write("Enter account balance: ");
+                    double balance = double.Parse(Console.ReadLine());
+
+                    BankAccount newBankAccount = new BankAccount(accountNumber, holderName, balance);
+
+                    newBankAccount.CheckBalance();
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine("Invalid Input.");
+                }
+
+            }
+
             while (true)
             {
                 Console.WriteLine("\n===== OOP Part 1 - Bank / Student / Product Manager =====");
@@ -519,7 +552,7 @@
                 Console.WriteLine("13. Bulk Sale With Revenue Calculation");
                 Console.WriteLine("14. Scholarship Eligibility Check");
                 Console.WriteLine("15. Full Balance Top-Up Flow");
-                //Console.WriteLine("16. Quick Account Opening (Parameterized Constructor)");
+                Console.WriteLine("16. Quick Account Opening (Parameterized Constructor)");
                 //Console.WriteLine("17. Total Students Counter (Static Field & Method)");
                 //Console.WriteLine("18. Overdrawn Account Check (Read-Only Property)");
                 //Console.WriteLine("19. Set Student Security PIN (Write-Only Property)");
@@ -554,7 +587,7 @@
                     case 13: BulkSaleWithRevenue(); break;
                     case 14: ScholarshipEligibilityCheck(); break;
                     case 15: FullBalanceTopUpFlow(); break;
-                    //            case 16: QuickAccountOpening(); break;
+                    case 16: QuickAccountOpening(); break;
                     //            case 17: TotalStudentsCounter(); break;
                     //            case 18: OverdrawnAccountCheck(); break;
                     //            case 19: SetStudentSecurityPin(); break;
