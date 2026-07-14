@@ -67,6 +67,12 @@
         private string email;
         int age;
 
+        public static int count;
+
+        public Student()
+        {
+            count++;
+        }
 
         public void Register(string Email)
         {
@@ -77,6 +83,11 @@
         private void SendEmail()
         {
             Console.WriteLine("Operation successful");
+        }
+
+        public static int Counter()
+        {
+            return count;
         }
     }
 
@@ -533,6 +544,12 @@
                 }
 
             }
+            void TotalStudentsCounter()
+            {
+                int count = Student.Counter();
+
+                Console.WriteLine("Total Students: " + count);
+            }
 
             while (true)
             {
@@ -553,7 +570,7 @@
                 Console.WriteLine("14. Scholarship Eligibility Check");
                 Console.WriteLine("15. Full Balance Top-Up Flow");
                 Console.WriteLine("16. Quick Account Opening (Parameterized Constructor)");
-                //Console.WriteLine("17. Total Students Counter (Static Field & Method)");
+                Console.WriteLine("17. Total Students Counter (Static Field & Method)");
                 //Console.WriteLine("18. Overdrawn Account Check (Read-Only Property)");
                 //Console.WriteLine("19. Set Student Security PIN (Write-Only Property)");
                 Console.WriteLine("20. Exit");
@@ -588,7 +605,7 @@
                     case 14: ScholarshipEligibilityCheck(); break;
                     case 15: FullBalanceTopUpFlow(); break;
                     case 16: QuickAccountOpening(); break;
-                    //            case 17: TotalStudentsCounter(); break;
+                    case 17: TotalStudentsCounter(); break;
                     //            case 18: OverdrawnAccountCheck(); break;
                     //            case 19: SetStudentSecurityPin(); break;
                     case 20:
