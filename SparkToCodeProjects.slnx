@@ -1,4 +1,7 @@
 <Solution>
+  <Folder Name="/TS-OOP-01/">
+    <Project Path="HotelManagementSystem/HotelManagementSystem.csproj" Id="d6879f4b-9e30-49f3-b207-6e14cbd14b05" />
+  </Folder>
   <Project Path="BankingSystemApp/BankingSystemApp.csproj" Id="dc092974-f906-4464-ac4b-462f93325ef4" />
   <Project Path="C#_Task_part2/C#_Task_part2.csproj" Id="f56ee1f6-b474-4325-86a3-fdb50671e824" />
   <Project Path="C#_Task_part3/C#_Task_part3.csproj" Id="a1214ed7-a9ee-4179-bccf-88bc7d454c63" />
