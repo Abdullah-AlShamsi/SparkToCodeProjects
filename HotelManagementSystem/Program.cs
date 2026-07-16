@@ -19,7 +19,7 @@ namespace HotelManagementSystem
             rooms.Add(new Room("5", "Double", 30));
             rooms.Add(new Room("6", "Double", 30));
 
-
+            //Case 01 Add New Room
             void AddNewRoom()
             {
 
@@ -68,7 +68,46 @@ namespace HotelManagementSystem
                 }
                 catch (Exception)
                 {
-                    Console.WriteLine("Invalid Input. room number must be a positive integer, and price positive double.");
+                    Console.WriteLine("Invalid Input.");
+                }
+            }
+
+            //Case 02 Register New Guest
+            void RegisterNewGuest()
+            {
+
+                try
+                {
+                    // ask user to enter room number, room type (Single / Double / Suite), and price per night.
+                    Console.Write("Enter guest name: ");
+                    string guestName = Console.ReadLine();
+
+                    Console.Write("Enter check-in date (yyyy-MM-dd): ");
+                    DateTime checkInDate = DateTime.Parse(Console.ReadLine());
+
+                    Console.Write("Enter number of nights: ");
+                    int numberOfNights = int.Parse(Console.ReadLine());
+                    if (numberOfNights <= 0)
+                    {
+                        Console.WriteLine("Number of nights must be positive.");
+                        return;
+                    }
+
+                    string guestID = "G" + (guests.Count() + 1).ToString("D3");
+
+                    string roomNumber = "Not Assigned";
+
+                    guests.Add(new Guest(guestID, guestName, roomNumber, checkInDate, numberOfNights));
+
+                    Console.WriteLine("The guest was added successfully.");
+
+                    Console.WriteLine();
+                    guests.FirstOrDefault(g => g.guestId == guestID).displayGuest();
+
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine("Invalid Input. ");
                 }
 
 
@@ -96,6 +135,7 @@ namespace HotelManagementSystem
                 Console.WriteLine("15. Guest Pagination Viewer");
                 Console.WriteLine(" 0. Exit");
                 Console.WriteLine("================================================");
+                Console.WriteLine();
                 Console.Write("Enter your choice: ");
 
                 int choice;
@@ -106,6 +146,9 @@ namespace HotelManagementSystem
                 catch (Exception)
                 {
                     Console.WriteLine("Invalid input. Please enter a number from 1 to 15 or 0 to exit.");
+                    Console.WriteLine("Press any key to clear");
+                    Console.ReadKey();
+                    Console.Clear();
                     continue;
                 }
 
@@ -118,6 +161,10 @@ namespace HotelManagementSystem
                     case 1:
                         AddNewRoom();
                         break;
+
+                    case 2:
+                        RegisterNewGuest();
+                            break;
 
 
                     default:
