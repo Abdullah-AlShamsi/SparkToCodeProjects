@@ -184,8 +184,27 @@ namespace HotelManagementSystem
                     Console.WriteLine(line);
                 }
                 
+            }
 
-       
+            //Case 05 View All Guests
+            void ViewAllGuests()
+            {
+                int count = guests.Count();
+                if (count == 0)
+                {
+                    Console.WriteLine("No guests have been registered yet.");
+                    return;
+                }
+
+                var guestsInfo = guests.OrderBy(g => g.guestName)
+                    .Select(g => $"Guest ID: {g.guestId} | Guest name: {g.guestName} | Room number: {g.roomNumber} | Check-in date: {g.checkInDate.ToString("yyyy-MM-dd")} | Total nights: {g.totalNights}")
+                    .ToList();
+                Console.WriteLine("This hotel has " + count + " guests");
+                foreach (string line in guestsInfo)
+                {
+                    Console.WriteLine(line);
+                }
+
             }
 
             while (true)
@@ -247,6 +266,10 @@ namespace HotelManagementSystem
 
                     case 4:
                         ViewAllRooms();
+                        break;
+
+                    case 5:
+                        ViewAllGuests();
                         break;
 
                     default:
