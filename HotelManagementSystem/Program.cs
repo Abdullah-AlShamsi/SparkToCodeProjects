@@ -28,30 +28,43 @@ namespace HotelManagementSystem
                     // ask user to enter room number, room type (Single / Double / Suite), and price per night.
                     Console.Write("Enter room number: ");
                     string roomNum = Console.ReadLine();
+                    if (int.Parse(roomNum) <= 0)
+                    {
+                        Console.WriteLine("Room number must be positive.");
+                        return;
+                    }
+
                     Console.Write("Enter room type (Single / Double / Suite): ");
                     string roomType = Console.ReadLine();
+
+                    if (roomType.ToLower() != "single" && roomType.ToLower() != "double" && roomType.ToLower() != "suite")
+                    {
+                        Console.WriteLine("Room type must be (Single / Double / Suite)");
+                        return;
+                    }
                     Console.Write("Enter price per night: ");
                     double pricePerNight = double.Parse(Console.ReadLine());
-
-                    if(int.Parse(roomNum) <= 0 || pricePerNight <= 0)
+                    if (pricePerNight <= 0)
                     {
-                        throw new Exception();
+                        Console.WriteLine("Room price must be positive.");
+                        return;
                     }
+
                     Console.WriteLine("");
-                        if (rooms.Any(r => r.roomNumber == roomNum))
-                        {
-                            Console.WriteLine("This room number cannot be used as it is already exist.");
-                        }
-                        else
-                        {
-                            rooms.Add(new Room(roomNum, roomType, pricePerNight));
-                            Console.WriteLine("The room was added successfully.");
+                    if (rooms.Any(r => r.roomNumber == roomNum))
+                    {
+                        Console.WriteLine("This room number cannot be used as it is already exist.");
+                    }
+                    else
+                    {
+                        rooms.Add(new Room(roomNum, roomType, pricePerNight));
+                        Console.WriteLine("The room was added successfully.");
 
-                            int count = rooms.Count();
-                            rooms.FirstOrDefault(r => r.roomNumber == roomNum).displayRoom();
+                        int count = rooms.Count();
+                        rooms.FirstOrDefault(r => r.roomNumber == roomNum).displayRoom();
 
-                            Console.WriteLine("There are " + count + " rooms");
-                        }
+                        Console.WriteLine("There are " + count + " rooms");
+                    }
                 }
                 catch (Exception)
                 {
