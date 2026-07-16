@@ -165,6 +165,29 @@ namespace HotelManagementSystem
 
             }
 
+            //Case 04 View All Rooms
+            void ViewAllRooms()
+            {
+                int count = rooms.Count();
+                if (count == 0)
+                {
+                    Console.WriteLine("No rooms have been added yet.");
+                    return;
+                }
+
+                var roomInfo = rooms.OrderBy(r => int.Parse(r.roomNumber))
+                    .Select(r => $"Room number: {r.roomNumber} | Room type: {r.roomType} | Price per night: {r.pricePerNight} | Availability status {(r.isAvailable ? "Available" : "Booked")}")
+                    .ToList();
+                Console.WriteLine("This hotel has " + count + " rooms");
+                foreach (string line in roomInfo)
+                {
+                    Console.WriteLine(line);
+                }
+                
+
+       
+            }
+
             while (true)
             {
                 Console.WriteLine("================================================");
@@ -220,6 +243,10 @@ namespace HotelManagementSystem
 
                     case 3:
                         BookRoomForGuest();
+                        break;
+
+                    case 4:
+                        ViewAllRooms();
                         break;
 
                     default:
