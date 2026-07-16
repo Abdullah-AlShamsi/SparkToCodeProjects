@@ -113,6 +113,58 @@ namespace HotelManagementSystem
 
             }
 
+            //Case 03 Book a Room for a Guest
+            void BookRoomForGuest()
+            {
+                try
+                {
+                    Console.Write("Enter guest ID: ");
+                    string id = Console.ReadLine();
+                    Guest guest = guests.FirstOrDefault(g => g.guestId == id);
+                    if (guest == null)
+                    {
+                        Console.WriteLine("There is no guest with that ID");
+                        return;
+                    }
+
+                    Console.Write("Enter room number: ");
+                    string roomNum = Console.ReadLine();
+
+                    Room room = rooms.FirstOrDefault(r => r.roomNumber == roomNum);
+                    if (room == null)
+                    {
+                        Console.WriteLine("There is no room with that number");
+                        return;
+                    }
+
+                    if (!(room.isAvailable))
+                    {
+                        Console.WriteLine("Room is already booked.");
+                        return;
+                    }
+
+                    guest.roomNumber = room.roomNumber;
+
+                    room.isAvailable = false;
+
+                    Console.WriteLine("");
+
+                    guest.displayGuest();
+
+                    Console.WriteLine("Room type: " + room.roomType);
+                    Console.WriteLine("Price per night: " + room.pricePerNight.ToString("F2"));
+                    Console.WriteLine("Total cost: " + guest.calculateTotalCost(room).ToString("F2"));
+
+
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine("Invalid Input. ");
+                }
+
+
+            }
+
             while (true)
             {
                 Console.WriteLine("================================================");
@@ -166,6 +218,9 @@ namespace HotelManagementSystem
                         RegisterNewGuest();
                             break;
 
+                    case 3:
+                        BookRoomForGuest();
+                        break;
 
                     default:
                         Console.WriteLine("Invalid option, please choose between 1 to 15 or 0 to exit.");
