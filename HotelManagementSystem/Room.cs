@@ -6,18 +6,18 @@ namespace HotelManagementSystem
 {
     internal class Room
     {
-        public int roomNumber { get; set; }
+        public string roomNumber { get; set; }
         public string roomType { get; set; }
         public double pricePerNight { get; set; }
         public bool isAvailable { get; set; }
 
 
-        public Room(int number, string type, double price, bool availablity)
+        public Room(string number, string type, double price)
         {
             roomNumber = number;
             roomType = type;
             pricePerNight = price;
-            isAvailable = availablity;
+            isAvailable = true;
 
         }
 
