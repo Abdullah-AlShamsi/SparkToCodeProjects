@@ -461,6 +461,36 @@ namespace HotelManagementSystem
                 }
             }
 
+            //Case 09 Guest Lookup by Name
+            void GuestLookupByName()
+            {
+
+                Console.WriteLine("Enter a name or partial name: ");
+                string name = Console.ReadLine();
+
+                var Guests = guests.Where(g => g.guestName.ToLower().Contains(name.ToLower()))
+                    .Select(g => $"Guest ID: {g.guestId} | Guest name: {g.guestName} | Room number: {g.roomNumber}")
+                    .ToList();
+                int count = Guests.Count();
+                if(count == 0)
+                {
+                    Console.WriteLine("No guests matched that search.");
+                    return;
+                }
+
+                Console.WriteLine("There are " +count +" guests matched that search.");
+                foreach (string line in Guests)
+                {
+                    Console.WriteLine(line);
+                }
+            }
+
+
+            void RoomTypeBreakdownReport()
+            {
+                
+            }
+
             while (true)
             {
                 Console.WriteLine("================================================");
@@ -536,6 +566,14 @@ namespace HotelManagementSystem
 
                     case 8:
                         UpdateRoomPrice();
+                        break;
+
+                    case 9:
+                        GuestLookupByName();
+                        break;
+
+                    case 10:
+                        RoomTypeBreakdownReport();
                         break;
 
                     default:
