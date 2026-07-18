@@ -374,6 +374,7 @@ namespace HotelManagementSystem
                 }
             }
 
+            // Case 07 Guest & Booking Statistics 
             void GuestBookingStatistics()
             {
                 int totalGuests = guests.Count();
@@ -415,6 +416,48 @@ namespace HotelManagementSystem
                 foreach (string line in bookedGuests)
                 {
                     Console.WriteLine(line);
+                }
+            }
+
+
+            //Case 08 Update Room Price 
+
+            void UpdateRoomPrice()
+            {
+                try
+                {
+                    // ask user to enter room number, room type (Single / Double / Suite), and price per night.
+                    Console.Write("Enter room number: ");
+                    string roomNum = Console.ReadLine();
+                    if (int.Parse(roomNum) <= 0)
+                    {
+                        Console.WriteLine("Room number must be positive.");
+                        return;
+                    }
+                    Room room = rooms.FirstOrDefault(r => r.roomNumber == roomNum);
+                    if (room == null)
+                    {
+                        Console.WriteLine("There is no room with that number");
+                    }
+                    else
+                    {
+                        Console.Write("Enter new price per night: ");
+                        double newPricePerNight = double.Parse(Console.ReadLine());
+                        if (newPricePerNight <= 0)
+                        {
+                            Console.WriteLine("Room price must be positive.");
+                            return;
+                        }
+                        double oldPrice = room.pricePerNight;
+                        room.pricePerNight = newPricePerNight;
+                        Console.WriteLine("The price was updated successfully.");
+                        Console.WriteLine("The old price: " + oldPrice.ToString("F2"));
+                        Console.WriteLine("The new price: " + newPricePerNight.ToString("F2"));
+                    }
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine("Invalid Input.");
                 }
             }
 
@@ -489,6 +532,10 @@ namespace HotelManagementSystem
 
                     case 7:
                         GuestBookingStatistics();
+                        break;
+
+                    case 8:
+                        UpdateRoomPrice();
                         break;
 
                     default:
