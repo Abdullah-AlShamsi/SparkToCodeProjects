@@ -176,7 +176,7 @@ namespace HotelManagementSystem
                 }
 
                 var roomInfo = rooms.OrderBy(r => int.Parse(r.roomNumber))
-                    .Select(r => $"Room number: {r.roomNumber} | Room type: {r.roomType} | Price per night: {r.pricePerNight} | Availability status {(r.isAvailable ? "Available" : "Booked")}")
+                    .Select(r => $"Room number: {r.roomNumber} | Room type: {r.roomType} | Price per night: {r.pricePerNight} | Availability status: {(r.isAvailable ? "Available" : "Booked")}")
                     .ToList();
                 Console.WriteLine("This hotel has " + count + " rooms");
                 foreach (string line in roomInfo)
@@ -205,6 +205,217 @@ namespace HotelManagementSystem
                     Console.WriteLine(line);
                 }
 
+            }
+
+            // Case 06 Search & Filter Rooms
+            void AvailableRooms()
+            {
+                var availableRooms = rooms.OrderBy(r => r.pricePerNight)
+                                .Where(r => r.isAvailable)
+                                .Select(r => $"Room number: {r.roomNumber} | Room type: {r.roomType} | Price per night: {r.pricePerNight.ToString("F2")}")
+                                .ToList();
+
+                if (availableRooms.Count() == 0)
+                {
+                    Console.WriteLine("No rooms found for the selected criteria.");
+                    return;
+                }
+                Console.WriteLine("================================================================================================");
+                Console.WriteLine("This hotel has " + availableRooms.Count + " available rooms");
+                Console.WriteLine("================================================================================================");
+                foreach (string line in availableRooms)
+                {
+                    Console.WriteLine(line);
+                }
+                Console.WriteLine("================================================================================================");
+            }
+
+            void RoomsByType()
+            {
+                Console.Write("Enter room type (Single / Double / Suite): ");
+                string type = Console.ReadLine();
+
+                if (type.ToLower() != "single" && type.ToLower() != "double" && type.ToLower() != "suite")
+                {
+                    Console.WriteLine("Room type must be (Single / Double / Suite)");
+                    return;
+                }
+                var roomsInfo = rooms.OrderBy(r => r.pricePerNight)
+                    .Where(r => r.roomType == type.ToLower())
+                    .Select(r => $"Room number: {r.roomNumber} | Room type: {r.roomType} | Price per night: {r.pricePerNight.ToString("F2")}| Availability status: {(r.isAvailable ? "Available" : "Booked")}")
+                    .ToList();
+
+                if (roomsInfo.Count() == 0)
+                {
+                    Console.WriteLine("No rooms found for the selected criteria.");
+                    return;
+                }
+                Console.WriteLine("================================================================================================");
+                Console.WriteLine("This hotel has " + roomsInfo.Count() + " " + type + " rooms");
+                Console.WriteLine("================================================================================================");
+                foreach (string line in roomsInfo)
+                {
+                    Console.WriteLine(line);
+                }
+                Console.WriteLine("================================================================================================");
+            }
+
+            void RoomsByMaxPrice()
+            {
+                try
+                {
+                    Console.Write("Enter max Price: ");
+                    double maxPrice = double.Parse(Console.ReadLine());
+
+                    if (maxPrice <= 0)
+                    {
+                        Console.WriteLine("Max price must be positive.");
+                        return;
+                    }
+                    var roomsInfo = rooms.OrderBy(r => r.pricePerNight)
+                        .Where(r => r.pricePerNight <= maxPrice && r.isAvailable)
+                        .Select(r => $"Room number: {r.roomNumber} | Room type: {r.roomType} | Price per night: {r.pricePerNight.ToString("F2")}")
+                        .ToList();
+                    if (roomsInfo.Count() == 0)
+                    {
+                        Console.WriteLine("No rooms found for the selected criteria.");
+                        return;
+                    }
+
+                    Console.WriteLine("================================================================================================");
+                    Console.WriteLine("This hotel has " + roomsInfo.Count + " rooms at or below " + maxPrice.ToString("F2"));
+                    Console.WriteLine("================================================================================================");
+                    foreach (string line in roomsInfo)
+                    {
+                        Console.WriteLine(line);
+                    }
+                    Console.WriteLine("================================================================================================");
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine("Invalid Input. ");
+                }
+            }
+
+            void RoomPriceStatistics()
+            {
+                int totalRooms = rooms.Count();
+                int availableRooms = rooms.Count(r => r.isAvailable);
+                double avePrice = rooms.Average(r => r.pricePerNight);
+                double minPrice = rooms.Min(r => r.pricePerNight);
+                double maxPrice = rooms.Max(r => r.pricePerNight);
+                Console.WriteLine("================================================================================================");
+                Console.WriteLine("This hotel has " + totalRooms + " rooms");
+                Console.WriteLine("This hotel has " + availableRooms + " available rooms");
+                Console.WriteLine("Average price per night: " + avePrice.ToString("F2"));
+                Console.WriteLine("Cheapest price per night: " + minPrice.ToString("F2"));
+                Console.WriteLine("Most expensive price per night: " + maxPrice.ToString("F2"));
+                Console.WriteLine("================================================================================================");
+            }
+            void SearchFilterRooms()
+            {
+                while (true)
+                {
+                    Console.WriteLine("================================================");
+                    Console.WriteLine("Search & Filter Rooms");
+                    Console.WriteLine("================================================");
+                    Console.WriteLine(" 1. Show all available rooms");
+                    Console.WriteLine(" 2. Filter by room type");
+                    Console.WriteLine(" 3. Filter by max price");
+                    Console.WriteLine(" 4. Room price statistics");
+                    Console.WriteLine(" 0. Back");
+                    Console.WriteLine("================================================");
+                    Console.WriteLine();
+                    Console.Write("Enter your choice: ");
+
+                    int choice;
+                    try
+                    {
+                        choice = int.Parse(Console.ReadLine());
+                    }
+                    catch (Exception)
+                    {
+                        Console.WriteLine("Invalid input. Please enter a number from 1 to 15 or 0 to Back.");
+                        Console.WriteLine("Press any key to clear");
+                        Console.ReadKey();
+                        Console.Clear();
+                        continue;
+                    }
+
+                    switch (choice)
+                    {
+                        case 0:
+                            return;
+
+                        case 1:
+                            AvailableRooms();
+                            break;
+
+                        case 2:
+                            RoomsByType();
+                            break;
+
+
+                        case 3:
+                            RoomsByMaxPrice();
+                            break;
+
+                        case 4:
+                            RoomPriceStatistics();
+                            break;
+
+                        default:
+                            Console.WriteLine("Invalid option, please choose between 1 to 4 or 0 to back.");
+                            break;
+                    }
+                    Console.WriteLine("Press any key to clear");
+                    Console.ReadKey();
+                    Console.Clear();
+                }
+            }
+
+            void GuestBookingStatistics()
+            {
+                int totalGuests = guests.Count();
+                int guestsAssignedRoom = guests.Count(g => g.roomNumber != "Not Assigned");
+                int totalRooms = rooms.Count();
+                int bookedRooms = rooms.Count(r => !r.isAvailable);
+              
+                Console.WriteLine("================================================================================================");
+                Console.WriteLine("This hotel has " + totalGuests + " guests");
+                Console.WriteLine("This hotel has " + totalRooms + " rooms");
+                if (guestsAssignedRoom == 0)
+                {
+                    Console.WriteLine("No active bookings recorded");
+                    return;
+                }
+                Console.WriteLine("This hotel has " + guestsAssignedRoom + " guests have a room assigned");
+                
+                Console.WriteLine("This hotel has " + bookedRooms + " rooms currently booked");
+                double aveNights = guests.Where(g => g.roomNumber != "Not Assigned")
+                    .Average(g => g.totalNights);
+                Console.WriteLine("The average number of nights across all guests who have an active booking: " + aveNights.ToString("F2"));
+                Console.WriteLine("================================================================================================");
+
+
+                var highestSpendingGuests = guests.Where(g => g.roomNumber != "Not Assigned")
+                    .OrderByDescending(g => g.calculateTotalCost(rooms.FirstOrDefault(r => r.roomNumber == g.roomNumber)))
+                    .Take(3)
+                    .Select(g => $"Guest name: {g.guestName} | Room number: {g.roomNumber} | Total cost: {g.calculateTotalCost(rooms.FirstOrDefault(r => r.roomNumber == g.roomNumber)).ToString("F2")}")
+                    .ToList();
+                foreach (string line in highestSpendingGuests)
+                {
+                    Console.WriteLine(line);
+                }
+                Console.WriteLine("================================================================================================");
+                
+                var bookedGuests = guests.Where(g => g.roomNumber != "Not Assigned")
+                    .Select(g => $"{g.guestName} — Room {g.roomNumber} — {g.totalNights} nights — OMR {g.calculateTotalCost(rooms.FirstOrDefault(r => r.roomNumber == g.roomNumber)).ToString("F2")}")
+                    .ToList();
+                foreach (string line in bookedGuests)
+                {
+                    Console.WriteLine(line);
+                }
             }
 
             while (true)
@@ -270,6 +481,14 @@ namespace HotelManagementSystem
 
                     case 5:
                         ViewAllGuests();
+                        break;
+
+                    case 6:
+                        SearchFilterRooms();
+                        break;
+
+                    case 7:
+                        GuestBookingStatistics();
                         break;
 
                     default:
