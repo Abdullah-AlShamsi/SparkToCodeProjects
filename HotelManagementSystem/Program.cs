@@ -486,9 +486,62 @@ namespace HotelManagementSystem
             }
 
 
+            //Case 10 Room Type Breakdown Report
             void RoomTypeBreakdownReport()
             {
-                
+                Console.WriteLine("================================================");
+                Console.WriteLine("Single Rooms Report: ");
+                int singleCount = rooms.Count(r => r.roomType == "single");
+                if (singleCount == 0)
+                {
+                    Console.WriteLine("N/A");
+                }
+                else
+                {
+                    Console.WriteLine("Total rooms: " + singleCount);
+                    Console.WriteLine("Avarage price per night: " + rooms.Where(r => r.roomType == "single").Average(r => r.pricePerNight).ToString("F2"));
+                }
+
+
+                Console.WriteLine("================================================");
+                Console.WriteLine("Double Rooms Report: ");
+                int doubleCount = rooms.Count(r => r.roomType == "double");
+                if (doubleCount == 0)
+                {
+                    Console.WriteLine("N/A");
+                }
+                else
+                {
+                    Console.WriteLine("Total rooms: " + doubleCount);
+                    Console.WriteLine("Avarage price per night: " + rooms.Where(r => r.roomType == "double").Average(r => r.pricePerNight).ToString("F2"));
+                }
+
+                Console.WriteLine("================================================");
+                Console.WriteLine("Suite Rooms Report: ");
+                int suiteCount = rooms.Count(r => r.roomType == "suite");
+                if (suiteCount == 0)
+                {
+                    Console.WriteLine("N/A");
+                }
+                else
+                {
+                    Console.WriteLine("Total rooms: " + suiteCount);
+                    Console.WriteLine("Avarage price per night: " + rooms.Where(r => r.roomType == "suite").Average(r => r.pricePerNight).ToString("F2"));
+                }
+
+                Console.WriteLine("================================================");
+                Console.WriteLine("Overall Report: ");
+                int allCount = rooms.Count();
+                if (allCount == 0)
+                {
+                    Console.WriteLine("N/A");
+                }
+                else
+                {
+                    Console.WriteLine("Total rooms: " + allCount);
+                    Console.WriteLine("The overall average price across all rooms: " + rooms.Average(r => r.pricePerNight).ToString("F2"));
+                }
+                Console.WriteLine("================================================");
             }
 
             while (true)
