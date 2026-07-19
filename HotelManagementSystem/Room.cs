@@ -15,7 +15,7 @@ namespace HotelManagementSystem
         public Room(string number, string type, double price)
         {
             roomNumber = number;
-            roomType = type;
+            roomType = type.ToLower();
             pricePerNight = price;
             isAvailable = true;
 
