@@ -670,6 +670,27 @@ namespace HotelManagementSystem
                 }
             }
 
+            //Case 14 Highest Revenue Booking 
+
+            void HighestRevenueBooking()
+            {
+                var activeGuests = guests.Where(g => !(g.roomNumber == "Not Assigned"))
+                    .OrderByDescending(g => g.calculateTotalCost(rooms.FirstOrDefault(r => r.roomNumber == g.roomNumber)))
+                    .Select(g => $"Guest's name: {g.guestName} | Room number: {g.roomNumber} | Total cost: {g.calculateTotalCost(rooms.FirstOrDefault(r => r.roomNumber == g.roomNumber)).ToString("F2")}")
+                    .ToList();
+
+                if (activeGuests.Count() == 0)
+                {
+                    Console.WriteLine("No active bookings recorded.");
+                    return;
+                }
+                string highestRevenueInfo = activeGuests.First();
+                Console.WriteLine("The single highest-revenue booking:");
+                Console.WriteLine(highestRevenueInfo);
+
+
+            }
+
             while (true)
             {
                 Console.WriteLine("================================================");
@@ -765,6 +786,10 @@ namespace HotelManagementSystem
 
                     case 13:
                         ExtendGuestStay();
+                        break;
+
+                    case 14:
+                        HighestRevenueBooking();
                         break;
 
                     default:
