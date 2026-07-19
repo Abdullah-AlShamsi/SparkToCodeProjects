@@ -691,6 +691,48 @@ namespace HotelManagementSystem
 
             }
 
+            //Case 15 Guest Pagination Viewer
+            void GuestPaginationViewer()
+            {
+                try {
+                    int totalGuest = guests.Count();
+                    if (totalGuest == 0)
+                    {
+                        Console.WriteLine("There are no guest");
+                        return;
+                    }
+                    int totalpages = (int)Math.Ceiling((double)totalGuest / 3);
+
+                    Console.WriteLine("Total number of pages: " + totalpages);
+
+                    Console.Write("Enter page number: ");
+                    int pageNum = int.Parse(Console.ReadLine());
+
+                    if (pageNum<=0 || pageNum > totalpages)
+                    {
+                        Console.WriteLine("That page does not exist.");
+                        return;
+                    }
+
+                    int pageSize = 3;
+                    var page = guests.Skip((pageNum - 1) * pageSize)
+                        .Take(pageSize)
+                        .ToList();
+                    foreach (Guest g in page)
+                    {
+                        g.displayGuest();
+                    }
+                    Console.WriteLine("Total number of pages: " + totalpages);
+                    Console.WriteLine("Current page numbe: " + pageNum);
+
+                }
+                
+                catch (Exception)
+                {
+                    Console.WriteLine("Invalid Input.");
+                }
+            }
+
             while (true)
             {
                 Console.WriteLine("================================================");
@@ -790,6 +832,10 @@ namespace HotelManagementSystem
 
                     case 14:
                         HighestRevenueBooking();
+                        break;
+
+                    case 15:
+                        GuestPaginationViewer();
                         break;
 
                     default:
