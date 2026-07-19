@@ -590,6 +590,49 @@ namespace HotelManagementSystem
                     Console.WriteLine("The checkout was cancelled.");
                 }
             }
+
+            //Case 12 Remove Unavailable Rooms 
+            void RemoveUnavailableRooms()
+            {
+                var unavailableRoom = rooms.Where(r => !r.isAvailable && !(guests.Any(g => g.roomNumber == r.roomNumber)))
+                    .OrderBy(r => int.Parse(r.roomNumber))
+                    .Select(r => $"Room number: {r.roomNumber} | Room type: {r.roomType} | Price per night: {r.pricePerNight.ToString("F2")}");
+                int unavailableCount = unavailableRoom.Count();
+                if (unavailableCount == 0)
+                {
+                    Console.WriteLine("All unavailable rooms are currently occupied. No rooms can be decommissioned.");
+                    return;
+                }
+
+                foreach (string line in unavailableRoom)
+                {
+                    Console.WriteLine(line);
+                }
+                Console.Write("Do you want to remove " + unavailableCount + " unavailable rooms (Y/N)");
+                string confirmation = Console.ReadLine().ToUpper();
+
+                if (confirmation == "Y")
+                {
+                    rooms.RemoveAll(r => !r.isAvailable && !(guests.Any(g => g.roomNumber == r.roomNumber)));
+                    Console.WriteLine("The unavailable rooms was removed successfully.");
+                    var remainingRooms = rooms.OrderBy(r => int.Parse(r.roomNumber))
+                        .Select(r => $"Room number: {r.roomNumber} | Room type: {r.roomType}");
+
+                    Console.WriteLine("There are " + remainingRooms.Count() + " rooms");
+
+                    foreach (string line in remainingRooms)
+                    {
+                        Console.WriteLine(line);
+                    }
+                }
+                else
+                {
+                     Console.WriteLine("Room removal cancelled.");
+
+                }
+            }
+
+            
             while (true)
             {
                 Console.WriteLine("================================================");
@@ -677,6 +720,10 @@ namespace HotelManagementSystem
 
                     case 11:
                         CheckOutGuest();
+                        break;
+
+                    case 12:
+                        RemoveUnavailableRooms();
                         break;
 
                     default:
