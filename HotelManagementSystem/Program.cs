@@ -721,6 +721,7 @@ namespace HotelManagementSystem
                     foreach (Guest g in page)
                     {
                         g.displayGuest();
+                        Console.WriteLine("================================================");
                     }
                     Console.WriteLine("Total number of pages: " + totalpages);
                     Console.WriteLine("Current page numbe: " + pageNum);
