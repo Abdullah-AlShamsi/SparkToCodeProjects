@@ -632,7 +632,44 @@ namespace HotelManagementSystem
                 }
             }
 
-            
+            //Case 13 Extend Guest Stay
+            void ExtendGuestStay()
+            {
+                try
+                {
+                    Console.Write("Enter guest ID: ");
+                    string id = Console.ReadLine();
+                    Guest guest = guests.FirstOrDefault(g => g.guestId == id);
+                    if (guest == null)
+                    {
+                        Console.WriteLine("There is no guest with that ID");
+                        return;
+                    }
+
+                    if (guest.roomNumber == "Not Assigned")
+                    {
+                        Console.WriteLine("This guest has no active booking to extend.");
+                        return;
+                    }
+                    Console.Write("Enter number of additional nights: ");
+                    int num = int.Parse(Console.ReadLine());
+                    if (num <= 0)
+                    {
+                        Console.WriteLine("Number of nights must be positive.");
+                        return;
+                    }
+                    guest.totalNights += num;
+
+                    Console.WriteLine("New total nights: " + guest.totalNights);
+                    Console.WriteLine("New total cost: " + guest.calculateTotalCost(rooms.FirstOrDefault(r => r.roomNumber == guest.roomNumber)).ToString("F2"));
+
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine("Invalid Input. ");
+                }
+            }
+
             while (true)
             {
                 Console.WriteLine("================================================");
@@ -724,6 +761,10 @@ namespace HotelManagementSystem
 
                     case 12:
                         RemoveUnavailableRooms();
+                        break;
+
+                    case 13:
+                        ExtendGuestStay();
                         break;
 
                     default:
