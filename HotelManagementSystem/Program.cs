@@ -544,6 +544,52 @@ namespace HotelManagementSystem
                 Console.WriteLine("================================================");
             }
 
+            //Case 11 Check Out a Guest
+            void CheckOutGuest()
+            {
+                Console.WriteLine("Enter guest ID to check out: ");
+                string id = Console.ReadLine();
+
+                Guest guest = guests.FirstOrDefault(g => g.guestId == id);
+
+                if (guest == null)
+                {
+                    Console.WriteLine("There is no guest with that ID.");
+                    return;
+                }
+
+                if(guest.roomNumber == "Not Assigned")
+                {
+                    Console.WriteLine("This guest has no active booking.");
+                    return;
+                }
+
+                Room room = rooms.FirstOrDefault(r => r.roomNumber == guest.roomNumber);
+
+                Console.WriteLine("The full final bill:");
+                guest.displayGuest();
+                Console.WriteLine("Room type: " + room.roomType);
+                Console.WriteLine("Price per night: " + room.pricePerNight.ToString("F2"));
+                Console.WriteLine("Total Cost: " + guest.calculateTotalCost(room).ToString("F2"));
+
+                Console.WriteLine("Enter (Y/N) to confirm checkout: ");
+                string confirm = Console.ReadLine().ToUpper();
+
+                if (confirm == "Y")
+                {
+                    room.isAvailable = true;
+                    guests.Remove(guest);
+                    Console.WriteLine("The checkout was successfully.");
+                    Console.WriteLine("Total guests: " + guests.Count());
+                    Console.WriteLine("Total rooms: " + rooms.Count());
+                    Console.WriteLine("Is there available room: " + rooms.Any(r => r.isAvailable));
+
+                }
+                else
+                {
+                    Console.WriteLine("The checkout was cancelled.");
+                }
+            }
             while (true)
             {
                 Console.WriteLine("================================================");
@@ -627,6 +673,10 @@ namespace HotelManagementSystem
 
                     case 10:
                         RoomTypeBreakdownReport();
+                        break;
+
+                    case 11:
+                        CheckOutGuest();
                         break;
 
                     default:
