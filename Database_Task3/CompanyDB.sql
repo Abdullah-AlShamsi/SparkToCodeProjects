@@ -8,14 +8,12 @@ CREATE TABLE Employee(
 	Fname VARCHAR(50) Not NULL,
 	Minit VARCHAR(50) ,
 	Lname VARCHAR(50) Not NULL,
-	Address VARCHAR(50) Not NULL,
+	E_Address VARCHAR(50) Not NULL,
 	Sex VARCHAR(1) NOT NULL,
 	Bdate DATE NOT NULL,
 	Salary DECIMAL(10,2),
-	department_num int,
-	supervisor_ID int,
-
 );
+
 
 --Department Table Creation
 CREATE TABLE Department(
@@ -34,3 +32,13 @@ CREATE TABLE Department_Locations(
 	FOREIGN KEY (DeptNumber) REFERENCES Department(DeptNumber) ON DELETE CASCADE
 
 );
+
+--Employee Table Creation
+CREATE TABLE Project(
+	Pname VARCHAR(50) Not NULL,
+	Pnumber int NOT NULL,
+	Plocation VARCHAR(50) NOT NULL,
+	PRIMARY KEY (Pnumber,Plocation)
+	department_num int,
+);
+
