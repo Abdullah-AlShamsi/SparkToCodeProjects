@@ -11,8 +11,26 @@ CREATE TABLE Employee(
 	Address VARCHAR(50) Not NULL,
 	Sex VARCHAR(1) NOT NULL,
 	Bdate DATE NOT NULL,
-	Salary DECIMAL(10,2)
-	supervisor_ID int FOREIGN KEY,
-	department_NUM int FOREIGN KEY,
+	Salary DECIMAL(10,2),
+	department_num int,
+	supervisor_ID int,
 
-)
+);
+
+--Department Table Creation
+CREATE TABLE Department(
+	department_Name VARCHAR(50) Not NULL,
+	DeptNumber int PRIMARY KEY,
+	NumberOfEmployees int Not NULL CHECK (NumberOfEmployees>0),
+	manager_ID int,
+	manager_start_date DATE NOT NULL,
+	Salary DECIMAL(10,2),
+	);
+
+CREATE TABLE Department_Locations(
+	DeptNumber int,
+	Locations VARCHAR(50) Not NULL,
+	PRIMARY KEY (DeptNumber,Locations),
+	FOREIGN KEY (DeptNumber) REFERENCES Department(DeptNumber) ON DELETE CASCADE
+
+);
