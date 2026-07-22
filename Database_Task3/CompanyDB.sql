@@ -56,3 +56,45 @@ CREATE TABLE Dependent(
 	PRIMARY KEY (E_Ssn,Dependent_name),
 	FOREIGN KEY (E_Ssn) REFERENCES Employee(Ssn) ON DELETE CASCADE
 );
+
+-- Add FOREIGN KEYs:
+ALTER TABLE Employee
+ADD D_number int;
+
+ALTER TABLE Employee
+ADD FOREIGN KEY (D_number) REFERENCES Department(DeptNumber);
+
+ALTER TABLE Employee
+ADD supervisor_Ssn int;
+
+ALTER TABLE Employee
+ADD FOREIGN KEY (supervisor_Ssn) REFERENCES Employee(Ssn);
+
+ALTER TABLE Department
+ADD manager_Ssn int;
+ALTER TABLE Department
+ADD manager_start_date DATE;
+
+
+ALTER TABLE Department
+ADD FOREIGN KEY (manager_Ssn) REFERENCES Employee(Ssn);
+
+
+ALTER TABLE Project
+ADD Dnumber int;
+
+ALTER TABLE Project
+ADD FOREIGN KEY (Dnumber) REFERENCES Department(DeptNumber);
+
+ALTER TABLE Project
+ADD UNIQUE (Pnumber);
+
+ALTER TABLE Works_On
+ADD PRIMARY KEY (E_Ssn,P_number);
+
+ALTER TABLE Works_On
+ADD FOREIGN KEY (E_Ssn) REFERENCES Employee(Ssn);
+
+ALTER TABLE Works_On
+ADD FOREIGN KEY (P_number) REFERENCES Project(Pnumber); 
+
