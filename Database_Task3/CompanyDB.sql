@@ -101,3 +101,28 @@ ALTER TABLE Dependent
 ADD CONSTRAINT CHK_Dependent_Sex CHECK (Sex IN ('M','F'));
 
 
+-- Temporarily disable FK checking
+ALTER TABLE Employee NOCHECK CONSTRAINT ALL;
+ALTER TABLE Department NOCHECK CONSTRAINT ALL;
+
+-- Department
+INSERT INTO Department(department_Name, DeptNumber, NumberOfEmployees, manager_Ssn, manager_start_date)
+VALUES ('Computer Science', 1,10,11223344,'2023-11-11');
+
+--Employee
+INSERT INTO Employee (Ssn, Fname, Minit, Lname, E_Address, Sex, Bdate, Salary, D_number, supervisor_Ssn)
+VALUES (11223344, 'Abdullah','Hilal','Al Shamsi','Oman - Al Buraimi','M','2003-11-22',2000,1,NULL),
+(21223344, 'Ali','Abdullah','Al Shamsi','Oman - Muscat','M','2000-3-3',1500,1,11223344);
+
+INSERT INTO Project (Pname, Pnumber, Plocation, Dnumber)
+VALUES ('Mobile app', 1,'Muscat',1);
+
+INSERT INTO Works_On (E_Ssn, P_number, Works_On_Hours)
+VALUES (11223344, 1,20.5);
+
+INSERT INTO Dependent (E_Ssn, Dependent_name, Sex, Bdate, Relationship)
+VALUES (11223344, 'Hilal', 'M', '1975-06-10', 'Father');
+
+-- Re-enable checking and verify the data actually satisfies the constraints
+ALTER TABLE Employee WITH CHECK CHECK CONSTRAINT ALL;
+ALTER TABLE Department WITH CHECK CHECK CONSTRAINT ALL;
