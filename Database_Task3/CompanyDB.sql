@@ -1,6 +1,9 @@
 --Part 1 — Database & Table Creation
 CREATE DATABASE CompanyDB; 
+GO
 
+USE CompanyDB;
+GO
 
 --Employee Table Creation
 CREATE TABLE Employee(
@@ -98,3 +101,17 @@ ADD FOREIGN KEY (E_Ssn) REFERENCES Employee(Ssn);
 ALTER TABLE Works_On
 ADD FOREIGN KEY (P_number) REFERENCES Project(Pnumber); 
 
+--Part 2 — Referential Integrity & Constraints
+
+-- NOT NULL
+ALTER TABLE Employee
+ALTER COLUMN D_number int NOT NULL;
+
+USE master;
+GO
+
+ALTER DATABASE CompanyDB SET SINGLE_USER WITH ROLLBACK IMMEDIATE;
+GO
+
+DROP DATABASE CompanyDB;
+GO
