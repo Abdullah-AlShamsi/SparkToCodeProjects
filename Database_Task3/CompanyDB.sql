@@ -14,7 +14,9 @@ CREATE TABLE Employee(
 	E_Address VARCHAR(50) Not NULL,
 	Sex VARCHAR(1) NOT NULL,
 	Bdate DATE NOT NULL,
-	Salary DECIMAL(10,2) NOT NULL
+	Salary DECIMAL(10,2) NOT NULL CHECK(Salary>0),
+	D_number int NOT NULL,
+	supervisor_Ssn int
 );
 
 
@@ -23,7 +25,8 @@ CREATE TABLE Department(
 	department_Name VARCHAR(50) Not NULL,
 	DeptNumber int PRIMARY KEY,
 	NumberOfEmployees int Not NULL CHECK (NumberOfEmployees>0),
-	Salary DECIMAL(10,2)
+	manager_Ssn int NOT NULL UNIQUE,
+	manager_start_date DATE NOT NULL
 	);
 
 CREATE TABLE Department_Locations(
@@ -39,14 +42,16 @@ CREATE TABLE Project(
 	Pname VARCHAR(50) Not NULL,
 	Pnumber int NOT NULL,
 	Plocation VARCHAR(50) NOT NULL,
-	PRIMARY KEY (Pnumber,Plocation)
+	PRIMARY KEY (Pnumber,Plocation),
+	Dnumber int NOT NULL
 );
 
 --Works_On Table Creation 
 CREATE TABLE Works_On(
 	E_Ssn int NOT NULL,
 	P_number int NOT NULL,
-	Works_On_Hours DECIMAL(10,2) NOT NULL
+	Works_On_Hours DECIMAL(10,2) NOT NULL CHECK(Works_On_Hours>0),
+	PRIMARY KEY (E_Ssn,P_number)
 );
 
 --Dependent Table Creation 
@@ -62,21 +67,13 @@ CREATE TABLE Dependent(
 
 -- Add FOREIGN KEYs:
 ALTER TABLE Employee
-ADD D_number int;
-
-ALTER TABLE Employee
 ADD FOREIGN KEY (D_number) REFERENCES Department(DeptNumber);
 
-ALTER TABLE Employee
-ADD supervisor_Ssn int;
 
 ALTER TABLE Employee
 ADD FOREIGN KEY (supervisor_Ssn) REFERENCES Employee(Ssn);
 
-ALTER TABLE Department
-ADD manager_Ssn int;
-ALTER TABLE Department
-ADD manager_start_date DATE;
+
 
 
 ALTER TABLE Department
@@ -84,34 +81,23 @@ ADD FOREIGN KEY (manager_Ssn) REFERENCES Employee(Ssn);
 
 
 ALTER TABLE Project
-ADD Dnumber int;
-
-ALTER TABLE Project
 ADD FOREIGN KEY (Dnumber) REFERENCES Department(DeptNumber);
+
+
+ALTER TABLE Works_On
+ADD FOREIGN KEY (E_Ssn) REFERENCES Employee(Ssn);
 
 ALTER TABLE Project
 ADD UNIQUE (Pnumber);
 
 ALTER TABLE Works_On
-ADD PRIMARY KEY (E_Ssn,P_number);
-
-ALTER TABLE Works_On
-ADD FOREIGN KEY (E_Ssn) REFERENCES Employee(Ssn);
-
-ALTER TABLE Works_On
 ADD FOREIGN KEY (P_number) REFERENCES Project(Pnumber); 
 
---Part 2 — Referential Integrity & Constraints
 
--- NOT NULL
 ALTER TABLE Employee
-ALTER COLUMN D_number int NOT NULL;
+ADD CONSTRAINT CHK_Employee_Sex CHECK (Sex IN ('M','F'));
 
-USE master;
-GO
+ALTER TABLE Dependent
+ADD CONSTRAINT CHK_Dependent_Sex CHECK (Sex IN ('M','F'));
 
-ALTER DATABASE CompanyDB SET SINGLE_USER WITH ROLLBACK IMMEDIATE;
-GO
 
-DROP DATABASE CompanyDB;
-GO
