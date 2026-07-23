@@ -148,4 +148,19 @@ UPDATE Employee
 SET Salary -= 50
 WHERE Ssn = 21223344;
 
---
+-- DELETE statements 
+DELETE FROM Works_On 
+WHERE P_number=1 AND E_Ssn = 11223344;
+
+-- Clear the supervisor reference for any employee supervised by 11223344
+UPDATE Employee
+SET supervisor_Ssn = NULL
+WHERE supervisor_Ssn = 11223344;
+
+-- Reassign department manager before deleting the old manager
+UPDATE Department
+SET manager_Ssn = 21223344
+WHERE DeptNumber = 1;
+
+DELETE FROM Employee
+WHERE Ssn = 11223344;
