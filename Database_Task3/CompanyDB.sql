@@ -126,3 +126,26 @@ VALUES (11223344, 'Hilal', 'M', '1975-06-10', 'Father');
 -- Re-enable checking and verify the data actually satisfies the constraints
 ALTER TABLE Employee WITH CHECK CHECK CONSTRAINT ALL;
 ALTER TABLE Department WITH CHECK CHECK CONSTRAINT ALL;
+
+--Update
+UPDATE Employee
+SET Salary += 50
+WHERE Ssn = 11223344;
+
+UPDATE Department
+SET NumberOfEmployees +=1
+WHERE DeptNumber = 1;
+
+UPDATE Project
+SET Plocation = 'Al Buraimi'
+WHERE Pnumber = 1;
+
+UPDATE Works_On
+SET Works_On_Hours +=3
+WHERE P_number=1 AND E_Ssn = 11223344;
+
+UPDATE Employee
+SET Salary -= 50
+WHERE Ssn = 21223344;
+
+--
