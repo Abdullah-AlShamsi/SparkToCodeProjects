@@ -15,7 +15,7 @@ namespace EFCore_practice
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         {
             options.UseSqlServer(
-            "Server=.;Database=College;Trusted_Connection=True;TrustServerCertificate=True;"
+            "Server=Abdullah\\SQLEXPRESS;Database=College;Trusted_Connection=True;TrustServerCertificate=True;"
             );
         }
     }
