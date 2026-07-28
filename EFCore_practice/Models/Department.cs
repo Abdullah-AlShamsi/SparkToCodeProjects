@@ -9,5 +9,7 @@ namespace EFCore_practice.Models
         public int departmentID { get; set; }
         public int departmentNumber { get; set; }
         public string departmentName { get; set; }
+
+        public List<Student> students { get; set; }
     }
 }

@@ -32,19 +32,22 @@ namespace EFCore_practice
             //context.SaveChanges();
 
 
-            //Remove student 
-            Console.Write("Enter student ID: ");
-            int id = int.Parse(Console.ReadLine());
-            Student student = context.students.FirstOrDefault(s => s.StudentId == id);
-            if (student == null)
-            {
-                Console.WriteLine("There is no student with that name");
-            }
-            else
-            {
-                context.students.Remove(student);
-                context.SaveChanges();
-            }
+            ////Remove student 
+            //Console.Write("Enter student ID: ");
+            //int id = int.Parse(Console.ReadLine());
+            //Student student = context.students.FirstOrDefault(s => s.StudentId == id);
+            //if (student == null)
+            //{
+            //    Console.WriteLine("There is no student with that name");
+            //}
+            //else
+            //{
+            //    context.students.Remove(student);
+            //    context.SaveChanges();
+            //}
+
+
+
 
         }
     }
