@@ -3,6 +3,7 @@ using EFCore_practice;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EFCore_practice.Migrations
 {
     [DbContext(typeof(ProjectContext))]
-    partial class ProjectContextModelSnapshot : ModelSnapshot
+    [Migration("20260728070913_add_Department1")]
+    partial class add_Department1
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -20,26 +23,6 @@ namespace EFCore_practice.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
-
-            modelBuilder.Entity("EFCore_practice.Models.Department", b =>
-                {
-                    b.Property<int>("departmentID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("departmentID"));
-
-                    b.Property<string>("departmentName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("departmentNumber")
-                        .HasColumnType("int");
-
-                    b.HasKey("departmentID");
-
-                    b.ToTable("departments");
-                });
 
             modelBuilder.Entity("EFCore_practice.Models.Student", b =>
                 {
@@ -61,7 +44,7 @@ namespace EFCore_practice.Migrations
 
                     b.HasKey("StudentId");
 
-                    b.ToTable("students");
+                    b.ToTable("Student");
                 });
 #pragma warning restore 612, 618
         }
