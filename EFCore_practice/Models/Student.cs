@@ -8,7 +8,7 @@ namespace EFCore_practice.Models
     {
         public int StudentId { get; set; }
         public string name { get; set; }
-        public int age { get; set; }
+        public double age { get; set; }
         public double grade { get; set; }
     }
 }
