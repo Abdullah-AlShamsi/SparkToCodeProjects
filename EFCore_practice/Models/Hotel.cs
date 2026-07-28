@@ -9,5 +9,9 @@ namespace EFCore_practice.Models
         public int HotelId { get; set; }
         public string name { get; set; }
         public double location { get; set; }
+
+
+
+        public Student s { get; set;}
     }
 }

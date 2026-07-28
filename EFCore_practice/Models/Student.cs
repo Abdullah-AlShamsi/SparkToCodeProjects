@@ -13,9 +13,16 @@ namespace EFCore_practice.Models
         public double grade { get; set; }
 
 
+
+        
         [ForeignKey("D")]
         public int departmentID { get; set; }
         public Department D { get; set; }
 
+        //lives in
+
+        [ForeignKey("h")]
+        public int hotelID { get; set; }
+        public Hotel h { get; set; }
     }
 }
