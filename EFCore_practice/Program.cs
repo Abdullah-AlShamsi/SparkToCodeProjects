@@ -17,19 +17,35 @@ namespace EFCore_practice
             //context.SaveChanges();
 
 
-            //keep user enter student 
-            Student s2 = new Student();
-            Console.WriteLine("Enter student name: ");
-            s2.name = Console.ReadLine();
+            ////keep user enter student 
+            //Student s2 = new Student();
+            //Console.WriteLine("Enter student name: ");
+            //s2.name = Console.ReadLine();
 
-            Console.WriteLine("Enter student grade: ");
-            s2.grade = double.Parse(Console.ReadLine());
+            //Console.WriteLine("Enter student grade: ");
+            //s2.grade = double.Parse(Console.ReadLine());
 
-            Console.WriteLine("Enter student age: ");
-            s2.age = int.Parse(Console.ReadLine());
+            //Console.WriteLine("Enter student age: ");
+            //s2.age = int.Parse(Console.ReadLine());
 
-            context.students.Add(s2);
-            context.SaveChanges();
+            //context.students.Add(s2);
+            //context.SaveChanges();
+
+
+            //Remove student 
+            Console.Write("Enter student ID: ");
+            int id = int.Parse(Console.ReadLine());
+            Student student = context.students.FirstOrDefault(s => s.StudentId == id);
+            if (student == null)
+            {
+                Console.WriteLine("There is no student with that name");
+            }
+            else
+            {
+                context.students.Remove(student);
+                context.SaveChanges();
+            }
+
         }
     }
 }
