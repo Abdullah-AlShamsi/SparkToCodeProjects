@@ -9,7 +9,8 @@ namespace EFCore_practice
     public class ProjectContext : DbContext //oop inhertance
     {
         public DbSet<Student> students { get; set; }
-
+        public DbSet<Department> departments { get; set; }
+        public DbSet<Hotel> hotels { get; set; }
 
         //connect to database
         protected override void OnConfiguring(DbContextOptionsBuilder options)
