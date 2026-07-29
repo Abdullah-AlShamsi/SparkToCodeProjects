@@ -181,10 +181,82 @@ namespace E_Commerce_APP
         static void PlaceOrder()
         {
             // TODO: implement - check loggedInUserId != 0 first
+            if (loggedInUserId == 0)
+            {
+                Console.WriteLine("You must be logged in to place an order.");
+                return;
+            }
+
+            Order order = new Order();
+            order.user_id = loggedInUserId;
+            order.date = DateTime.Now;
+            context.orders.Add(order);
+            context.SaveChanges();
+
+            bool addedAny = false;
+            bool addProduct = true;
+            while (addProduct)
+            {
+                try
+                {
+
+                    Console.Write("Enter product ID (or 0 to finish): ");
+                    int p_id = int.Parse(Console.ReadLine());
+
+                    if (p_id == 0)
+                    {
+                        addProduct = false;
+                        continue;
+                    }
+                    Console.Write("Enter quantity: ");
+                    int quantity = int.Parse(Console.ReadLine());
+                    if (quantity <= 0)
+                    {
+                        Console.WriteLine("Quantity must be positive.");
+                        continue;
+                    }
+
+                    if (!context.products.Any(p => p.product_ID == p_id))
+                    {
+                        Console.WriteLine("Product not avilabile");
+                    }
+                    else
+                    {
+
+                        addedAny = true;
+                        OrderProduct orderProduct = new OrderProduct();
+                        orderProduct.product_id = p_id;
+                        orderProduct.order_id = order.order_ID;
+                        orderProduct.Quantity = quantity;
+                        context.orderProducts.Add(orderProduct);
+
+                        context.SaveChanges();
+
+                    }
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine("Invalid input.");
+                    continue;
+                }
+            }
+            if (!addedAny)
+            {
+                context.orders.Remove(order);
+                context.SaveChanges();
+                Console.WriteLine("Order cancelled. no products were added.");
+                return;
+            }
         }
         static void ViewMyOrders()
         {
             // TODO: implement - check loggedInUserId != 0 first
+            if (loggedInUserId == 0)
+            {
+                Console.WriteLine("You must be logged in to see orders.");
+                return;
+            }
+
         }
         static void ViewOrderDetails()
         {
