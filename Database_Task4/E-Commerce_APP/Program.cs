@@ -76,11 +76,11 @@ namespace E_Commerce_APP
         {
             // TODO: implement (see Part 3 requirements)
             User user = new User();
-            Console.Write("Enter user name:");
+            Console.Write("Enter user name: ");
             user.name = Console.ReadLine();
-            Console.Write("Enter user email:");
+            Console.Write("Enter user email: ");
             user.email = Console.ReadLine();
-            Console.Write("Enter user password:");
+            Console.Write("Enter user password: ");
             user.password = Console.ReadLine();
 
             context.users.Add(user);
@@ -89,9 +89,9 @@ namespace E_Commerce_APP
         static void Login()
         {
             // TODO: implement - on success, set loggedInUserId = <found user's Id>
-            Console.Write("Enter user email:");
+            Console.Write("Enter user email: ");
             string user_email = Console.ReadLine();
-            Console.Write("Enter user password:");
+            Console.Write("Enter user password: ");
             string user_password = Console.ReadLine();
 
             User user = context.users.FirstOrDefault(u => u.email == user_email && u.password == user_password);
@@ -109,7 +109,7 @@ namespace E_Commerce_APP
         {
             // TODO: implement
             Category category = new Category();
-            Console.Write("Enter name:");
+            Console.Write("Enter category name: ");
             category.name = Console.ReadLine();
            
             context.categories.Add(category);
@@ -118,6 +118,39 @@ namespace E_Commerce_APP
         static void AddProduct()
         {
             // TODO: implement
+            Product product = new Product();
+            Console.Write("Enter Product name: ");
+            product.name = Console.ReadLine();
+            try
+            {
+                Console.Write("Enter Product price: ");
+                double price = double.Parse(Console.ReadLine());
+                if (price <= 0)
+                {
+                    Console.WriteLine("Price must be positive");
+                    return;
+                }
+                product.price = price;
+
+                Console.Write("Enter category ID: ");
+                product.category_id = int.Parse(Console.ReadLine());
+
+                if (!context.categories.Any(c => c.category_ID == product.category_id))
+                {
+                    Console.WriteLine("Category not found.");
+                    return;
+                }
+
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine("Invalid input");
+                return;
+            }
+
+            context.products.Add(product);
+            context.SaveChanges();
+
         }
         static void ViewAllProducts()
         {
