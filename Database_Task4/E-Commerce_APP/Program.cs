@@ -258,6 +258,11 @@ namespace E_Commerce_APP
             }
 
         }
+            foreach (string line in orders)
+            {
+                Console.WriteLine(line);
+            }
+        }
         static void ViewOrderDetails()
         {
             // TODO: implement
