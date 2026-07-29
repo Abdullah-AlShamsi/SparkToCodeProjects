@@ -257,6 +257,14 @@ namespace E_Commerce_APP
                 return;
             }
 
+            var orders = context.orders.Where(o => o.user_id == loggedInUserId)
+                .Select(o => $"Order ID: {o.order_ID} | Date: {o.date.ToString("yyyy-MM-dd")}")
+                .ToList();
+
+            if (!orders.Any())
+            {
+                Console.WriteLine("You have no orders yet.");
+                return;
         }
             foreach (string line in orders)
             {
