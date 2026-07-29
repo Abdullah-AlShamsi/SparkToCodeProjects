@@ -267,6 +267,21 @@ namespace E_Commerce_APP
         {
             // TODO: implement
         }
+                    else
+                    {
+                        Console.WriteLine("No review yet.");
+                    }
+
+                }
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Invalid input.");
+
+            }
+
+
+        }
         static void AddReview()
         {
             // TODO: implement - check loggedInUserId != 0 first
