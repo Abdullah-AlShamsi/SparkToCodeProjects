@@ -307,6 +307,36 @@ namespace E_Commerce_APP
         static void ViewReviewsForProduct()
         {
             // TODO: implement
+            try
+            {
+                Console.Write("Enter product ID: ");
+                int p_id = int.Parse(Console.ReadLine());
+
+                if (!context.products.Any(p => p.product_ID == p_id))
+                {
+                    Console.WriteLine("There is no product with that ID");
+                    return;
+                }
+                var orders = context.orders.Include(o => o.review)
+                    .Where(o => o.orderProducts.Any(op => op.product_id == p_id))
+                    .ToList();
+
+                foreach(Order o in orders)
+                {
+                    if(o.review != null)
+                    {
+                        Console.WriteLine($"Order ID: {o.order_ID} | Review {o.review.rating}/5, {o.review.comment}");
+                    }
+                    else
+                    {
+                        Console.WriteLine($"Order ID: {o.order_ID} | No Review Yet");
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Invalid input.");
+            }
         }
         static void Logout()
         {
