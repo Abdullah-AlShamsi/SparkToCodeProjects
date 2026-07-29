@@ -337,6 +337,42 @@ namespace E_Commerce_APP
                 {
                     Console.WriteLine("The order must belong to the logged-in user");
         }
+                else if (order.review != null)
+                {
+                    Console.WriteLine("The order must not already have a review");
+                }
+                else
+                {
+                    Review review = new Review();
+                    review.order_id = order.order_ID;
+
+                    Console.Write("Enter Rate out of 5: ");
+                    double rate = double.Parse(Console.ReadLine());
+
+                    if (rate < 0 || rate > 5)
+                    {
+                        Console.WriteLine("The rate must in range (0,5)");
+                        return;
+                    }
+
+                    review.rating = rate;
+                    Console.Write("Enter comment: ");
+                    review.comment = Console.ReadLine();
+
+                    context.reviews.Add(review);
+
+                    context.SaveChanges();
+                }
+                
+                
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Invalid input.");
+
+            }
+
+        }
         static void ViewReviewsForProduct()
         {
             // TODO: implement
