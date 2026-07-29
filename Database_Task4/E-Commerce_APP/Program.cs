@@ -1,4 +1,6 @@
-﻿using System;
+﻿using E_Commerce_APP.Models;
+using Microsoft.EntityFrameworkCore.Diagnostics;
+using System;
 using System.Linq;
 
 
@@ -73,14 +75,45 @@ namespace E_Commerce_APP
         static void RegisterUser()
         {
             // TODO: implement (see Part 3 requirements)
+            User user = new User();
+            Console.Write("Enter user name:");
+            user.name = Console.ReadLine();
+            Console.Write("Enter user email:");
+            user.email = Console.ReadLine();
+            Console.Write("Enter user password:");
+            user.password = Console.ReadLine();
+
+            context.users.Add(user);
+            context.SaveChanges();
         }
         static void Login()
         {
             // TODO: implement - on success, set loggedInUserId = <found user's Id>
+            Console.Write("Enter user email:");
+            string user_email = Console.ReadLine();
+            Console.Write("Enter user password:");
+            string user_password = Console.ReadLine();
+
+            User user = context.users.FirstOrDefault(u => u.email == user_email && u.password == user_password);
+            if (user == null)
+            {
+                Console.WriteLine("Email or Password incorrect");
+            }
+            else
+            {
+                loggedInUserId = user.user_ID;
+                Console.WriteLine("Welcome, " + user.name);
+            }
         }
         static void AddCategory()
         {
             // TODO: implement
+            Category category = new Category();
+            Console.Write("Enter name:");
+            category.name = Console.ReadLine();
+           
+            context.categories.Add(category);
+            context.SaveChanges();
         }
         static void AddProduct()
         {
