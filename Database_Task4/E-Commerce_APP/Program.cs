@@ -265,7 +265,7 @@ namespace E_Commerce_APP
             {
                 Console.WriteLine("You have no orders yet.");
                 return;
-        }
+            }
             foreach (string line in orders)
             {
                 Console.WriteLine(line);
@@ -286,9 +286,9 @@ namespace E_Commerce_APP
                 if (order == null)
                 {
                     Console.WriteLine("There is no order with that ID");
-        }
-                    else
-                    {
+                }
+                else
+                {
                     double total = 0;
                     foreach (OrderProduct orderProduct in order.orderProducts)
                     {
@@ -336,7 +336,7 @@ namespace E_Commerce_APP
                 if (order.user_id != loggedInUserId)
                 {
                     Console.WriteLine("The order must belong to the logged-in user");
-        }
+                }
                 else if (order.review != null)
                 {
                     Console.WriteLine("The order must not already have a review");
