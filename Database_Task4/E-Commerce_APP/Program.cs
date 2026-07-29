@@ -273,8 +273,33 @@ namespace E_Commerce_APP
         }
         static void ViewOrderDetails()
         {
+
             // TODO: implement
+            try
+            {
+
+                Console.Write("Enter Order ID: ");
+                Order order = context.orders.Include(o => o.review)
+                    .Include(o => o.orderProducts)
+                    .ThenInclude(op => op.product)
+                    .FirstOrDefault(o => o.order_ID == int.Parse(Console.ReadLine()));
+                if (order == null)
+                {
+                    Console.WriteLine("There is no order with that ID");
         }
+                    else
+                    {
+                    double total = 0;
+                    foreach (OrderProduct orderProduct in order.orderProducts)
+                    {
+                        Console.WriteLine($"Product name {orderProduct.product.name} | Quantity: {orderProduct.Quantity} | Price: {orderProduct.Quantity * orderProduct.product.price}");
+                        total += (orderProduct.Quantity * orderProduct.product.price);
+                    }
+                    Console.WriteLine("Total: " + total);
+                    if (order.review != null)
+                    {
+                        Console.WriteLine($"Review {order.review.rating}/5, {order.review.comment}");
+                    }
                     else
                     {
                         Console.WriteLine("No review yet.");
