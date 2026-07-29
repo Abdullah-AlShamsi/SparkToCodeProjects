@@ -285,6 +285,24 @@ namespace E_Commerce_APP
         static void AddReview()
         {
             // TODO: implement - check loggedInUserId != 0 first
+            if (loggedInUserId == 0)
+            {
+                Console.WriteLine("You must be logged in to see orders.");
+                return;
+            }
+            try
+            {
+                Console.Write("Enter Order ID: ");
+                Order order = context.orders.Include(o => o.review)
+                    .FirstOrDefault(o => o.order_ID == int.Parse(Console.ReadLine()));
+                if (order == null)
+                {
+                    Console.WriteLine("There is no order with that ID");
+                    return;
+                }
+                if (order.user_id != loggedInUserId)
+                {
+                    Console.WriteLine("The order must belong to the logged-in user");
         }
         static void ViewReviewsForProduct()
         {
