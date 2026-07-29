@@ -20,5 +20,9 @@ namespace E_Commerce_APP.Models
         public int user_id { get; set; }
         public User user { get; set; }
 
+
+        //have review
+        public Review review { get; set; }
+
     }
 }
