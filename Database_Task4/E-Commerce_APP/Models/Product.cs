@@ -19,5 +19,11 @@ namespace E_Commerce_APP.Models
         [ForeignKey("category")]
         public int category_id { get; set; }
         public Category category { get; set; }
+
+
+
+        //OrderProduct rlationship
+        [InverseProperty("product")]
+        public List<OrderProduct> orderProducts { get; set; }
     }
 }

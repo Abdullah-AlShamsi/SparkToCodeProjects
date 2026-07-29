@@ -24,5 +24,10 @@ namespace E_Commerce_APP.Models
         //have review
         public Review review { get; set; }
 
+
+        //OrderProduct rlationship
+        [InverseProperty("order")]
+        public List<OrderProduct> orderProducts { get; set; }
+
     }
 }
