@@ -1,4 +1,5 @@
 ﻿using E_Commerce_APP.Models;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Diagnostics;
 using System;
 using System.Linq;
@@ -155,6 +156,27 @@ namespace E_Commerce_APP
         static void ViewAllProducts()
         {
             // TODO: implement
+            Console.Write("If you want a specific category enter its name else enter 'N': ");
+            string categoryName = Console.ReadLine();
+
+            var query = context.products.Include(p => p.category).OrderBy(p => p.category_id).AsQueryable();
+            if (categoryName != "N")
+            {
+                query = query.Where(p => p.category.name == categoryName);
+            }
+            var products = query.Select(p => $"Product name: {p.name} | Product price: {p.price} | product category {p.category.name}")
+                    .ToList(); ;
+
+            if(products.Count() == 0)
+            {
+                Console.WriteLine("No products found.");
+                return;
+            }
+
+            foreach (string line in products)
+            {
+                Console.WriteLine(line);
+            }
         }
         static void PlaceOrder()
         {
