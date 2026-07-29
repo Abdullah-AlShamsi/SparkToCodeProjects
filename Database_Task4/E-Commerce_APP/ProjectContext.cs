@@ -14,7 +14,7 @@ namespace E_Commerce_APP
         public DbSet<Product> products { get; set; }
         public DbSet<Category> categories { get; set; }
         public DbSet<Review> Reviews { get; set; }
-
+        public DbSet<OrderProduct> OrderProducts { get; set; }
 
         //2- connect to database
         protected override void OnConfiguring(DbContextOptionsBuilder options)
